@@ -1,0 +1,2 @@
+Z:\Project01_8123_1980_dotNet5780\Project01_8123_1980_dotNet5780\BE\obj\Debug\BE.csprojAssemblyReference.cache
+Z:\Project01_8123_1980_dotNet5780\Project01_8123_1980_dotNet5780\BE\obj\Debug\BE.csproj.CoreCompileInputs.cache
