@@ -50,12 +50,20 @@ namespace BL
 
         #region PrintFunc
         List<HostingUnit> AvailableHostingUnits(DateTime entry, int daysholidays);//return all valids HostingUnit 
-        List<>
+        int NumDays(DateTime begining, DateTime end); // returns the days from the first day till the hend
+        int NumDays(DateTime begining); //returns the day from the begining day till now
+        List<Order> PrintDaysOrder(int days); // return a list of orders that a mail has been sent from the num of days
+        List<GuestRequest> MatchRequests(Predicate<GuestRequest> predicate); // returns all request that match a certain property
+        int NumSentOrders(GuestRequest g); //return the number of orders sent to a client
+        int NumOfSuccessfulOrders(HostingUnit h);// returns the number of orders that closed successfuly for that hosting unit
 
 
-
-
-
+        #endregion
+        #region Grouping
+        IEnumerable<IGrouping<Myenums.Area, GuestRequest>> GroupByArea();
+        IEnumerable<IGrouping<int, GuestRequest>> GroupByVacationners();
+        IEnumerable<IGrouping<Host, HostingUnit>> GroupHostByHostingUnit();
+        IEnumerable<IGrouping<Area, HostingUnit>> GroupHostingUnitByArea();
 
         #endregion
     }
