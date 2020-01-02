@@ -8,13 +8,14 @@ namespace DAL
 {
     public interface Idal
     {
-        #region request
+        #region GuestRequest
         void addGuestRequest(GuestRequest g); // add a guest request
         void updateGestRequest(GuestRequest g); // update a guestrequest
-        GuestRequest GetGuestRequest(long GuestRequestKey); IEnumerable<GuestRequest> GetAllRequests(Func<GuestRequest, bool> predicat = null);
+        GuestRequest GetGuestRequest(long GuestRequestKey);
+        IEnumerable<GuestRequest> GetAllRequests(Func<GuestRequest, bool> predicat = null);
         #endregion
 
-        #region  Unit
+        #region  HostingUnit
         void addHostingUnit(HostingUnit h); // add yehidat irouah
         void deleteHostingUnit(HostingUnit h); // delete yehidat irouah
         void updateHostingUnit(HostingUnit h); //update yehidat irouah
@@ -22,7 +23,7 @@ namespace DAL
         IEnumerable<HostingUnit> GetAllHostingUnits(Func<HostingUnit, bool> predicat = null);
         #endregion
 
-        #region order
+        #region Order
         void addOrder(Order o);
         void updateOrder(Order o);
         Order GetOrder(long OrderKey); // to get an order

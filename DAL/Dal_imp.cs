@@ -25,6 +25,12 @@ namespace DAL
             GuestRequest help = GetGuestRequest(g.GuestRequestKey);
             if (help != null)
                 throw new Exception("this GuestRequestKey already exists");
+            if (g==null)
+                g.GuestRequestKey = Configuration.GuestRequestKey;
+            Configuration.GuestRequestKey++;
+            g.StatusRequest = Myenums.GuestRequestStatus.Active;
+            g.RegistrationDate = DateTime.Now;
+            
             DS.DataSource.guestrequestList.Add(g);
         }
         public void updateGestRequest(GuestRequest g)
