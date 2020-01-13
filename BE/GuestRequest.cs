@@ -27,9 +27,10 @@ namespace BE
         public string Garden;
         public string ChildrenAttractions;
 
-        public string ToStringProperty { get; private set; }
         #endregion
         public override string ToString()
-        { return this.ToStringProperty; }
+        {
+            return this.ToStringProperty();
+        }
     }
 }

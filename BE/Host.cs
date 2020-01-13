@@ -19,11 +19,10 @@ namespace BE
         public int BankAccountNumber;
         public bool CollectionClearance;
 
-        public string ToStringProperty { get; private set; }
 
         #endregion
         public override string ToString()
 
-        { return this.ToStringProperty; }
+        { return this.ToStringProperty(); }
     }
 }

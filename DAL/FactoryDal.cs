@@ -6,12 +6,18 @@ using System.Threading.Tasks;
 
 namespace DAL
 {
-    class FactoryDal
+    public class FactoryDal
     {
-        public static Idal GetDal()
+        public static Idal getDal(string typeDAL)
         {
-            return new Dal_imp();
+            switch(typeDAL)
+            {
+                case "List": return DALList.Instance;
+                default:return null;
+            }
+            
         }
+
 
     }
 }

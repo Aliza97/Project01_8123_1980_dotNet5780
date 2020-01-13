@@ -28,7 +28,7 @@ namespace DAL
             if (g==null)
                 g.GuestRequestKey = Configuration.GuestRequestKey;
             Configuration.GuestRequestKey++;
-            g.StatusRequest = Myenums.GuestRequestStatus.Active;
+            g.StatusRequest = MyEnums.StatusRequest.Active.ToString();
             g.RegistrationDate = DateTime.Now;
             
             DS.DataSource.guestrequestList.Add(g);
@@ -37,7 +37,7 @@ namespace DAL
         {
 
 
-
+            return;
         }
 
         public IEnumerable<GuestRequest> GetAllRequests(Func<GuestRequest, bool> predicat = null)
@@ -72,7 +72,7 @@ namespace DAL
         }
         public void updateHostingUnit(HostingUnit h)
         {
-
+            return;
         }
         public IEnumerable<HostingUnit> GetAllHostingUnits(Func<HostingUnit, bool> predicat = null)
         {
@@ -87,6 +87,7 @@ namespace DAL
         {
             return DS.DataSource.orderList.FirstOrDefault(s => s.OrderKey == OrderKey);
         }
+
         public void addOrder(Order o)
         {
             if (o.OrderKey < 10000000 || o.OrderKey > 99999999)
@@ -98,7 +99,7 @@ namespace DAL
         }
         public void updateOrder(Order o)
         {
-
+            return;
 
         }
         public IEnumerable<Order> GetAllOrders(Func<Order, bool> predicat = null)

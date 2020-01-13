@@ -14,7 +14,7 @@ namespace BL
         int addHostingUnit(HostingUnit h);//Add a hosting unit
         void DeleteHostingUnit(HostingUnit h);//Removing a hosting unit
         void UpdateHostingUnit(HostingUnit h);//Hosting unit update
-        IEnumerable<GuestRequest> GetAllRequests(Func<GuestRequest, bool> predicat = null);
+
         HostingUnit GetHostingUnit(long HostingUnitKey);
         #endregion
 
@@ -53,17 +53,17 @@ namespace BL
         int NumDays(DateTime begining, DateTime end); // returns the days from the first day till the hend
         int NumDays(DateTime begining); //returns the day from the begining day till now
         List<Order> PrintDaysOrder(int days); // return a list of orders that a mail has been sent from the num of days
-        List<GuestRequest> MatchRequests(Predicate<GuestRequest> predicate); // returns all request that match a certain property
+        List<GuestRequest> MatchRequests(Func<GuestRequest, bool> predicate); // returns all request that match a certain property
         int NumSentOrders(GuestRequest g); //return the number of orders sent to a client
         int NumOfSuccessfulOrders(HostingUnit h);// returns the number of orders that closed successfuly for that hosting unit
 
 
         #endregion
         #region Grouping
-        IEnumerable<IGrouping<Myenums.Area, GuestRequest>> GroupByArea();
+        IEnumerable<IGrouping<string, GuestRequest>> GroupByArea();
         IEnumerable<IGrouping<int, GuestRequest>> GroupByVacationners();
         IEnumerable<IGrouping<Host, HostingUnit>> GroupHostByHostingUnit();
-        IEnumerable<IGrouping<Area, HostingUnit>> GroupHostingUnitByArea();
+        IEnumerable<IGrouping<MyEnums.Area, HostingUnit>> GroupHostingUnitByArea();
 
         #endregion
     }

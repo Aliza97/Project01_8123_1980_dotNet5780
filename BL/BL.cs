@@ -3,33 +3,162 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.IO;
 using BE;
+using DAL;
 
 
 namespace BL
 {
     public class BL : IBL
+
     {
+        static Idal myDAL;
+        Idal dal = DAL.FactoryDal.getDal("List");
+ #region Singleton
+        private static readonly BL instance = new BL();
+          public static BL Instance
+            {
+                get
+                {
+                    return instance;
+                }
+            }
+        static BL()
+            {
+            string TypeDAL = Configuration.TypeDAL;
+            myDAL = FactoryDal.getDal(TypeDAL);
+            }
+        private BL() { }
+
+        #endregion
+
+ #region Dalfunctions
+
+        #region guestrequest
+        public GuestRequest GetGuestRequest(long GuestRequestKey)
+        {
+            return DS.DataSource.guestrequestList.FirstOrDefault(s => s.GuestRequestKey == GuestRequestKey);
+        }
+        public void addGuestRequest(GuestRequest g)
+        {
+            if (g.GuestRequestKey < 10000000 || g.GuestRequestKey > 99999999)
+                throw new Exception("this GuestRequestKey isn't correct");
+            GuestRequest help = GetGuestRequest(g.GuestRequestKey);
+            if (help != null)
+                throw new Exception("this GuestRequestKey already exists");
+            if (g == null)
+                g.GuestRequestKey = Configuration.GuestRequestKey;
+            Configuration.GuestRequestKey++;
+            g.StatusRequest = MyEnums.StatusRequest.Active.ToString();
+            g.RegistrationDate = DateTime.Now;
+
+            DS.DataSource.guestrequestList.Add(g);
+        }
+        public void updateGestRequest(GuestRequest g)
+        {
+            return;
+
+
+        }
+
+        public IEnumerable<GuestRequest> GetAllRequests(Func<GuestRequest, bool> predicat = null)
+        {
+            if (predicat == null)
+                return DS.DataSource.guestrequestList.AsEnumerable();
+            return DS.DataSource.guestrequestList.Where(predicat);
+        }
+
+
+        #endregion
+        #region HostingUnit
+        public HostingUnit GetHostingUnit(long HostingUnitKey)
+        {
+            return DS.DataSource.hostingunitList.FirstOrDefault(s => s.HostingUnitKey == HostingUnitKey);
+        }
+        public void addHostingUnit(HostingUnit h)
+        {
+            if (h.HostingUnitKey < 10000000 || h.HostingUnitKey > 99999999)
+                throw new Exception("this HostingUnitKey isn't correct");
+            HostingUnit help = GetHostingUnit(h.HostingUnitKey);
+            if (help != null)
+                throw new Exception("this HostingUnitKey already exists");
+            DS.DataSource.hostingunitList.Add(h);
+        }
+        public void deleteHostingUnit(long HostingUnitKey)
+        {
+            HostingUnit help = GetHostingUnit(HostingUnitKey);
+            if (help == null)
+                throw new Exception("this id doesn't exist");
+            DS.DataSource.hostingunitList.Remove(help);
+        }
+        public void updateHostingUnit(HostingUnit h)
+        {
+            return;
+        }
+        public IEnumerable<HostingUnit> GetAllHostingUnits(Func<HostingUnit, bool> predicat = null)
+        {
+
+            if (predicat == null)
+                return DS.DataSource.hostingunitList.AsEnumerable();
+            return DS.DataSource.hostingunitList.Where(predicat);
+        }
+        #endregion
+        #region order
+        public Order GetOrder(long OrderKey)
+        {
+            return DS.DataSource.orderList.FirstOrDefault(s => s.OrderKey == OrderKey);
+        }
+
+        public void addOrder(Order o)
+        {
+            if (o.OrderKey < 10000000 || o.OrderKey > 99999999)
+                throw new Exception("this OrderKey isn't correct");
+            Order help = GetOrder(o.OrderKey);
+            if (help != null)
+                throw new Exception("this OrderKey already exists");
+            DS.DataSource.orderList.Add(o);
+        }
+        public void updateOrder(Order o)
+        {
+            return;
+
+        }
+        public IEnumerable<Order> GetAllOrders(Func<Order, bool> predicat = null)
+        {
+            if (predicat == null)
+                return DS.DataSource.orderList.AsEnumerable();
+            return DS.DataSource.orderList.Where(predicat);
+        }
+        #endregion
+        public IEnumerable<BankBranch> GetAllBanks(Func<BankBranch, bool> predicat = null)
+        {
+            if (predicat == null)
+                return DS.DataSource.bankbranchesList.AsEnumerable();
+            return DS.DataSource.bankbranchesList.Where(predicat);
+
+        }
+        #endregion
         #region CheckingFunctions
-        bool CheckValidDate(GuestRequest g, DateTime entry, DateTime release)
+        public bool CheckValidDate(GuestRequest g, DateTime entry, DateTime release)
         {
             int result = DateTime.Compare(entry, release);
             if (result > 0)
                 return false;
             else return true;
         }
-        bool CheckBankAuthorization(Host host)
+        public bool CheckBankAuthorization(Host host)
         {
             return host.CollectionClearance;
         }
-        bool CheckFreeDate(HostingUnit h, DateTime entry, DateTime release)
+        public bool CheckFreeDate(HostingUnit h, DateTime entry, DateTime release)
         {
             bool flag = false;
             int help = entry.Month;
             int help2 = entry.Day;
             int days = NumDays(entry, release);
             for (int i = 0; i < days; help2++, i++)
-                if (h.Diary(help, help2) == true)
+                if (h.Diary[help, help2] == true)
                     flag = false;
 
             if (help2 == 30)
@@ -38,40 +167,205 @@ namespace BL
 
             return flag;
         }
-        bool AfterCloseStatus(Order o)
+        public bool AfterCloseStatus(Order o)
         {
-            if (o.Status == Myenums.Status.TransactionClosedThroughTheSite)
+            if (o.Status == MyEnums.Status.NotRelevent.ToString())
                 throw new Exception("the status is already close impossible to change");
             return true;
         }
-        int IfChangeStatus(Order o)
+
+
+        public int IfChangeStatus(Order o)
         {
-            List<GuestRequest> guestRequest = getGuestRequests(x => x.GuestRequestKey == order.GuestRequestKey);
-            GuestRequest request = guestRequest.Find(x => x.GuestRequestKey == order.GuestRequestKey);
-            return Configuration.minPrice * NumOfDays(request.entry, request.release)
+            List<GuestRequest> guestRequest = GetGuestRequest(x => x.GuestRequestKey == o.GuestRequestKey);
+            GuestRequest request = guestRequest.Find(x => x.GuestRequestKey == o.GuestRequestKey);
+            return Configuration.minPrice * NumDays(request.EntryDate, request.ReleaseDate);
         }
-        void UpdateDiary(Order o) { }
-        void ChangesAfterCloseTransaction(Order o, string Status) { }
-        bool HUisInUse(Order o)
+        public void UpdateDiary(Order o)
+
         {
-            if (o.Status == myEnums.Status.Closed)
+            List<HostingUnit> HostingUnits = GetHostingUnit(x => o.HostingUnitKey == x.HostingUnitKey);
+            HostingUnit myunit = HostingUnits.Find(x => o.HostingUnitKey == x.HostingUnitKey);
+            bool[,] diary = myunit.Diary;
+            List<GuestRequest> GuestRequests = GetGuestRequest(x => o.GuestRequestKey == x.GuestRequestKey);
+            GuestRequest myguest = GuestRequests.Find(x => o.GuestRequestKey == x.GuestRequestKey);
+            TimeSpan duration = myguest.ReleaseDate - myguest.EntryDate;
+            int i = g.EntryDate.Month - 1;
+            int j = g.EntryDate.Day - 1;
+
+            for (int k = 0; k < duration.Days; k++)
+            {
+                if (j > 30)
+                {
+                    j = 0;
+                    i++;
+                }
+                diary[i, j] = true;
+                j++;
+            }
+            myunit.Diary = diary;
+            // SetHostingUnit(myunit); Faire fonctions set
+
+
+        }
+        public void ChangesAfterCloseTransaction(Order o)
+        {
+            List<GuestRequest> GuestRequest = GetGuestRequest(x => x.GuestRequestKey == o.GuestRequestKey);
+            GuestRequest.Find(x => x.GuestRequestKey == o.GuestRequestKey).StatusRequest = MyEnums.Status.TransactionClosedThroughTheSite.ToString();
+            List<Order> ordersforequest = GetOrder(x => x.GuestRequestKey == o.GuestRequestKey);
+            foreach (var o1 in ordersforequest)
+                if (o1.Status != MyEnums.Status.Closed.ToString())
+                    o1.Status = MyEnums.Status.NotRelevent.ToString(); 
+        }
+        public bool HUisInUse(Order o)
+        {
+            try
+            {
+
+            }
+            if (o.Status == MyEnums.Status.Closed.ToString())
                 throw new ExceptionBL("The order is already closed");
             return true;
         }
-        bool PermissionBankIsInUse(Host host) { }
+        public bool PermissionBankIsInUse(Host host)
 
-        void SentMail(Order o, string Status) { Console.WriteLine("an email has been sent"); }
+        {
+            List<Order> openOrders = GetOrder(x => x.Status == MyEnums.Status.TransactionOpen.ToString());
+            List<HostingUnit> hostingUnit = null;
+            foreach (var order in openOrders)
+                hostingUnit.Add(GetHostingUnit(order.HostingUnitKey));
+            foreach (var str in hostingUnit)
+                if (str.Owner.HostKey == host.HostKey)
+
+                    return false;
+            return true;
+        }
+
+        public void SentMail(Order o, string Status) { Console.WriteLine("an email has been sent"); }
         #endregion
+
         #region PrintFunc
-        List<HostingUnit> AvailableHostingUnits(DateTime entry, int daysholidays);//return all valids HostingUnit
-        int NumDays(DateTime begining, DateTime end); // returns the days from the first day till the hend
-        int NumDays(DateTime begining); //returns the day from the begining day till now
-        List<Order> PrintDaysOrder(int days); // return a list of orders that a mail has been sent from the num of days
-        List<GuestRequest> MatchRequests(Predicate<GuestRequest> predicate); // returns all request that match a certain property
-        int NumSentOrders(GuestRequest g); //return the number of orders sent to a client
-        int NumOfSuccessfulOrders(HostingUnit h);// returns the number of orders that closed successfuly for that hosting unit
+        public List<HostingUnit> AvailableHostingUnits(DateTime entry, int daysholidays)
+        {
+
+            IEnumerable<HostingUnit> listHostingUnit = dal.GetAllHostingUnits();
+            List<HostingUnit> newH = null;
+                foreach (HostingUnit h in listHostingUnit)
+            {
+                if (CheckFreeDate(h, entry, entry.AddDays(daysholidays)))
+                    newH.Add(h);
 
 
-        #endregion
+            }
+            return newH;
+
+        }
+        public int NumDays(DateTime begining, DateTime end)
+        {
+            return (end - begining).Days;
+        }
+
+        public int NumDays(DateTime begining)
+        {
+            DateTime end = DateTime.Now;
+            return (end - begining).Days;
+        }
+        public List<Order> PrintDaysOrder(int days)
+        {
+            List<Order> listToReturn = null;
+           
+            IEnumerable<Order> listOrders = dal.GetAllOrders();
+            foreach (Order ord in listOrders)
+            {
+                int create = (DateTime.Now - ord.CreateDate).Days;
+                int sent = (DateTime.Now - ord.OrderDate).Days;
+                if ((days < create) || (days < sent))
+                    listToReturn.Add(ord);
+            }
+            return listToReturn;
+
+        }
+        public List<GuestRequest> MatchRequests(Func<GuestRequest, bool> predicate)
+        {
+            IEnumerable<GuestRequest> guestRequestList = dal.GetAllRequests();
+            List<GuestRequest> listMatch = new List<GuestRequest>();
+            //if (predicate == null)
+            //    return dal.GetAllRequests();
+            bool temp = true;
+            foreach (GuestRequest str in guestRequestList)
+            {
+                if (str.StatusRequest == MyEnums.StatusRequest.Active.ToString())
+                {
+                    foreach (Predicate<GuestRequest> item in predicate.GetInvocationList())
+                    {
+                        if (!item(str))
+                            temp = false;
+                    }
+                    if (temp)
+                        listMatch.Add(str);
+                    temp = true;
+                }
+            }
+            return listMatch;
+        }
+        public int NumSentOrders(GuestRequest g)
+        {
+            int count=0; ;
+
+            IEnumerable<Order> listOrders = dal.GetAllOrders();
+            foreach (Order ord in listOrders)
+            {
+                if (ord.GuestRequestKey == g.GuestRequestKey)
+                    count++;
+            }
+            return count;
+
+        }
+
+        public int NumOfSuccessfulOrders(HostingUnit h)
+        {
+            int i = 0;
+            IEnumerable<Order> listOrders = dal.GetAllOrders();
+            foreach (Order ord in listOrders)
+            {
+                if (ord.HostingUnitKey == h.HostingUnitKey)
+                    i++;
+            }
+            return i;
+        }
+#endregion
+
+#region Grouping
+       public IEnumerable<IGrouping<string, GuestRequest>> GroupByArea()
+        {
+          IEnumerable<GuestRequest> listGuestRequest = dal.GetAllRequests();
+            var groupToReturn = from request in listGuestRequest
+                                group request by request.Area;
+            return groupToReturn;
+        }
+        public IEnumerable<IGrouping<int, GuestRequest>> GroupByVacationners()
+        {
+            
+            IEnumerable<GuestRequest> listGuestRequest = dal.GetAllRequests();
+            var groupToReturn = from request in listGuestRequest
+                                group request by (request.Children + request.Adults);
+            return groupToReturn;
+        }
+        public IEnumerable<IGrouping<Host, HostingUnit>> GroupHostByHostingUnit()
+        {
+            IEnumerable<HostingUnit> listHostingUnit = dal.GetAllHostingUnits();
+            IEnumerable<IGrouping<Host, HostingUnit>> groupToReturn = from str in listHostingUnit
+                                                                      group str by str.Owner;
+            return groupToReturn;
+        }
+        public IEnumerable<IGrouping<MyEnums.Area, HostingUnit>> GroupHostingUnitByArea()
+        {
+            IEnumerable<HostingUnit> listHostingUnit = dal.GetAllHostingUnits();
+            var groupToReturn = from str in listHostingUnit
+                                group str by str.area;
+            return groupToReturn;
+        }
+
+#endregion
     }
 }
