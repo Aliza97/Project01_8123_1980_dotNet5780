@@ -35,9 +35,26 @@ namespace DAL
         }
         public void updateGestRequest(GuestRequest g)
         {
+            try
+            {
+                IEnumerable<GuestRequest> listOrders = dal.GetAllRequests();
+                foreach (GuestRequest guest in guestrequestList)
+                {
+                    if (guest.GuestRequestKey != g.GuestRequestKey)
+                        throw new DataException("The request is not exist");
+                    else
+                    {
+                        guestrequestList.RemoveAll(g => g.GuestRequestKey == guest.GuestRequestKey);
+                    }
+                    guestrequestList.Add(guest);
+                };
+             catch (DataException c)
+            {
+                throw c;
+            }
 
 
-            return;
+  
         }
 
         public IEnumerable<GuestRequest> GetAllRequests(Func<GuestRequest, bool> predicat = null)

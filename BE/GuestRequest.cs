@@ -13,19 +13,19 @@ namespace BE
         public string PrivateName;
         public string FamilyName;
         public string MailAddress;
-        public string StatusRequest;
+        public Enum StatusRequest;
         public DateTime RegistrationDate;
         public DateTime EntryDate;
         public DateTime ReleaseDate;
-        public string Area;
+        public Enum Area;
         public string SubArea;
-        public string Type;
+        public Enum Type;
         public int Adults;
         public int Children;
-        public string Pool;
-        public string Jacuzzi;
-        public string Garden;
-        public string ChildrenAttractions;
+        public Enum Pool;
+        public Enum Jacuzzi;
+        public Enum Garden;
+        public Enum ChildrenAttractions;
 
         #endregion
         public override string ToString()

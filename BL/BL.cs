@@ -8,6 +8,7 @@ using BE;
 using DAL;
 
 
+
 namespace BL
 {
     public class BL : IBL
@@ -15,25 +16,25 @@ namespace BL
     {
         static Idal myDAL;
         Idal dal = DAL.FactoryDal.getDal("List");
- #region Singleton
+        #region Singleton
         private static readonly BL instance = new BL();
-          public static BL Instance
+        public static BL Instance
+        {
+            get
             {
-                get
-                {
-                    return instance;
-                }
+                return instance;
             }
+        }
         static BL()
-            {
+        {
             string TypeDAL = Configuration.TypeDAL;
             myDAL = FactoryDal.getDal(TypeDAL);
-            }
+        }
         private BL() { }
 
         #endregion
 
- #region Dalfunctions
+        #region Dalfunctions
 
         #region guestrequest
         public GuestRequest GetGuestRequest(long GuestRequestKey)
@@ -50,15 +51,21 @@ namespace BL
             if (g == null)
                 g.GuestRequestKey = Configuration.GuestRequestKey;
             Configuration.GuestRequestKey++;
-            g.StatusRequest = MyEnums.StatusRequest.Active.ToString();
+            g.StatusRequest = MyEnums.StatusRequest.Active;
             g.RegistrationDate = DateTime.Now;
 
             DS.DataSource.guestrequestList.Add(g);
         }
         public void updateGestRequest(GuestRequest g)
         {
-            return;
-
+            try
+            {
+                dal.updateGuestRequest(g);
+            }
+            catch (Exception e)
+            {
+                throw new Exception(e.Message);
+            }
 
         }
 
@@ -94,7 +101,14 @@ namespace BL
         }
         public void updateHostingUnit(HostingUnit h)
         {
-            return;
+            try
+            {
+                dal.updateHostingUnit(h);
+            }
+            catch (Exception e)
+            {
+                throw new Exception(e.Message);
+            }
         }
         public IEnumerable<HostingUnit> GetAllHostingUnits(Func<HostingUnit, bool> predicat = null)
         {
@@ -121,8 +135,44 @@ namespace BL
         }
         public void updateOrder(Order o)
         {
-            return;
+            try
+            {
 
+
+                if (AfterCloseStatus(o) == true)
+                {
+                    if ((MyEnums.Status)o.Status == MyEnums.Status.Closed)
+                    {
+                        dal.updateOrder(o);
+                        UpdateDiary(o);
+                        IfChangeStatus(o);
+                        ChangesAfterCloseTransaction(o);
+
+                    }
+                    else
+                    {
+                        if ((MyEnums.Status)o.Status == MyEnums.Status.MailHasBeenSent)
+                        {
+                            IEnumerable<HostingUnit> h = GetAllHostingUnits(x => o.HostingUnitKey == x.HostingUnitKey);
+                            HostingUnit u = h.FirstOrDefault((x => o.HostingUnitKey == x.HostingUnitKey));//Y a pas Find ds les Enumerable
+                            if (PermissionBankIsInUse(u.Owner) == true)
+                            {
+                                dal.updateOrder(o);
+                                SentMail(o);
+                            }
+                            else
+                                throw new Exception("No BankAccount Permission");
+                        }
+                        else
+                            dal.updateOrder(o);
+                    }
+                }
+            }
+
+            catch (Exception e)
+            {
+                throw new Exception(e.Message);
+            }
         }
         public IEnumerable<Order> GetAllOrders(Func<Order, bool> predicat = null)
         {
@@ -169,7 +219,7 @@ namespace BL
         }
         public bool AfterCloseStatus(Order o)
         {
-            if (o.Status == MyEnums.Status.NotRelevent.ToString())
+            if (o.Status.Equals(MyEnums.Status.Closed))
                 throw new Exception("the status is already close impossible to change");
             return true;
         }
@@ -177,7 +227,7 @@ namespace BL
 
         public int IfChangeStatus(Order o)
         {
-            List<GuestRequest> guestRequest = GetGuestRequest(x => x.GuestRequestKey == o.GuestRequestKey);
+            List<GuestRequest> guestRequest = GetGuestRequest(o.GuestRequestKey);
             GuestRequest request = guestRequest.Find(x => x.GuestRequestKey == o.GuestRequestKey);
             return Configuration.minPrice * NumDays(request.EntryDate, request.ReleaseDate);
         }
@@ -190,8 +240,8 @@ namespace BL
             List<GuestRequest> GuestRequests = GetGuestRequest(x => o.GuestRequestKey == x.GuestRequestKey);
             GuestRequest myguest = GuestRequests.Find(x => o.GuestRequestKey == x.GuestRequestKey);
             TimeSpan duration = myguest.ReleaseDate - myguest.EntryDate;
-            int i = g.EntryDate.Month - 1;
-            int j = g.EntryDate.Day - 1;
+            int i = myguest.EntryDate.Month - 1;
+            int j = myguest.EntryDate.Day - 1;
 
             for (int k = 0; k < duration.Days; k++)
             {
@@ -210,27 +260,31 @@ namespace BL
         }
         public void ChangesAfterCloseTransaction(Order o)
         {
-            List<GuestRequest> GuestRequest = GetGuestRequest(x => x.GuestRequestKey == o.GuestRequestKey);
-            GuestRequest.Find(x => x.GuestRequestKey == o.GuestRequestKey).StatusRequest = MyEnums.Status.TransactionClosedThroughTheSite.ToString();
-            List<Order> ordersforequest = GetOrder(x => x.GuestRequestKey == o.GuestRequestKey);
-            foreach (var o1 in ordersforequest)
-                if (o1.Status != MyEnums.Status.Closed.ToString())
-                    o1.Status = MyEnums.Status.NotRelevent.ToString(); 
+            GuestRequest GuestRequest = GetGuestRequest(o.GuestRequestKey);
+            GuestRequest.StatusRequest = MyEnums.Status.TransactionClosedThroughTheSite;
+            Order ordersforequest = GetOrder(o.GuestRequestKey);
+           
+                if ((MyEnums.Status)ordersforequest.Status != MyEnums.Status.Closed)
+                ordersforequest.Status = MyEnums.Status.NotRelevent;
         }
         public bool HUisInUse(Order o)
         {
             try
             {
-
+                if ((MyEnums.Status)o.Status == MyEnums.Status.Closed)
+                    throw new Exception("The order is already closed");
+                return true;
             }
-            if (o.Status == MyEnums.Status.Closed.ToString())
-                throw new ExceptionBL("The order is already closed");
-            return true;
+            catch
+            {
+                throw new Exception();
+            }
+
         }
         public bool PermissionBankIsInUse(Host host)
 
         {
-            List<Order> openOrders = GetOrder(x => x.Status == MyEnums.Status.TransactionOpen.ToString());
+            List<Order> openOrders = GetOrder(x => x.Status == MyEnums.Status.TransactionOpen);
             List<HostingUnit> hostingUnit = null;
             foreach (var order in openOrders)
                 hostingUnit.Add(GetHostingUnit(order.HostingUnitKey));
@@ -241,7 +295,12 @@ namespace BL
             return true;
         }
 
-        public void SentMail(Order o, string Status) { Console.WriteLine("an email has been sent"); }
+        private List<Order> GetOrder(Func<object, bool> p)
+        {
+            throw new NotImplementedException();
+        }
+
+        public void SentMail(Order o) { Console.WriteLine("an email has been sent"); }
         #endregion
 
         #region PrintFunc
@@ -250,7 +309,7 @@ namespace BL
 
             IEnumerable<HostingUnit> listHostingUnit = dal.GetAllHostingUnits();
             List<HostingUnit> newH = null;
-                foreach (HostingUnit h in listHostingUnit)
+            foreach (HostingUnit h in listHostingUnit)
             {
                 if (CheckFreeDate(h, entry, entry.AddDays(daysholidays)))
                     newH.Add(h);
@@ -273,7 +332,7 @@ namespace BL
         public List<Order> PrintDaysOrder(int days)
         {
             List<Order> listToReturn = null;
-           
+
             IEnumerable<Order> listOrders = dal.GetAllOrders();
             foreach (Order ord in listOrders)
             {
@@ -294,7 +353,7 @@ namespace BL
             bool temp = true;
             foreach (GuestRequest str in guestRequestList)
             {
-                if (str.StatusRequest == MyEnums.StatusRequest.Active.ToString())
+                if ((MyEnums.StatusRequest)str.StatusRequest == MyEnums.StatusRequest.Active)
                 {
                     foreach (Predicate<GuestRequest> item in predicate.GetInvocationList())
                     {
@@ -310,7 +369,7 @@ namespace BL
         }
         public int NumSentOrders(GuestRequest g)
         {
-            int count=0; ;
+            int count = 0; ;
 
             IEnumerable<Order> listOrders = dal.GetAllOrders();
             foreach (Order ord in listOrders)
@@ -333,25 +392,25 @@ namespace BL
             }
             return i;
         }
-#endregion
+        #endregion
 
-#region Grouping
-       public IEnumerable<IGrouping<string, GuestRequest>> GroupByArea()
+        #region Grouping
+        public IEnumerable<IGrouping<Enum, GuestRequest>> GroupByArea()
         {
-          IEnumerable<GuestRequest> listGuestRequest = dal.GetAllRequests();
+            IEnumerable<GuestRequest> listGuestRequest = dal.GetAllRequests();
             var groupToReturn = from request in listGuestRequest
                                 group request by request.Area;
             return groupToReturn;
         }
         public IEnumerable<IGrouping<int, GuestRequest>> GroupByVacationners()
         {
-            
+
             IEnumerable<GuestRequest> listGuestRequest = dal.GetAllRequests();
             var groupToReturn = from request in listGuestRequest
                                 group request by (request.Children + request.Adults);
             return groupToReturn;
         }
-        public IEnumerable<IGrouping<Host, HostingUnit>> GroupHostByHostingUnit()
+        IEnumerable<IGrouping<Host, HostingUnit>> GroupHostByHostingUnit()
         {
             IEnumerable<HostingUnit> listHostingUnit = dal.GetAllHostingUnits();
             IEnumerable<IGrouping<Host, HostingUnit>> groupToReturn = from str in listHostingUnit
@@ -366,6 +425,5 @@ namespace BL
             return groupToReturn;
         }
 
-#endregion
+        #endregion
     }
-}

@@ -45,7 +45,7 @@ namespace BL
         void ChangesAfterCloseTransaction(Order o, string Status); // if the status changes, change status guestrequest and all other status of client
         bool HUisInUse(HostingUnit h);// check if in use in case we want to erase hostingunit
         bool PermissionBankIsInUse(Host host); // doesnt allow to revoke bank prelvment if in use
-        void SentMail(Order o, string Status); // when the status is on sentmail, send an email to the client with details
+        void SentMail(Order o); // when the status is on sentmail, send an email to the client with details
         #endregion
 
         #region PrintFunc

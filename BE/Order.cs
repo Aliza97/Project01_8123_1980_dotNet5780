@@ -12,7 +12,7 @@ namespace BE
         public long HostingUnitKey;
         public long GuestRequestKey;
         public long OrderKey;
-        public string Status;
+        public Enum Status;
         public DateTime CreateDate;
         public DateTime OrderDate;
         #endregion
@@ -21,3 +21,4 @@ namespace BE
             return this.ToStringProperty();
         }
     }
+}
