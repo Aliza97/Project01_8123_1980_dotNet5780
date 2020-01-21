@@ -9,7 +9,9 @@ namespace BE
     public class HostingUnit
     {
         #region Properties
-        public long HostingUnitKey;
+        private long hostingUnitKey;
+        public long HostingUnitKey { get => hostingUnitKey; set => value = hostingUnitKey; }
+
         public Host Owner;
         public string HostingUnitName;
         public bool[,] Diary = new bool[12, 31];

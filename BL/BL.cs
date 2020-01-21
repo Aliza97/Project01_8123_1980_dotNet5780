@@ -234,7 +234,7 @@ namespace BL
         public void UpdateDiary(Order o)
 
         {
-            List<HostingUnit> HostingUnits = GetHostingUnit(x => o.HostingUnitKey == x.HostingUnitKey);
+            List<HostingUnit> HostingUnits = GetHostingUnit(X => o.HostingUnitKey == X.HostingUnitKey);
             HostingUnit myunit = HostingUnits.Find(x => o.HostingUnitKey == x.HostingUnitKey);
             bool[,] diary = myunit.Diary;
             List<GuestRequest> GuestRequests = GetGuestRequest(x => o.GuestRequestKey == x.GuestRequestKey);

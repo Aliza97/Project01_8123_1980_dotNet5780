@@ -17,7 +17,11 @@ namespace DS
         static BankBranch Bank5 = new BankBranch { BankNumber =0005, BankName ="poalim", BranchNumber =774, BranchAdress ="levin", BranchCity ="netanya"};
         #endregion
         public static List<GuestRequest> guestrequestList;
-        public static List<HostingUnit> hostingunitList;
+        public static List<HostingUnit> hostingunitList=new List<HostingUnit>() { Owner = host2,
+                HostingUnitName = "The house 2",
+                area = MyEnums.Area.Jerusalem,
+                pool = false,
+                persons = 2,};
         public static List<Order> orderList;
         public static List<BankBranch> bankbranchesList;
         public DataSource()

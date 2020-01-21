@@ -69,7 +69,7 @@
         <CheckBox Content="בלי" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="140,10,0,0" Grid.Row="12"/>
         <CheckBox Content="עם" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="202,10,0,0" Grid.Row="13"/>
         <CheckBox Content="בלי" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="140,10,0,0" Grid.Row="13"/>
-        <Button Content="הוספה" HorizontalAlignment="Center" Grid.Row="14"  VerticalAlignment="Center" Width="144" Grid.ColumnSpan="2" Height="30" FontWeight="Bold" FontSize="20" Opacity="0.6" Click="Button_Click" Margin="327,0,329,0"/>
+        <Button Content="הוספה" HorizontalAlignment="Center" Grid.Row="14"  VerticalAlignment="Center" Width="144" Grid.ColumnSpan="2" Height="30" FontWeight="Bold" FontSize="20" Opacity="0.6" Click="Button_Click" Margin="331,0,325,0"/>
 
 
         <Button Content="prev" HorizontalAlignment="Left" VerticalAlignment="Top" Width="40" Click="Return_Click"/>

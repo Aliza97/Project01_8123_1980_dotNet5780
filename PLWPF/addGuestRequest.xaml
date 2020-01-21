@@ -79,8 +79,6 @@
 
         <Button Content="הוספה" HorizontalAlignment="Center" Grid.Row="13"  VerticalAlignment="Center" Width="176" Grid.ColumnSpan="2" Height="35" Grid.RowSpan="2" FontWeight="Bold" FontSize="20" Opacity="0.6" Click="Button_Click" Grid.Column="1" Margin="137,10,87,15"/>
 
-        <Button x:Name="cmdDown"  Content="˅" Click="cmdDown_Click" Width="19" Height="15" Grid.Column="0" Grid.Row="12" VerticalAlignment="Bottom"  FontSize="10" HorizontalAlignment="Center" Margin="138,0,239,0" Opacity="0.6"/>
-
 
         <DatePicker x:Name="dateRegistration" Grid.Row="7" Grid.Column="2" HorizontalAlignment="Center"   VerticalAlignment="Center" Width="120"  Opacity="0.6" SelectedDate="{Binding birthDate}" Margin="37,5,43,1"/>
         <DatePicker x:Name="dateBegining" Grid.Row="5" Grid.Column="2" HorizontalAlignment="Center"  VerticalAlignment="Center" Width="120"  Opacity="0.6" SelectedDate="{Binding birthDate}" Margin="37,6,43,0"/>

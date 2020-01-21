@@ -76,7 +76,6 @@ namespace PLWPF
             this._contentLoaded = true;
         }
 
-        internal System.Windows.Controls.Button cmdDown;
         internal System.Windows.Controls.TextBox lastName;
         internal System.Windows.Controls.TextBox firstName;
         internal System.Windows.Controls.ComboBox Area;
