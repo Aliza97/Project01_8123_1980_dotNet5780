@@ -1,2 +1,6 @@
 Z:\Project01_8123_1980_dotNet5780\Project01_8123_1980_dotNet5780\BE\obj\Debug\BE.csprojAssemblyReference.cache
 Z:\Project01_8123_1980_dotNet5780\Project01_8123_1980_dotNet5780\BE\obj\Debug\BE.csproj.CoreCompileInputs.cache
+Z:\Project01_8123_1980_dotNet5780\Project01_8123_1980_dotNet5780\BE\bin\Debug\BE.dll
+Z:\Project01_8123_1980_dotNet5780\Project01_8123_1980_dotNet5780\BE\bin\Debug\BE.pdb
+Z:\Project01_8123_1980_dotNet5780\Project01_8123_1980_dotNet5780\BE\obj\Debug\BE.dll
+Z:\Project01_8123_1980_dotNet5780\Project01_8123_1980_dotNet5780\BE\obj\Debug\BE.pdb

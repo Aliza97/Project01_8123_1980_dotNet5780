@@ -9,6 +9,8 @@
       Title="addHostingUnit">
 
     <Grid>
+        <Image HorizontalAlignment="Left" Height="100" VerticalAlignment="Top" Width="100"/>
+        <Image Source="road-trip-compressor.png" Stretch="Fill" Grid.ColumnSpan="2" Opacity="0.5"/>
         
     </Grid>
 </Page>
