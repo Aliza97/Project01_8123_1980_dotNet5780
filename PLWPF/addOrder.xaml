@@ -10,7 +10,31 @@
 
     <Grid>
         <Image HorizontalAlignment="Left" Height="100" VerticalAlignment="Top" Width="100"/>
-        <Image Source="road-trip-compressor.png" Stretch="Fill" Grid.ColumnSpan="2" Opacity="0.5"/>
-        
+        <Image Source="road-trip-compressor.png" Grid.Row="0" Grid.RowSpan="15" Grid.ColumnSpan="2" Opacity="0.5" Margin="0,0,0,0.2" />
+
+
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="*"/>
+        </Grid.ColumnDefinitions>
+        <Label Content="הוספת הזמנה" HorizontalContentAlignment="Right" HorizontalAlignment="Center" VerticalAlignment="Top" FontSize="20" FontFamily="Lucida Calligraphy" FontWeight="Bold" Margin="323,10,331,0" Grid.ColumnSpan="2" Width="146" />
+        <Label  Content="מספר יחידת אירוח" HorizontalContentAlignment="Right" Grid.Column="1" Grid.Row="1" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="15" FontFamily="Lucida Calligraphy" FontWeight="Bold" Margin="94,16,144,0" Width="162" Height="40"/>
+        <Label  Content="מספר דרישת לקוח" HorizontalContentAlignment="Right" Grid.Column="1" Grid.Row="2" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="15" FontFamily="Lucida Calligraphy" FontWeight="Bold" Margin="83,17,152,10" Width="165" Height="29"/>
+        <Label  Content="מספר הזמנה"  HorizontalContentAlignment="Right" Grid.Column="1" Grid.Row="3" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="15" FontFamily="Lucida Calligraphy" FontWeight="Bold" Margin="147,17,152,10" Width="101" Height="29"/>
+        <Label  Content="סטטוס" HorizontalContentAlignment="Right" Grid.Column="1" Grid.Row="4" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="15" FontFamily="Lucida Calligraphy" FontWeight="Bold" Margin="181,0,150,0" Width="65"/>
+        <Label  Content="תאריך יצירה" HorizontalContentAlignment="Right" Grid.Column="1" Grid.Row="5" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="15" FontFamily="Lucida Calligraphy" FontWeight="Bold" Margin="118,14,152,13" Width="130"/>
+        <Label  Content="  תאריך הזמנה" HorizontalContentAlignment="Right" Grid.Column="1" Grid.Row="6" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="15" FontFamily="Lucida Calligraphy" FontWeight="Bold" Margin="128,16,152,10" Width="120"/>
+        <Label  Content="  הוספה" HorizontalContentAlignment="Right" Grid.Row="7" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="20" FontFamily="Lucida Calligraphy" FontWeight="Bold" Margin="315,10,365,10" Width="120" Grid.ColumnSpan="2" Height="37"/>
+
     </Grid>
 </Page>

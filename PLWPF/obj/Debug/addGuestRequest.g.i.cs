@@ -76,20 +76,22 @@ namespace PLWPF
             this._contentLoaded = true;
         }
 
-        internal System.Windows.Controls.ComboBox carType;
-        internal System.Windows.Controls.ComboBox transmission;
-        internal System.Windows.Controls.ComboBox gender;
-        internal System.Windows.Controls.Button cmdUp;
         internal System.Windows.Controls.Button cmdDown;
-        internal System.Windows.Controls.TextBox numOfLessons;
-        internal System.Windows.Controls.TextBox id;
         internal System.Windows.Controls.TextBox lastName;
         internal System.Windows.Controls.TextBox firstName;
-        internal System.Windows.Controls.TextBox phoneNumber;
-        internal System.Windows.Controls.TextBox adress;
-        internal System.Windows.Controls.TextBox schoolName;
-        internal System.Windows.Controls.TextBox testerName;
-        internal System.Windows.Controls.DatePicker date;
+        internal System.Windows.Controls.ComboBox Area;
+        internal System.Windows.Controls.TextBox mailAdress;
+        internal System.Windows.Controls.DatePicker dateRegistration;
+        internal System.Windows.Controls.DatePicker dateBegining;
+        internal System.Windows.Controls.DatePicker dateEnd;
+        internal System.Windows.Controls.ComboBox SubArea;
+        internal System.Windows.Controls.ComboBox Type;
+        internal System.Windows.Controls.TextBox NumAdults;
+        internal System.Windows.Controls.TextBox NumChildren;
+        internal System.Windows.Controls.ComboBox pool;
+        internal System.Windows.Controls.ComboBox jaccuzi;
+        internal System.Windows.Controls.ComboBox garden;
+        internal System.Windows.Controls.ComboBox childrenAttractions;
     }
 }
 

@@ -9,8 +9,7 @@
       Title="addGuestRequest">
 
     <Grid>
-        <Image HorizontalAlignment="Left" Height="100" VerticalAlignment="Top" Width="100"/>
-        <Image Source="road-trip-compressor.png" Stretch="Fill" Grid.ColumnSpan="2" Opacity="0.5"/>
+
         <Grid.RowDefinitions>
             <RowDefinition Height="*"/>
             <RowDefinition Height="*"/>
@@ -31,44 +30,65 @@
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="*"/>
             <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="*"/>
         </Grid.ColumnDefinitions>
-        
-        <Label Content="הוספת תלמיד" HorizontalContentAlignment="Right" Grid.ColumnSpan="2" HorizontalAlignment="Center" VerticalAlignment="Top" FontSize="15" FontFamily="Lucida Calligraphy" FontWeight="Bold" />
-        <Label  Content="תעודת זהות" HorizontalContentAlignment="Right" Grid.Column="1" Grid.Row="1" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="15" FontFamily="Lucida Calligraphy" FontWeight="Bold" Margin="150,0" Width="96"/>
-        <Label  Content="שם משפחה" HorizontalContentAlignment="Right" Grid.Column="1" Grid.Row="2" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="15" FontFamily="Lucida Calligraphy" FontWeight="Bold" Margin="148,0,150,0" Width="98"/>
-        <Label  Content="שם פרטי"  HorizontalContentAlignment="Right" Grid.Column="1" Grid.Row="3" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="15" FontFamily="Lucida Calligraphy" FontWeight="Bold" Margin="160,0,150,0" Width="86"/>
-        <Label  Content="מין" HorizontalContentAlignment="Right" Grid.Column="1" Grid.Row="4" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="15" FontFamily="Lucida Calligraphy" FontWeight="Bold" Margin="181,0,150,0" Width="65"/>
-        <Label  Content="טלפון" HorizontalContentAlignment="Right" Grid.Column="1" Grid.Row="5" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="15" FontFamily="Lucida Calligraphy" FontWeight="Bold" Margin="172,0,150,0" Width="74"/>
-        <Label Content="כתובת" HorizontalContentAlignment="Right" Grid.Column="1"  Grid.Row="6" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="15" FontFamily="Lucida Calligraphy" FontWeight="Bold" Margin="166,0,150,0" Width="80"/>
-        <Label  Content="תאריך לידה" HorizontalContentAlignment="Right" Grid.Column="1" Grid.Row="7" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="15" FontFamily="Lucida Calligraphy" FontWeight="Bold" Margin="150,0" Width="96"/>
-        <Label Content="סוג רכב" HorizontalContentAlignment="Right" Grid.Column="1"  Grid.Row="8" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="15" FontFamily="Lucida Calligraphy" FontWeight="Bold" Margin="158,0,150,0" Width="88"/>
-        <Label  Content="סוג תיבת הילוכים" HorizontalContentAlignment="Right" Grid.Column="1" Grid.Row="9" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="15" FontFamily="Lucida Calligraphy" FontWeight="Bold" Margin="56,0,150,0" Width="190"/>
-        <Label Content="בית ספר לנהיגה" HorizontalContentAlignment="Right" Grid.Column="1"  Grid.Row="10" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="15" FontFamily="Lucida Calligraphy" FontWeight="Bold" Margin="86,0,150,0" Width="160"/>
-        <Label  Content="שם מורה" HorizontalContentAlignment="Right" Grid.Column="1" Grid.Row="11" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="15" FontFamily="Lucida Calligraphy" FontWeight="Bold" Margin="162,0,150,0" Width="84"/>
-        <Label Content="מספר שיעורים" HorizontalContentAlignment="Right" Grid.Column="1"  Grid.Row="12" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="15" FontFamily="Lucida Calligraphy" FontWeight="Bold" Margin="124,0,150,0" Width="122"/>
+        <Image HorizontalAlignment="Left" Height="100" VerticalAlignment="Top" Width="100"/>
+        <Image Source="road-trip-compressor.png" Grid.Row="0" Grid.RowSpan="15" Grid.ColumnSpan="4" Opacity="0.5" Stretch="Fill" RenderTransformOrigin="0.5,0.5" Margin="0,3,-4,-3" >
+            <Image.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform/>
+                    <SkewTransform AngleX="0.13"/>
+                    <RotateTransform/>
+                    <TranslateTransform X="-0.511"/>
+                </TransformGroup>
+            </Image.RenderTransform>
+        </Image>
 
-        <ComboBox x:Name="carType" ItemsSource="{Binding}" SelectedItem="{Binding car}" Grid.Row="8" Grid.Column="0" Width="120" VerticalAlignment="Center" Opacity="0.6"/>
-        <ComboBox x:Name="transmission" ItemsSource="{Binding}" SelectedItem="{Binding transmission}" Grid.Row="9" Grid.Column="0" Width="120" VerticalAlignment="Center" OpacityMask="Black" Opacity="0.6"/>
-        <ComboBox x:Name="gender" ItemsSource="{Binding}" SelectedItem="{Binding traineeGender}" Grid.Row="4" Grid.Column="0" Width="120" VerticalAlignment="Center" Margin="138,4" Opacity="0.6"/>
+        <Label Content="הוספת דרישת לקוח" HorizontalContentAlignment="Right" Grid.ColumnSpan="2" HorizontalAlignment="Center" VerticalAlignment="Top" FontSize="15" FontFamily="Lucida Calligraphy" FontWeight="Bold" Grid.Column="1" Margin="137,0,117,0" />
+        <Label  Content="שם משפחה" HorizontalContentAlignment="Right" Grid.Column="3" Grid.Row="2" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="15" FontFamily="Lucida Calligraphy" FontWeight="Bold" Margin="80,0,22,0" Width="98"/>
+        <Label  Content="שם פרטי"  HorizontalContentAlignment="Right" Grid.Column="3" Grid.Row="3" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="15" FontFamily="Lucida Calligraphy" FontWeight="Bold" Margin="92,3,22,27" Width="86" Grid.RowSpan="2"/>
+        <Label Content="כתובת מייל" HorizontalContentAlignment="Right" Grid.Column="3"  Grid.Row="4" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="15" FontFamily="Lucida Calligraphy" FontWeight="Bold" Margin="83,3,19,27" Width="98" Grid.RowSpan="2"/>
+        <Label  Content="  תאריך רישום למערכת " HorizontalContentAlignment="Right" Grid.Column="3" Grid.Row="5" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="15" FontFamily="Lucida Calligraphy" FontWeight="Bold" Margin="10,0,19,0" Width="171"/>
+        <Label  Content="תאריך לתחילת הנופש" HorizontalContentAlignment="Right" Grid.Column="3" Grid.Row="6" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="15" FontFamily="Lucida Calligraphy" FontWeight="Bold" Margin="7,2,22,28" Width="171" Grid.RowSpan="2"/>
 
-        <Button x:Name="cmdUp"  Content="˄" Click="cmdUp_Click" Width="19" Grid.Column="0" Grid.Row="12"  FontSize="10" HorizontalAlignment="Center" Margin="138,0,239,12" Opacity="0.6" Height="15" VerticalAlignment="Bottom"/>
+        <Label  Content="תאריך לסיום הנופש" HorizontalContentAlignment="Right" Grid.Column="3" Grid.Row="7" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="15" FontFamily="Lucida Calligraphy" FontWeight="Bold" Margin="21,2,19,28" Width="160" Grid.RowSpan="2"/>
+        <Label Content="אזור הנופש הרצוי בארץ" HorizontalContentAlignment="Right" Grid.Column="2"  Grid.Row="8" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="15" FontFamily="Lucida Calligraphy" FontWeight="Bold" Margin="191,27,19,3" Width="190" Grid.ColumnSpan="2" Grid.RowSpan="2"/>
+        <Label  Content="תת אזור רצוי" HorizontalContentAlignment="Right" Grid.Column="2" Grid.Row="10" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="15" FontFamily="Lucida Calligraphy" FontWeight="Bold" Margin="191,0,19,0" Width="190" Grid.ColumnSpan="2"/>
+        <Label  Content="סוג יחידת הירוח הרצוי" HorizontalContentAlignment="Right" Grid.Column="2" Grid.Row="8" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="15" FontFamily="Lucida Calligraphy" FontWeight="Bold" Margin="188,0,22,0" Width="190" Grid.ColumnSpan="2"/>
+        <Label Content="מספר המבוגרים" HorizontalContentAlignment="Right" Grid.Column="1"  Grid.Row="2" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="15" FontFamily="Lucida Calligraphy" FontWeight="Bold" Margin="26,2,14,28" Width="160" Grid.RowSpan="2"/>
+        <Label  Content="מספר ילדים" HorizontalContentAlignment="Right" Grid.Column="1" Grid.Row="3" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="15" FontFamily="Lucida Calligraphy" FontWeight="Bold" Margin="88,0,14,0" Width="98"/>
+        <Label Content="בריכה" HorizontalContentAlignment="Right" Grid.Column="1"  Grid.Row="4" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="15" FontFamily="Lucida Calligraphy" FontWeight="Bold" Margin="64,0,14,0" Width="122"/>
+        <Label  Content="ג'קוזי" HorizontalContentAlignment="Right" Grid.Column="1" Grid.Row="5" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="15" FontFamily="Lucida Calligraphy" FontWeight="Bold" Margin="88,0,14,0" Width="98"/>
+        <Label Content="גינה" HorizontalContentAlignment="Right" Grid.Column="1"  Grid.Row="6" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="15" FontFamily="Lucida Calligraphy" FontWeight="Bold" Margin="64,2,14,28" Width="122" Grid.RowSpan="2"/>
+        <Label  Content="אטרקציות לילדים" HorizontalContentAlignment="Right" Grid.Column="1" Grid.Row="6" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="15" FontFamily="Lucida Calligraphy" FontWeight="Bold" Margin="44,29,14,1" Width="142" Grid.RowSpan="2"/>
+
+        <ComboBox x:Name="Area" ItemsSource="{Binding}" SelectedItem="{Binding area}" Grid.Row="10" Grid.Column="2" Width="120" VerticalAlignment="Center" Opacity="0.6" Margin="37,5,43,3"/>
+        <ComboBox x:Name="SubArea" ItemsSource="{Binding}" SelectedItem="{Binding subArea}" Grid.Row="8" Grid.Column="2" Width="120" VerticalAlignment="Center" OpacityMask="Black" Opacity="0.6" Margin="37,2,43,6"/>
+        <ComboBox x:Name="Type" ItemsSource="{Binding}" SelectedItem="{Binding type}" Grid.Row="9" Grid.Column="2" Width="120" VerticalAlignment="Center" OpacityMask="Black" Opacity="0.6" Margin="37,8,43,0"/>
+        <ComboBox x:Name="pool" ItemsSource="{Binding}" SelectedItem="{Binding pool}" Grid.Row="4" Grid.Column="0" Width="120" VerticalAlignment="Center" Opacity="0.6" Margin="37,5,43,3"/>
+        <ComboBox x:Name="jaccuzi" ItemsSource="{Binding}" SelectedItem="{Binding jaccuzi}" Grid.Row="5" Grid.Column="0" Width="120" VerticalAlignment="Center" OpacityMask="Black" Opacity="0.6" Margin="37,2,43,6"/>
+        <ComboBox x:Name="garden" ItemsSource="{Binding}" SelectedItem="{Binding garden}" Grid.Row="6" Grid.Column="0" Width="120" VerticalAlignment="Center" OpacityMask="Black" Opacity="0.6" Margin="37,8,43,0"/>
+        <ComboBox x:Name="childrenAttractions" ItemsSource="{Binding}" SelectedItem="{Binding childrenAttractions}" Grid.Row="7" Grid.Column="0" Width="120" VerticalAlignment="Center" OpacityMask="Black" Opacity="0.6" Margin="40,5,40,3"/>
+
+        <TextBox x:Name="lastName" HorizontalAlignment="Left" Grid.Row="2"  Grid.Column="2" Height="23" TextWrapping="Wrap" Text="{Binding familyName}" Width="120" Opacity="0.6" Margin="37,4,0,3"/>
+        <TextBox x:Name="firstName" HorizontalAlignment="Left" Grid.Row="3" Grid.Column="2" Height="23" TextWrapping="Wrap" Text="{Binding firstName}" VerticalAlignment="Top" Width="120" Margin="37,2,0,0"/>
+        <TextBox x:Name="mailAdress" Grid.Row="4" Grid.Column="2" HorizontalAlignment="Left" Height="23" TextWrapping="Wrap" Text="{Binding mailAdress }" VerticalAlignment="Top" Width="120" Margin="37,0,0,0"/>
+        <TextBox x:Name="NumAdults" Grid.Row="2" Grid.Column="0" Height="23" TextWrapping="Wrap" Text="{Binding schoolName}" Width="120" Opacity="0.6" Margin="40,7,40,0"/>
+        <TextBox x:Name="NumChildren" Grid.Row="3"  Grid.Column="0" Height="23" TextWrapping="Wrap" Text="{Binding testerName}" Width="120" Opacity="0.6" Margin="40,3,40,4"/>
+
+        <Button Content="הוספה" HorizontalAlignment="Center" Grid.Row="13"  VerticalAlignment="Center" Width="176" Grid.ColumnSpan="2" Height="35" Grid.RowSpan="2" FontWeight="Bold" FontSize="20" Opacity="0.6" Click="Button_Click" Grid.Column="1" Margin="137,10,87,15"/>
+
         <Button x:Name="cmdDown"  Content="˅" Click="cmdDown_Click" Width="19" Height="15" Grid.Column="0" Grid.Row="12" VerticalAlignment="Bottom"  FontSize="10" HorizontalAlignment="Center" Margin="138,0,239,0" Opacity="0.6"/>
-        <TextBox Name="numOfLessons" HorizontalAlignment="Center" Height="24" TextWrapping="Wrap" Text="{Binding numberLessons}" VerticalAlignment="Center" Width="101" Grid.Row="12" Grid.Column="0" Margin="157,2,138,2" Opacity="0.6"/>
-
-        <TextBox x:Name="id" Grid.Row="1"  Grid.Column="0" Height="23" TextWrapping="Wrap" Text="{Binding id}" Width="120" Opacity="0.6"/>
-        <TextBox x:Name="lastName" Grid.Row="2"  Grid.Column="0" Height="23" TextWrapping="Wrap" Text="{Binding familyName}" Width="120" Opacity="0.6"/>
-        <TextBox x:Name="firstName" Grid.Row="3"  Grid.Column="0" Height="23" TextWrapping="Wrap" Text="{Binding firstName}" Width="120" Opacity="0.6"/>
-        <TextBox x:Name="phoneNumber" Grid.Row="5"  Grid.Column="0" Height="23" TextWrapping="Wrap" Text="{Binding phoneNumber}" Width="120"  Opacity="0.6"/>
-        <TextBox x:Name="adress" Grid.Row="6"  Grid.Column="0" Height="23" TextWrapping="Wrap" Text="{Binding traineeAdress }" Width="120" Opacity="0.6"/>
-        <TextBox x:Name="schoolName" Grid.Row="10"  Grid.Column="0" Height="23" TextWrapping="Wrap" Text="{Binding schoolName}" Width="120" Opacity="0.6"/>
-        <TextBox x:Name="testerName" Grid.Row="11"  Grid.Column="0" Height="23" TextWrapping="Wrap" Text="{Binding testerName}" Width="120" Opacity="0.6"/>
-        <Button Content="הוספה" HorizontalAlignment="Center" Grid.Row="13"  VerticalAlignment="Center" Width="176" Grid.ColumnSpan="2" Height="35" Grid.RowSpan="2" FontWeight="Bold" FontSize="20" Opacity="0.6" Click="Button_Click"/>
 
 
-
-
-        <DatePicker x:Name="date"  Grid.Column="0" HorizontalAlignment="Center"  Grid.Row="7" VerticalAlignment="Center" Width="120"  Opacity="0.6" SelectedDate="{Binding birthDate}"/>
+        <DatePicker x:Name="dateRegistration" Grid.Row="7" Grid.Column="2" HorizontalAlignment="Center"   VerticalAlignment="Center" Width="120"  Opacity="0.6" SelectedDate="{Binding birthDate}" Margin="37,5,43,1"/>
+        <DatePicker x:Name="dateBegining" Grid.Row="5" Grid.Column="2" HorizontalAlignment="Center"  VerticalAlignment="Center" Width="120"  Opacity="0.6" SelectedDate="{Binding birthDate}" Margin="37,6,43,0"/>
+        <DatePicker x:Name="dateEnd"  Grid.Column="2" HorizontalAlignment="Center"  Grid.Row="6" VerticalAlignment="Center" Width="120"  Opacity="0.6" SelectedDate="{Binding birthDate}" Margin="37,5,43,1"/>
         <Button Content="prev" HorizontalAlignment="Left" VerticalAlignment="Top" Width="40" Click="Return_Click"/>
+
+
+
 
 
 
