@@ -12,7 +12,6 @@ using DAL;
 namespace BL
 {
     public class BL : IBL
-
     {
         static Idal myDAL;
         Idal dal = DAL.FactoryDal.getDal("List");
@@ -36,6 +35,7 @@ namespace BL
 
         #region Dalfunctions
 
+        #region HostingUnit
         #region guestrequest
         public GuestRequest GetGuestRequest(long GuestRequestKey)
         {
@@ -78,7 +78,6 @@ namespace BL
 
 
         #endregion
-        #region HostingUnit
         public HostingUnit GetHostingUnit(long HostingUnitKey)
         {
             return DS.DataSource.hostingunitList.FirstOrDefault(s => s.HostingUnitKey == HostingUnitKey);
@@ -227,21 +226,18 @@ namespace BL
 
         public int IfChangeStatus(Order o)
         {
-            List<GuestRequest> guestRequest = GetGuestRequest(o.GuestRequestKey);
-            GuestRequest request = guestRequest.Find(x => x.GuestRequestKey == o.GuestRequestKey);
-            return Configuration.minPrice * NumDays(request.EntryDate, request.ReleaseDate);
+            GuestRequest guestRequest = GetGuestRequest(o.GuestRequestKey);
+            return Configuration.minPrice * NumDays(guestRequest.EntryDate, guestRequest.ReleaseDate);
         }
         public void UpdateDiary(Order o)
 
         {
-            List<HostingUnit> HostingUnits = GetHostingUnit(X => o.HostingUnitKey == X.HostingUnitKey);
-            HostingUnit myunit = HostingUnits.Find(x => o.HostingUnitKey == x.HostingUnitKey);
-            bool[,] diary = myunit.Diary;
-            List<GuestRequest> GuestRequests = GetGuestRequest(x => o.GuestRequestKey == x.GuestRequestKey);
-            GuestRequest myguest = GuestRequests.Find(x => o.GuestRequestKey == x.GuestRequestKey);
-            TimeSpan duration = myguest.ReleaseDate - myguest.EntryDate;
-            int i = myguest.EntryDate.Month - 1;
-            int j = myguest.EntryDate.Day - 1;
+            HostingUnit hostingUnits = GetHostingUnit(o.HostingUnitKey);
+            bool[,] diary = hostingUnits.Diary;
+            GuestRequest guestRequests = GetGuestRequest(o.GuestRequestKey);
+            TimeSpan duration = guestRequests.ReleaseDate - guestRequests.EntryDate;
+            int i = guestRequests.EntryDate.Month - 1;
+            int j = guestRequests.EntryDate.Day - 1;
 
             for (int k = 0; k < duration.Days; k++)
             {
@@ -253,7 +249,7 @@ namespace BL
                 diary[i, j] = true;
                 j++;
             }
-            myunit.Diary = diary;
+            hostingUnits.Diary = diary;
             // SetHostingUnit(myunit); Faire fonctions set
 
 
@@ -263,8 +259,8 @@ namespace BL
             GuestRequest GuestRequest = GetGuestRequest(o.GuestRequestKey);
             GuestRequest.StatusRequest = MyEnums.Status.TransactionClosedThroughTheSite;
             Order ordersforequest = GetOrder(o.GuestRequestKey);
-           
-                if ((MyEnums.Status)ordersforequest.Status != MyEnums.Status.Closed)
+
+            if ((MyEnums.Status)ordersforequest.Status != MyEnums.Status.Closed)
                 ordersforequest.Status = MyEnums.Status.NotRelevent;
         }
         public bool HUisInUse(Order o)
@@ -282,9 +278,8 @@ namespace BL
 
         }
         public bool PermissionBankIsInUse(Host host)
-
         {
-            List<Order> openOrders = GetOrder(x => x.Status == MyEnums.Status.TransactionOpen);
+            List<Order> openOrders = GetOrder(x => x.Status == MyEnums.Status.TransactionOpen.ToString());
             List<HostingUnit> hostingUnit = null;
             foreach (var order in openOrders)
                 hostingUnit.Add(GetHostingUnit(order.HostingUnitKey));
@@ -427,3 +422,4 @@ namespace BL
 
         #endregion
     }
+}

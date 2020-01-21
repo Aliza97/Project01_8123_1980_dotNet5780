@@ -28,7 +28,7 @@ namespace DAL
             if (g==null)
                 g.GuestRequestKey = Configuration.GuestRequestKey;
             Configuration.GuestRequestKey++;
-            g.StatusRequest = MyEnums.StatusRequest.Active.ToString();
+            g.StatusRequest = MyEnums.StatusRequest.Active;
             g.RegistrationDate = DateTime.Now;
             
             DS.DataSource.guestrequestList.Add(g);
