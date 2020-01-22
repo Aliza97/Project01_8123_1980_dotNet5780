@@ -9,23 +9,23 @@ namespace DAL
     public interface Idal
     {
         #region GuestRequest
-        void addGuestRequest(GuestRequest g); // add a guest request
-        void updateGestRequest(GuestRequest g); // update a guestrequest
+        void AddGuestRequest(GuestRequest g); // add a guest request
+        void UpdateGuestRequest(GuestRequest g); // update a guestrequest
         GuestRequest GetGuestRequest(long GuestRequestKey); //to get a guest request
         IEnumerable<GuestRequest> GetAllRequests(Func<GuestRequest, bool> predicat = null); //to get all the requests
         #endregion
 
         #region  HostingUnit
-        void addHostingUnit(HostingUnit h); // add yehidat irouah
-        void deleteHostingUnit(long HostingUnitKey); // delete yehidat irouah
-        void updateHostingUnit(HostingUnit h); //update yehidat irouah
+        void AddHostingUnit(HostingUnit h); // add yehidat irouah
+        void DeleteHostingUnit(long HostingUnitKey); // delete yehidat irouah
+        void UpdateHostingUnit(HostingUnit h); //update yehidat irouah
         HostingUnit GetHostingUnit(long HostingUnitKey); //to get a hosting unit
         IEnumerable<HostingUnit> GetAllHostingUnits(Func<HostingUnit, bool> predicat = null); // to get all the hosting unit
         #endregion
 
         #region Order
-        void addOrder(Order o);
-        void updateOrder(Order o);
+        void AddOrder(Order o);
+        void UpdateOrder(Order o);
         Order GetOrder(long OrderKey); // to get an order
         IEnumerable<Order> GetAllOrders(Func<Order, bool> predicat = null); //to get all the orders
         #endregion

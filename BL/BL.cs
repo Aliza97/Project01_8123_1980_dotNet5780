@@ -9,6 +9,7 @@ using DAL;
 
 
 
+
 namespace BL
 {
     public class BL : IBL
@@ -41,7 +42,7 @@ namespace BL
         {
             return DS.DataSource.guestrequestList.FirstOrDefault(s => s.GuestRequestKey == GuestRequestKey);
         }
-        public void addGuestRequest(GuestRequest g)
+        public void AddGuestRequest(GuestRequest g)
         {
             if (g.GuestRequestKey < 10000000 || g.GuestRequestKey > 99999999)
                 throw new Exception("this GuestRequestKey isn't correct");
@@ -56,11 +57,11 @@ namespace BL
 
             DS.DataSource.guestrequestList.Add(g);
         }
-        public void updateGestRequest(GuestRequest g)
+        public void UpdateGuestRequest(GuestRequest g)
         {
             try
             {
-                dal.updateGuestRequest(g);
+                dal.UpdateGuestRequest(g);
             }
             catch (Exception e)
             {
@@ -82,7 +83,7 @@ namespace BL
         {
             return DS.DataSource.hostingunitList.FirstOrDefault(s => s.HostingUnitKey == HostingUnitKey);
         }
-        public void addHostingUnit(HostingUnit h)
+        public void AddHostingUnit(HostingUnit h)
         {
             if (h.HostingUnitKey < 10000000 || h.HostingUnitKey > 99999999)
                 throw new Exception("this HostingUnitKey isn't correct");
@@ -91,18 +92,18 @@ namespace BL
                 throw new Exception("this HostingUnitKey already exists");
             DS.DataSource.hostingunitList.Add(h);
         }
-        public void deleteHostingUnit(long HostingUnitKey)
+        public void DeleteHostingUnit(long HostingUnitKey)
         {
             HostingUnit help = GetHostingUnit(HostingUnitKey);
             if (help == null)
                 throw new Exception("this id doesn't exist");
             DS.DataSource.hostingunitList.Remove(help);
         }
-        public void updateHostingUnit(HostingUnit h)
+        public void UpdateHostingUnit(HostingUnit h)
         {
             try
             {
-                dal.updateHostingUnit(h);
+                dal.UpdateHostingUnit(h);
             }
             catch (Exception e)
             {
@@ -123,7 +124,7 @@ namespace BL
             return DS.DataSource.orderList.FirstOrDefault(s => s.OrderKey == OrderKey);
         }
 
-        public void addOrder(Order o)
+        public void AddOrder(Order o)
         {
             if (o.OrderKey < 10000000 || o.OrderKey > 99999999)
                 throw new Exception("this OrderKey isn't correct");
@@ -132,7 +133,7 @@ namespace BL
                 throw new Exception("this OrderKey already exists");
             DS.DataSource.orderList.Add(o);
         }
-        public void updateOrder(Order o)
+        public void UpdateOrder(Order o)
         {
             try
             {
@@ -142,7 +143,7 @@ namespace BL
                 {
                     if ((MyEnums.Status)o.Status == MyEnums.Status.Closed)
                     {
-                        dal.updateOrder(o);
+                        dal.UpdateOrder(o);
                         UpdateDiary(o);
                         IfChangeStatus(o);
                         ChangesAfterCloseTransaction(o);
@@ -156,14 +157,14 @@ namespace BL
                             HostingUnit u = h.FirstOrDefault((x => o.HostingUnitKey == x.HostingUnitKey));//Y a pas Find ds les Enumerable
                             if (PermissionBankIsInUse(u.Owner) == true)
                             {
-                                dal.updateOrder(o);
+                                dal.UpdateOrder(o);
                                 SentMail(o);
                             }
                             else
                                 throw new Exception("No BankAccount Permission");
                         }
                         else
-                            dal.updateOrder(o);
+                            dal.UpdateOrder(o);
                     }
                 }
             }
@@ -232,8 +233,8 @@ namespace BL
         public void UpdateDiary(Order o)
 
         {
-            HostingUnit hostingUnits = GetHostingUnit(o.HostingUnitKey);
-            bool[,] diary = hostingUnits.Diary;
+            HostingUnit hostingUnit = GetHostingUnit(o.HostingUnitKey);
+            bool[,] diary = hostingUnit.Diary;
             GuestRequest guestRequests = GetGuestRequest(o.GuestRequestKey);
             TimeSpan duration = guestRequests.ReleaseDate - guestRequests.EntryDate;
             int i = guestRequests.EntryDate.Month - 1;
@@ -249,8 +250,8 @@ namespace BL
                 diary[i, j] = true;
                 j++;
             }
-            hostingUnits.Diary = diary;
-            // SetHostingUnit(myunit); Faire fonctions set
+            hostingUnit.Diary = diary;
+            UpdateHostingUnit(hostingUnit);
 
 
         }
@@ -279,13 +280,12 @@ namespace BL
         }
         public bool PermissionBankIsInUse(Host host)
         {
-            List<Order> openOrders = GetOrder(x => x.Status == MyEnums.Status.TransactionOpen.ToString());
+            IEnumerable<Order> openOrders = GetAllOrders(x => (MyEnums.Status)x.Status == MyEnums.Status.TransactionOpen);
             List<HostingUnit> hostingUnit = null;
             foreach (var order in openOrders)
                 hostingUnit.Add(GetHostingUnit(order.HostingUnitKey));
             foreach (var str in hostingUnit)
                 if (str.Owner.HostKey == host.HostKey)
-
                     return false;
             return true;
         }
@@ -405,7 +405,7 @@ namespace BL
                                 group request by (request.Children + request.Adults);
             return groupToReturn;
         }
-        IEnumerable<IGrouping<Host, HostingUnit>> GroupHostByHostingUnit()
+        public IEnumerable<IGrouping<Host, HostingUnit>> GroupHostByHostingUnit()
         {
             IEnumerable<HostingUnit> listHostingUnit = dal.GetAllHostingUnits();
             IEnumerable<IGrouping<Host, HostingUnit>> groupToReturn = from str in listHostingUnit

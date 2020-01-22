@@ -18,43 +18,44 @@ namespace DAL
         {
             return DS.DataSource.guestrequestList.FirstOrDefault(s => s.GuestRequestKey == GuestRequestKey);
         }
-        public void addGuestRequest(GuestRequest g)
+        public void AddGuestRequest(GuestRequest g)
         {
             if (g.GuestRequestKey < 10000000 || g.GuestRequestKey > 99999999)
                 throw new Exception("this GuestRequestKey isn't correct");
             GuestRequest help = GetGuestRequest(g.GuestRequestKey);
             if (help != null)
                 throw new Exception("this GuestRequestKey already exists");
-            if (g==null)
+            if (g == null)
                 g.GuestRequestKey = Configuration.GuestRequestKey;
             Configuration.GuestRequestKey++;
             g.StatusRequest = MyEnums.StatusRequest.Active;
             g.RegistrationDate = DateTime.Now;
-            
+
             DS.DataSource.guestrequestList.Add(g);
         }
-        public void updateGestRequest(GuestRequest g)
+        public void UpdateGuestRequest(GuestRequest g)
         {
             try
             {
-                IEnumerable<GuestRequest> listOrders = dal.GetAllRequests();
-                foreach (GuestRequest guest in guestrequestList)
+                IEnumerable<GuestRequest> listOrders = GetAllRequests();
+                foreach (GuestRequest guest in BL.guestrequestList)
                 {
                     if (guest.GuestRequestKey != g.GuestRequestKey)
-                        throw new DataException("The request is not exist");
+                        throw new Exception("The request is not exist");
                     else
                     {
                         guestrequestList.RemoveAll(g => g.GuestRequestKey == guest.GuestRequestKey);
                     }
                     guestrequestList.Add(guest);
-                };
-             catch (DataException c)
+                }
+            }
+            catch (Exception c)
             {
                 throw c;
             }
 
 
-  
+
         }
 
         public IEnumerable<GuestRequest> GetAllRequests(Func<GuestRequest, bool> predicat = null)
@@ -71,7 +72,7 @@ namespace DAL
         {
             return DS.DataSource.hostingunitList.FirstOrDefault(s => s.HostingUnitKey == HostingUnitKey);
         }
-        public void addHostingUnit(HostingUnit h)
+        public void AddHostingUnit(HostingUnit h)
         {
             if (h.HostingUnitKey < 10000000 || h.HostingUnitKey > 99999999)
                 throw new Exception("this HostingUnitKey isn't correct");
@@ -80,14 +81,14 @@ namespace DAL
                 throw new Exception("this HostingUnitKey already exists");
             DS.DataSource.hostingunitList.Add(h);
         }
-        public void deleteHostingUnit(long HostingUnitKey)
+        public void DeleteHostingUnit(long HostingUnitKey)
         {
             HostingUnit help = GetHostingUnit(HostingUnitKey);
             if (help == null)
                 throw new Exception("this id doesn't exist");
             DS.DataSource.hostingunitList.Remove(help);
         }
-        public void updateHostingUnit(HostingUnit h)
+        public void UpdateHostingUnit(HostingUnit h)
         {
             return;
         }
@@ -105,7 +106,7 @@ namespace DAL
             return DS.DataSource.orderList.FirstOrDefault(s => s.OrderKey == OrderKey);
         }
 
-        public void addOrder(Order o)
+        public void AddOrder(Order o)
         {
             if (o.OrderKey < 10000000 || o.OrderKey > 99999999)
                 throw new Exception("this OrderKey isn't correct");
@@ -114,7 +115,7 @@ namespace DAL
                 throw new Exception("this OrderKey already exists");
             DS.DataSource.orderList.Add(o);
         }
-        public void updateOrder(Order o)
+        public void UpdateOrder(Order o)
         {
             return;
 
@@ -131,7 +132,7 @@ namespace DAL
             if (predicat == null)
                 return DS.DataSource.bankbranchesList.AsEnumerable();
             return DS.DataSource.bankbranchesList.Where(predicat);
-            
+
         }
     }
 }
