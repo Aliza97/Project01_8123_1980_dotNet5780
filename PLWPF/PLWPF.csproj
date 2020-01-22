@@ -69,6 +69,9 @@
     <Compile Include="updateHostingUnit.xaml.cs">
       <DependentUpon>updateHostingUnit.xaml</DependentUpon>
     </Compile>
+    <Compile Include="updatehostingUnit2.xaml.cs">
+      <DependentUpon>updatehostingUnit2.xaml</DependentUpon>
+    </Compile>
     <Compile Include="updateOrder.xaml.cs">
       <DependentUpon>updateOrder.xaml</DependentUpon>
     </Compile>
@@ -122,6 +125,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="updateHostingUnit.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="updatehostingUnit2.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

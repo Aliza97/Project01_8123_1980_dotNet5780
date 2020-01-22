@@ -16,18 +16,13 @@ using System.Windows.Shapes;
 namespace PLWPF
 {
     /// <summary>
-    /// Interaction logic for updateHostingUnit.xaml
+    /// Interaction logic for updatehostingUnit2.xaml
     /// </summary>
-    public partial class updateHostingUnit : Page
+    public partial class updatehostingUnit2 : Page
     {
-        public updateHostingUnit()
+        public updatehostingUnit2()
         {
             InitializeComponent();
-        }
-
-        private void Button_Click(object sender, RoutedEventArgs e)
-        {
-
         }
     }
 }
