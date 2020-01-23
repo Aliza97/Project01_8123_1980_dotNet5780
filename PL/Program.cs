@@ -179,18 +179,125 @@ namespace PL
             }
 
 
-            foreach (var guest in bl.GetGuestList())
+            foreach (var guest in bl.GetAllRequests())
             {
                 Console.WriteLine(guest);
             }
+            try
+            {
+                
+                bl.UpdateHostingUnit(unit3);
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine(e);
+            }
+            try
+            {
+                bl.DeleteHostingUnit(unit3);
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine(e);
+            }
+            foreach (var unit in bl.GetAllHostingUnits())
+            {
+                Console.WriteLine(unit);
+            }
+
+            try
+            {
+                bl.AddOrder(guest1.GuestRequestKey, unit1.HostingUnitKey);
+                bl.AddOrder(guest1.GuestRequestKey, unit2.HostingUnitKey);
+                bl.AddOrder(guest2.GuestRequestKey, unit1.HostingUnitKey);
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine(e);
+            }
+            try
+            {
+                foreach (var order in bl.GetAllOrders())
+                {
+                    bl.UpdateOrder(order, MyEnums.Status.MailHasBeenSent);
+                }
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine(e);
+            }
+            try
+            {
+                foreach (var order in bl.GetAllOrders())
+                {
+                    bl.UpdateOrder(order, MyEnums.Status.Refused);
+                }
+            }
+            catch (InvalidOperationException e)
+            {
+                Console.WriteLine(e);
+            }
+            try
+            {
+                foreach (var order in bl.GetAllOrders())
+                {
+                    bl.UpdateOrder(order, MyEnums.Status.Accepted);
+                }
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine(e);
+            }
+            try
+            {
+                foreach (var order in bl.GetAllOrders())
+                    Console.WriteLine("ORDER: " + order);
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine(e);
+            }
+
+            
+
+            try
+            {
+                Console.WriteLine("number of successful orders that unit has: " + bl.NumOfSuccessfulOrders(unit2));
+
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine(e);
+            }
+
+            try
+            {
+                foreach (var unit in bl.AvailableHostingUnits(new DateTime(2019, 5, 3), 20))
+                {
+                    Console.WriteLine("unit is available:" + unit);
+                }
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine(e);
+            }
+            Console.WriteLine("tests of get days function");
+            Console.WriteLine(bl.NumDays(new DateTime(2020, 8, 2), new DateTime(2020, 1, 5)));
+
+            Console.WriteLine(bl.NumDays(new DateTime(2020, 1, 2)));
 
 
+            try
+            {
+                foreach (var host in bl.GetAllHostingUnits())
+                    Console.WriteLine(bl.NumOfSuccessfullOrders(host1));
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine(e);
+            }
 
-
-
-            string choice;
-            Console.WriteLine(""
-            choice = Console.ReadLine();
+            Console.ReadKey();
         }
         
     }
