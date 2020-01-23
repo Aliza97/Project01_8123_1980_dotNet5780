@@ -75,6 +75,15 @@
     <Compile Include="updateOrder.xaml.cs">
       <DependentUpon>updateOrder.xaml</DependentUpon>
     </Compile>
+    <Compile Include="איזור _אישי.xaml.cs">
+      <DependentUpon>איזור _אישי.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="איזור _אישי2.xaml.cs">
+      <DependentUpon>איזור _אישי2.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="איזור _אישי3.xaml.cs">
+      <DependentUpon>איזור _אישי3.xaml</DependentUpon>
+    </Compile>
     <Page Include="addGuestRequest.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -133,6 +142,18 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="updateOrder.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="איזור _אישי.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="איזור _אישי2.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="איזור _אישי3.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

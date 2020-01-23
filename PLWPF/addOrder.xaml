@@ -34,7 +34,7 @@
         <Label  Content="סטטוס" HorizontalContentAlignment="Right" Grid.Column="1" Grid.Row="4" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="15" FontFamily="Lucida Calligraphy" FontWeight="Bold" Margin="181,0,150,0" Width="65"/>
         <Label  Content="תאריך יצירה" HorizontalContentAlignment="Right" Grid.Column="1" Grid.Row="5" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="15" FontFamily="Lucida Calligraphy" FontWeight="Bold" Margin="118,14,152,13" Width="130"/>
         <Label  Content="  תאריך הזמנה" HorizontalContentAlignment="Right" Grid.Column="1" Grid.Row="6" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="15" FontFamily="Lucida Calligraphy" FontWeight="Bold" Margin="128,16,152,10" Width="120"/>
-        <Label  Content="  הוספה" HorizontalContentAlignment="Right" Grid.Row="7" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="20" FontFamily="Lucida Calligraphy" FontWeight="Bold" Margin="315,10,365,10" Width="120" Grid.ColumnSpan="2" Height="37"/>
+        <Button Content="הוספה" HorizontalAlignment="Center" Grid.Row="13"  VerticalAlignment="Center" Width="144" Grid.ColumnSpan="2" Height="30" FontWeight="Bold" FontSize="20" Opacity="0.6" Click="Button_Click" Margin="326,20,330,10" Grid.RowSpan="2"/>
 
         <TextBox x:Name="HostingUnitKey" Grid.Row="1"  Grid.Column="0" Height="23" TextWrapping="Wrap" Text="{Binding id}" Width="120" Opacity="0.6"/>
         <TextBox x:Name="GuestRequestKey" Grid.Row="2"  Grid.Column="0" Height="23" TextWrapping="Wrap" Text="{Binding familyName}" Width="120" Opacity="0.6"/>
