@@ -20,9 +20,21 @@ namespace PLWPF
     /// </summary>
     public partial class addOrder : Page
     {
+        BL.IBL bl;
+        BE.Order myOrder;
         public addOrder()
         {
             InitializeComponent();
+            bl = BL.FactoryBL.GetBL();
+            myOrder = new Order();
+            DataContext = myOrder;
+            //x.ItemsSource = Enum.GetValues(typeof(BE.x));
+            //y.ItemsSource = Enum.GetValues(typeof(BE.y));
+        }
+
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+
         }
     }
 }

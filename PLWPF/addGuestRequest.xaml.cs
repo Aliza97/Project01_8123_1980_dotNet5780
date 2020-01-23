@@ -20,9 +20,51 @@ namespace PLWPF
     /// </summary>
     public partial class addGuestRequest : Page
     {
+        BL.IBL bl;
+        BE.GuestRequest myguestRequest;
         public addGuestRequest()
         {
             InitializeComponent();
+            bl = BL.FactoryBL.GetBL();
+            myguestRequest = new BE.GuestRequest();
+            DataContext = myguestRequest;
+            //x.ItemsSource = Enum.GetValues(typeof(BE.x));
+        }
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+            DataContext = myguestRequest;
+            try
+            {
+                bl.AddGuestRequest(myguestRequest);
+                MessageBox.Show("בקשתך התקבלה", "הצלחה", MessageBoxButton.OK, MessageBoxImage.Information);
+                //this.Close();
+            }
+            catch (Exception ex)
+            { MessageBox.Show(ex.Message, "הודעת שגיאה", MessageBoxButton.OK, MessageBoxImage.Warning); }
+        }
+
+ 
+
+        private void lastName_TextChanged(object sender, TextChangedEventArgs e)
+        {
+
+        }
+
+
+
+        private void firstName_TextChanged(object sender, TextChangedEventArgs e)
+        {
+
+        }
+
+        private void SubArea_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+
+        }
+
+        private void Type_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+
         }
     }
 }

@@ -64,15 +64,15 @@
         <Label  Content="אטרקציות לילדים" HorizontalContentAlignment="Right" Grid.Column="1" Grid.Row="6" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="15" FontFamily="Lucida Calligraphy" FontWeight="Bold" Margin="44,29,14,1" Width="142" Grid.RowSpan="2"/>
 
         <ComboBox x:Name="Area" ItemsSource="{Binding}" SelectedItem="{Binding area}" Grid.Row="10" Grid.Column="2" Width="120" VerticalAlignment="Center" Opacity="0.6" Margin="37,5,43,3"/>
-        <ComboBox x:Name="SubArea" ItemsSource="{Binding}" SelectedItem="{Binding subArea}" Grid.Row="8" Grid.Column="2" Width="120" VerticalAlignment="Center" OpacityMask="Black" Opacity="0.6" Margin="37,2,43,6"/>
-        <ComboBox x:Name="Type" ItemsSource="{Binding}" SelectedItem="{Binding type}" Grid.Row="9" Grid.Column="2" Width="120" VerticalAlignment="Center" OpacityMask="Black" Opacity="0.6" Margin="37,8,43,0"/>
+        <ComboBox x:Name="SubArea" ItemsSource="{Binding}" SelectedItem="{Binding subArea}" Grid.Row="8" Grid.Column="2" Width="120" VerticalAlignment="Center" OpacityMask="Black" Opacity="0.6" Margin="37,2,43,6" SelectionChanged="SubArea_SelectionChanged"/>
+        <ComboBox x:Name="Type" ItemsSource="{Binding}" SelectedItem="{Binding type}" Grid.Row="9" Grid.Column="2" Width="120" VerticalAlignment="Center" OpacityMask="Black" Opacity="0.6" Margin="37,8,43,0" SelectionChanged="Type_SelectionChanged"/>
         <ComboBox x:Name="pool" ItemsSource="{Binding}" SelectedItem="{Binding pool}" Grid.Row="4" Grid.Column="0" Width="120" VerticalAlignment="Center" Opacity="0.6" Margin="37,5,43,3"/>
         <ComboBox x:Name="jaccuzi" ItemsSource="{Binding}" SelectedItem="{Binding jaccuzi}" Grid.Row="5" Grid.Column="0" Width="120" VerticalAlignment="Center" OpacityMask="Black" Opacity="0.6" Margin="37,2,43,6"/>
         <ComboBox x:Name="garden" ItemsSource="{Binding}" SelectedItem="{Binding garden}" Grid.Row="6" Grid.Column="0" Width="120" VerticalAlignment="Center" OpacityMask="Black" Opacity="0.6" Margin="37,8,43,0"/>
         <ComboBox x:Name="childrenAttractions" ItemsSource="{Binding}" SelectedItem="{Binding childrenAttractions}" Grid.Row="7" Grid.Column="0" Width="120" VerticalAlignment="Center" OpacityMask="Black" Opacity="0.6" Margin="40,5,40,3"/>
 
-        <TextBox x:Name="lastName" HorizontalAlignment="Left" Grid.Row="2"  Grid.Column="2" Height="23" TextWrapping="Wrap" Text="{Binding familyName}" Width="120" Opacity="0.6" Margin="37,4,0,3"/>
-        <TextBox x:Name="firstName" HorizontalAlignment="Left" Grid.Row="3" Grid.Column="2" Height="23" TextWrapping="Wrap" Text="{Binding firstName}" VerticalAlignment="Top" Width="120" Margin="37,2,0,0"/>
+        <TextBox x:Name="lastName" HorizontalAlignment="Left" Grid.Row="2"  Grid.Column="2" Height="23" TextWrapping="Wrap" Text="{Binding familyName}" Width="120" Opacity="0.6" Margin="37,4,0,3" TextChanged="lastName_TextChanged"/>
+        <TextBox x:Name="firstName" HorizontalAlignment="Left" Grid.Row="3" Grid.Column="2" Height="23" TextWrapping="Wrap" Text="{Binding firstName}" VerticalAlignment="Top" Width="120" Margin="37,2,0,0" TextChanged="firstName_TextChanged"/>
         <TextBox x:Name="mailAdress" Grid.Row="4" Grid.Column="2" HorizontalAlignment="Left" Height="23" TextWrapping="Wrap" Text="{Binding mailAdress }" VerticalAlignment="Top" Width="120" Margin="37,0,0,0"/>
         <TextBox x:Name="NumAdults" Grid.Row="2" Grid.Column="0" Height="23" TextWrapping="Wrap" Text="{Binding schoolName}" Width="120" Opacity="0.6" Margin="40,7,40,0"/>
         <TextBox x:Name="NumChildren" Grid.Row="3"  Grid.Column="0" Height="23" TextWrapping="Wrap" Text="{Binding testerName}" Width="120" Opacity="0.6" Margin="40,3,40,4"/>
