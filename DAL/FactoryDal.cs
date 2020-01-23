@@ -10,12 +10,12 @@ namespace DAL
     {
         public static Idal getDal(string typeDAL)
         {
-            switch(typeDAL)
+            switch (typeDAL)
             {
                 case "List": return DALList.Instance;
-                default:return null;
+                default: return null;
             }
-            
+
         }
 
 

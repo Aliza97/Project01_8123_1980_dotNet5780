@@ -8,14 +8,14 @@ namespace BL
 {
     public class FactoryBL
     {
-        public static IBL getBL(string typeBL)
+        static IBL bl = null;
+        public static IBL GetBL()
         {
-            switch(typeBL)
-            {
-                case "List": return BL.Instance;
-                default: return null;
-            }
+            if (bl == null)
+                bl = new BL();
+            return bl;
         }
+    }
 
     }
 }

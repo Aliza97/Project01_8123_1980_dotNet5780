@@ -9,8 +9,10 @@ namespace PL
 {
     class Program
     {
+        static BL.IBL bl = BL.FactoryBL.GetBL();
         static void Main(string[] args)
         {
+            
             Host host1 = new Host()
             {
                 HostKey = 10000367,
@@ -40,27 +42,59 @@ namespace PL
                 HostingUnitName = "The house 1",
                 area = MyEnums.Area.Jerusalem,
                 pool = true,
-                persons = 3,
+                adults = 3,
 
             };
+
+            try
+            {
+                bl.AddHostingUnit(unit1);
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine(e);
+            }
+
             HostingUnit unit2 = new HostingUnit()
             {
                 Owner = host2,
                 HostingUnitName = "The house 2",
                 area = MyEnums.Area.Jerusalem,
                 pool = false,
-                persons = 2,
+                adults = 2,
 
             };
+            try
+            {
+                bl.AddHostingUnit(unit2);
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine(e);
+            }
+
             HostingUnit unit3 = new HostingUnit()
             {
                 Owner = host1,
                 HostingUnitName = "The house 3",
                 area = MyEnums.Area.Center,
                 pool = true,
-                persons = 6,
+                adults = 6,
 
             };
+            try
+            {
+                bl.AddHostingUnit(unit3);
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine(e);
+            }
+
+            foreach (var unit in bl.GetAllHostingUnits())
+            {
+                Console.WriteLine(unit);
+            }
 
             GuestRequest guest1 = new GuestRequest()
             {
@@ -81,6 +115,14 @@ namespace PL
                 Jacuzzi = MyEnums.Jacuzzi.Possible,
 
             };
+            try
+            {
+                bl.AddGuestRequest(guest1);
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine(e);
+            }
 
 
 
@@ -102,7 +144,14 @@ namespace PL
                 ChildrenAttractions = MyEnums.ChildrenAttractions.Possible,
             };
 
-
+            try
+            {
+                bl.AddGuestRequest(guest2);
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine(e);
+            }
 
 
 
@@ -120,6 +169,25 @@ namespace PL
                 Type = MyEnums.Type.Camping,
                 Adults = 4,
             };
+             try
+            {
+                bl.AddGuestRequest(guest3);
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine(e);
+            }
+
+
+            foreach (var guest in bl.GetGuestList())
+            {
+                Console.WriteLine(guest);
+            }
+
+
+
+
+
             string choice;
             Console.WriteLine(""
             choice = Console.ReadLine();
