@@ -31,8 +31,8 @@ namespace BE
         bool _pool;
         public bool pool { get => _pool; set => value = _pool; }
 
-        int _persons;
-        public int persons { get => _persons; set => value = _persons; }
+        int _adults;
+        public int adults { get => _adults; set => value = _adults; }
 
         int _kids;
         public int kids { get => _kids; set => value = _kids; }
