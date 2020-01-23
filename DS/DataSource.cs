@@ -118,8 +118,14 @@ namespace DS
 
             HostingUnit unit1 = new HostingUnit();
 
+                unit1.HostingUnitKey =30000005;
                 unit1.Owner = host1;
                 unit1.HostingUnitName = "The house 1";
+                unit1.subArea ="Nahlaos";
+                unit1.jaccuzi = true;
+                unit1.garden =true;
+                unit1.childrenAttractions =true;
+                unit1.kids =2;
                 unit1.area = MyEnums.Area.Jerusalem;
                 unit1.pool = true;
                 unit1.adults = 3;
@@ -127,11 +133,17 @@ namespace DS
 
             HostingUnit unit2 = new HostingUnit();
 
+                unit2.HostingUnitKey = 30000057;
                 unit2.Owner = host2;
                 unit2.HostingUnitName = "The house 2";
                 unit2.area = MyEnums.Area.Jerusalem;
                 unit2.pool = false;
-                unit2.adults = 2;
+                unit2.adults = 5;
+                unit1.jaccuzi = true;
+                unit1.garden = true;
+                unit1.childrenAttractions =false;
+                unit1.kids = 1;
+           
 
 
             HostingUnit unit3 = new HostingUnit();

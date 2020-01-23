@@ -12,7 +12,7 @@ namespace PL
         static BL.IBL bl = BL.FactoryBL.GetBL();
         static void Main(string[] args)
         {
-            
+
             Host host1 = new Host()
             {
                 HostKey = 10000367,
@@ -38,12 +38,17 @@ namespace PL
 
             HostingUnit unit1 = new HostingUnit()
             {
+                HostingUnitKey = 30000005,
                 Owner = host1,
                 HostingUnitName = "The house 1",
+                subArea = "Nahlaos",
+                jaccuzi = true,
+                garden = true,
+                childrenAttractions = true,
+                kids = 2,
                 area = MyEnums.Area.Jerusalem,
                 pool = true,
                 adults = 3,
-
             };
 
             try
@@ -55,15 +60,20 @@ namespace PL
                 Console.WriteLine(e);
             }
 
-            HostingUnit unit2 = new HostingUnit()
-            {
+        HostingUnit unit2 = new HostingUnit()
+        {
+            HostingUnitKey = 30000057,
                 Owner = host2,
                 HostingUnitName = "The house 2",
                 area = MyEnums.Area.Jerusalem,
                 pool = false,
-                adults = 2,
-
+                adults = 5,
+                jaccuzi = true,
+                garden = true,
+                childrenAttractions =false,
+                kids = 1,
             };
+
             try
             {
                 bl.AddHostingUnit(unit2);
@@ -75,8 +85,13 @@ namespace PL
 
             HostingUnit unit3 = new HostingUnit()
             {
+                HostingUnitKey = 30000456,
                 Owner = host1,
                 HostingUnitName = "The house 3",
+                subArea = "Tel aviv",
+                jaccuzi = true,
+                garden = true,
+                childrenAttractions = false,
                 area = MyEnums.Area.Center,
                 pool = true,
                 adults = 6,
