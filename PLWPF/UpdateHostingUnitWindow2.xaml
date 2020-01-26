@@ -1,0 +1,106 @@
+﻿<Window x:Class="PLWPF.UpdateHostingUnitWindow2"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:PLWPF"
+        mc:Ignorable="d"
+        Title="UpdateHostingUnitWindow2" Height="450" Width="800">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="*"/>
+        </Grid.ColumnDefinitions>
+
+        <Image HorizontalAlignment="Left" Height="100" VerticalAlignment="Top" Width="100"/>
+        <Image Source="road-trip-compressor.png" Grid.Row="0" Grid.RowSpan="15" Grid.ColumnSpan="4" Opacity="0.5" Stretch="Fill" RenderTransformOrigin="0.5,0.5" Margin="0,3,-4,-3" >
+            <Image.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform/>
+                    <SkewTransform AngleX="0.13"/>
+                    <RotateTransform/>
+                    <TranslateTransform X="-0.511"/>
+                </TransformGroup>
+            </Image.RenderTransform>
+        </Image>
+
+        <Label Content="הוספת יחידת אירוח" HorizontalContentAlignment="Right" HorizontalAlignment="Center" VerticalAlignment="Top" FontSize="20" FontFamily="Lucida Calligraphy" FontWeight="Bold" Margin="255,0,298,0" Grid.ColumnSpan="2" Width="247" />
+        <Label  Content="מספר יחידת אירוח" HorizontalContentAlignment="Right" Grid.Column="1" Grid.Row="1" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="15" FontFamily="Lucida Calligraphy" FontWeight="Bold" Margin="88,0,152,0" Width="160"/>
+        <Label  Content="שם בעל יחידה" HorizontalContentAlignment="Right" Grid.Column="1" Grid.Row="2" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="15" FontFamily="Lucida Calligraphy" FontWeight="Bold" Margin="108,0,152,0" Width="140"/>
+        <Label  Content="שם יחידת אירוח"  HorizontalContentAlignment="Right" Grid.Column="1" Grid.Row="3" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="15" FontFamily="Lucida Calligraphy" FontWeight="Bold" Margin="126,0,152,0" Width="122"/>
+        <Label  Content="יומן" HorizontalContentAlignment="Right" Grid.Column="1" Grid.Row="4" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="15" FontFamily="Lucida Calligraphy" FontWeight="Bold" Margin="181,0,150,0" Width="65"/>
+        <Label  Content="אזור הנופש" HorizontalContentAlignment="Right" Grid.Column="1" Grid.Row="5" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="15" FontFamily="Lucida Calligraphy" FontWeight="Bold" Margin="108,0,152,0" Width="140"/>
+        <Label Content="תת איזור" HorizontalContentAlignment="Right" Grid.Column="1"  Grid.Row="6" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="15" FontFamily="Lucida Calligraphy" FontWeight="Bold" Margin="166,0,150,0" Width="80"/>
+        <Label  Content="ברכה" HorizontalContentAlignment="Right" Grid.Column="1" Grid.Row="7" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="15" FontFamily="Lucida Calligraphy" FontWeight="Bold" Margin="150,0" Width="96"/>
+        <Label Content="מספר אנשים" HorizontalContentAlignment="Right" Grid.Column="1"  Grid.Row="8" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="15" FontFamily="Lucida Calligraphy" FontWeight="Bold" Margin="126,0,152,0" Width="122"/>
+        <Label  Content="מספר ילדים" HorizontalContentAlignment="Right" Grid.Column="1" Grid.Row="9" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="15" FontFamily="Lucida Calligraphy" FontWeight="Bold" Margin="56,0,150,0" Width="190" RenderTransformOrigin="0.243,0.482"/>
+        <Label Content="גקוזי" HorizontalContentAlignment="Right" Grid.Column="1"  Grid.Row="10" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="15" FontFamily="Lucida Calligraphy" FontWeight="Bold" Margin="86,0,150,0" Width="160"/>
+        <Label  Content="גינה" HorizontalContentAlignment="Right" Grid.Column="1" Grid.Row="11" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="15" FontFamily="Lucida Calligraphy" FontWeight="Bold" Margin="162,0,150,0" Width="84"/>
+        <Label Content="משחקי ילדים" HorizontalContentAlignment="Right" Grid.Column="1"  Grid.Row="12" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="15" FontFamily="Lucida Calligraphy" FontWeight="Bold" Margin="124,0,150,0" Width="122"/>
+        <Label Content="כוכבים" HorizontalContentAlignment="Right" Grid.Column="1"  Grid.Row="13" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="15" FontFamily="Lucida Calligraphy" FontWeight="Bold" Margin="124,0,150,0" Width="122"/>
+
+
+
+
+        <ComboBox x:Name="HostingUnitKey" Grid.Row="1"  Grid.Column="0" Height="23" ItemsSource="{Binding}"  SelectedItem="{Binding id}" Width="120" Opacity="0.6" SelectionChanged="HostingUnitKey_SelectionChanged"/>
+
+
+        <TextBox x:Name="Owner" Grid.Row="2"  Grid.Column="0" Height="23" TextWrapping="Wrap" Text="{Binding Owner}" Width="120" Opacity="0.6"/>
+        <TextBox x:Name="HostingUnitName" Grid.Row="3"  Grid.Column="0" Height="23" TextWrapping="Wrap" Text="{Binding HostingUnitName}" Width="120" Opacity="0.6"/>
+        <DatePicker x:Name="Diary"  Grid.Column="0" HorizontalAlignment="Center"  Grid.Row="4" VerticalAlignment="Center" Width="120"  Opacity="0.6" SelectedDate="{Binding Diary}"/>
+        <ComboBox x:Name="Area" ItemsSource="{Binding}" SelectedItem="{Binding area}" Grid.Row="5" Grid.Column="0" Width="120" VerticalAlignment="Center" Margin="138,4" Opacity="0.6"/>
+        <TextBox x:Name="subArea" Grid.Row="6" Grid.Column="0" Width="120" Text="{Binding subArea}" VerticalAlignment="Center" Margin="138,4" Opacity="0.6"/>
+
+        <TextBox x:Name="adults" Grid.Row="8"  Grid.Column="0" Height="23" TextWrapping="Wrap" Text="{Binding adults}" Width="120" Opacity="0.6"/>
+        <TextBox x:Name="kids" Grid.Row="9"  Grid.Column="0" Height="23" TextWrapping="Wrap" Text="{Binding kids}" Width="120" Opacity="0.6"/>
+        <GroupBox Name="radioJaccuzi" Grid.Row="10">
+            <StackPanel Margin="289,-3,-289,-7" >
+                <RadioButton Name="jacuzziOption1" GroupName="radioJaccuzi" Content="בלי" Margin="0,0,0,0"/>
+                <RadioButton Name="jacuzziOption2" GroupName="radioJaccuzi" Content="עם" Margin="0,0,346,0"   />
+            </StackPanel>
+        </GroupBox>
+        <GroupBox Name="radioGarden" Grid.Row="11">
+            <StackPanel Margin="289,-3,-289,-7" >
+                <RadioButton Name="gardenOption1" GroupName="radioGarden" Content="בלי" Margin="0,0,0,0"/>
+                <RadioButton Name="gardenOption2" GroupName="radioGarden" Content="עם" Margin="0,0,0,0"   />
+            </StackPanel>
+        </GroupBox>
+        <GroupBox Name="radioAttraction" Grid.Row="12">
+            <StackPanel Margin="289,-3,-289,-7" >
+                <RadioButton Name="attractionOption1" GroupName="radioAttraction" Content="בלי" Margin="0,0,0,0"/>
+                <RadioButton Name="attractionOption2" GroupName="radioAttraction" Content="עם" Margin="0,0,0,0"   />
+            </StackPanel>
+        </GroupBox>
+        <GroupBox Name="radioPool" Grid.Row="7">
+            <StackPanel Margin="289,-3,-289,-7" >
+                <RadioButton Name="poolOption1" GroupName="radioPool" Content="בלי" Margin="0,0,0,0"/>
+                <RadioButton Name="poolOption2" GroupName="radioPool" Content="עם" Margin="0,0,0,0"   />
+            </StackPanel>
+        </GroupBox>
+        <Button Content="הוספה" HorizontalAlignment="Center" Grid.Row="14"  VerticalAlignment="Center" Width="144" Grid.ColumnSpan="2" Height="30" FontWeight="Bold" FontSize="20" Opacity="0.6"  Margin="326,0,330,0" Click="Button_Click"/>
+        <TextBlock HorizontalAlignment="Left" TextWrapping="Wrap" Text="" VerticalAlignment="Top" RenderTransformOrigin="2.138,8.793" Width="12" Background="#FFE69F7F" Margin="788,0,0,0" Height="450"/>
+
+
+        <Button Content="prev" HorizontalAlignment="Left" VerticalAlignment="Top" Width="40" />
+
+
+        
+    </Grid>
+</Window>

@@ -38,9 +38,10 @@ namespace BL
         #region guestrequest
         public GuestRequest GetGuestRequest(long GuestRequestKey)
         {
-            return DS.DataSource.guestrequestList.FirstOrDefault(s => s.GuestRequestKey == GuestRequestKey);
+            return dal.GetGuestRequest(GuestRequestKey);
+            //return DS.DataSource.guestrequestList.FirstOrDefault(s => s.GuestRequestKey == GuestRequestKey);
         }
-        public void AddGuestRequest(GuestRequest g)
+        public void AddGuestRequest(BE.GuestRequest g)
         {
             if (g.GuestRequestKey < 10000000 || g.GuestRequestKey > 99999999)
                 throw new Exception("this GuestRequestKey isn't correct");
@@ -79,7 +80,7 @@ namespace BL
         #endregion
         public HostingUnit GetHostingUnit(long HostingUnitKey)
         {
-            return DS.DataSource.hostingunitList.FirstOrDefault(s => s.HostingUnitKey == HostingUnitKey);
+            return dal.GetHostingUnit(HostingUnitKey);
         }
         public void AddHostingUnit(HostingUnit h)
         {
@@ -119,7 +120,7 @@ namespace BL
         #region order
         public Order GetOrder(long OrderKey)
         {
-            return DS.DataSource.orderList.FirstOrDefault(s => s.OrderKey == OrderKey);
+            return dal.GetOrder(OrderKey);
         }
 
         public void AddOrder(Order o)

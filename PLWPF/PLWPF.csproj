@@ -54,8 +54,17 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
-    <Compile Include="addOrder.xaml.cs">
-      <DependentUpon>addOrder.xaml</DependentUpon>
+    <Compile Include="addGuestRequestWindow.xaml.cs">
+      <DependentUpon>addGuestRequestWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="addHostingUnitWindow.xaml.cs">
+      <DependentUpon>addHostingUnitWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="addOrderWindow.xaml.cs">
+      <DependentUpon>addOrderWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="DeleteHostingUnitWindow.xaml.cs">
+      <DependentUpon>DeleteHostingUnitWindow.xaml</DependentUpon>
     </Compile>
     <Compile Include="GuestRequestWindow.xaml.cs">
       <DependentUpon>GuestRequestWindow.xaml</DependentUpon>
@@ -66,37 +75,31 @@
     <Compile Include="OrderWindow.xaml.cs">
       <DependentUpon>OrderWindow.xaml</DependentUpon>
     </Compile>
-    <Compile Include="updateHostingUnit.xaml.cs">
-      <DependentUpon>updateHostingUnit.xaml</DependentUpon>
+    <Compile Include="privateAreaWindow.xaml.cs">
+      <DependentUpon>privateAreaWindow.xaml</DependentUpon>
     </Compile>
-    <Compile Include="updatehostingUnit2.xaml.cs">
-      <DependentUpon>updatehostingUnit2.xaml</DependentUpon>
+    <Compile Include="UpdateHostingUnitWindow.xaml.cs">
+      <DependentUpon>UpdateHostingUnitWindow.xaml</DependentUpon>
     </Compile>
-    <Compile Include="updateOrder.xaml.cs">
-      <DependentUpon>updateOrder.xaml</DependentUpon>
+    <Compile Include="UpdateHostingUnitWindow2.xaml.cs">
+      <DependentUpon>UpdateHostingUnitWindow2.xaml</DependentUpon>
     </Compile>
-    <Compile Include="איזור _אישי.xaml.cs">
-      <DependentUpon>איזור _אישי.xaml</DependentUpon>
+    <Compile Include="UpdateOrderWindow.xaml.cs">
+      <DependentUpon>UpdateOrderWindow.xaml</DependentUpon>
     </Compile>
-    <Compile Include="איזור _אישי2.xaml.cs">
-      <DependentUpon>איזור _אישי2.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="איזור _אישי3.xaml.cs">
-      <DependentUpon>איזור _אישי3.xaml</DependentUpon>
-    </Compile>
-    <Page Include="addGuestRequest.xaml">
+    <Page Include="addGuestRequestWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="addHostingUnit.xaml">
+    <Page Include="addHostingUnitWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="addOrder.xaml">
+    <Page Include="addOrderWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="DeleteHostingUnit.xaml">
+    <Page Include="DeleteHostingUnitWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -112,18 +115,9 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
-    <Compile Include="addGuestRequest.xaml.cs">
-      <DependentUpon>addGuestRequest.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="addHostingUnit.xaml.cs">
-      <DependentUpon>addHostingUnit.xaml</DependentUpon>
-    </Compile>
     <Compile Include="App.xaml.cs">
       <DependentUpon>App.xaml</DependentUpon>
       <SubType>Code</SubType>
-    </Compile>
-    <Compile Include="DeleteHostingUnit.xaml.cs">
-      <DependentUpon>DeleteHostingUnit.xaml</DependentUpon>
     </Compile>
     <Compile Include="MainWindow.xaml.cs">
       <DependentUpon>MainWindow.xaml</DependentUpon>
@@ -133,27 +127,19 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="updateHostingUnit.xaml">
+    <Page Include="privateAreaWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="updatehostingUnit2.xaml">
+    <Page Include="UpdateHostingUnitWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="updateOrder.xaml">
+    <Page Include="UpdateHostingUnitWindow2.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="איזור _אישי.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="איזור _אישי2.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="איזור _אישי3.xaml">
+    <Page Include="UpdateOrderWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

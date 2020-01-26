@@ -9,3 +9,13 @@ C:\Users\afitouss.ACAD\Desktop\Project01_8123_1980_dotNet5780\DAL\bin\Debug\DS.p
 C:\Users\afitouss.ACAD\Desktop\Project01_8123_1980_dotNet5780\DAL\obj\Debug\DAL.csproj.CopyComplete
 C:\Users\afitouss.ACAD\Desktop\Project01_8123_1980_dotNet5780\DAL\obj\Debug\DAL.dll
 C:\Users\afitouss.ACAD\Desktop\Project01_8123_1980_dotNet5780\DAL\obj\Debug\DAL.pdb
+C:\Users\Avigail Fitoussi\Desktop\projet\Project01_8123_1980_dotNet5780\DAL\bin\Debug\DAL.dll
+C:\Users\Avigail Fitoussi\Desktop\projet\Project01_8123_1980_dotNet5780\DAL\bin\Debug\DAL.pdb
+C:\Users\Avigail Fitoussi\Desktop\projet\Project01_8123_1980_dotNet5780\DAL\bin\Debug\BE.dll
+C:\Users\Avigail Fitoussi\Desktop\projet\Project01_8123_1980_dotNet5780\DAL\bin\Debug\DS.dll
+C:\Users\Avigail Fitoussi\Desktop\projet\Project01_8123_1980_dotNet5780\DAL\bin\Debug\BE.pdb
+C:\Users\Avigail Fitoussi\Desktop\projet\Project01_8123_1980_dotNet5780\DAL\bin\Debug\DS.pdb
+C:\Users\Avigail Fitoussi\Desktop\projet\Project01_8123_1980_dotNet5780\DAL\obj\Debug\DAL.csprojAssemblyReference.cache
+C:\Users\Avigail Fitoussi\Desktop\projet\Project01_8123_1980_dotNet5780\DAL\obj\Debug\DAL.csproj.CopyComplete
+C:\Users\Avigail Fitoussi\Desktop\projet\Project01_8123_1980_dotNet5780\DAL\obj\Debug\DAL.dll
+C:\Users\Avigail Fitoussi\Desktop\projet\Project01_8123_1980_dotNet5780\DAL\obj\Debug\DAL.pdb

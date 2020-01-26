@@ -27,13 +27,13 @@
         <Button Content="בעל האתר" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="46,49,0,0" Grid.Row="1" Background="{x:Null}" FontWeight="Bold" BorderBrush="#FF2FB21B" FontSize="25" VerticalContentAlignment="Top" HorizontalContentAlignment="Left"/>
         <Label Content="ברוכים הבאים לאתר שלנו " HorizontalAlignment="Left" VerticalAlignment="Top" Width="437" Margin="201,21,0,0" FontSize="30" Height="74" FontWeight="Bold" Foreground="#FFD4218B"/>
         <Label Content="? במה אתה מענין   " HorizontalAlignment="Left" VerticalAlignment="Top" Width="246" Margin="501,95,0,0" FontSize="30" Height="49" FontWeight="Bold" Grid.RowSpan="2" FontStyle="Italic"/>
-        <Button Content="הוספת בקשה" HorizontalAlignment="Left" VerticalAlignment="Top" Width="108" Margin="371,10.25,0,0" Grid.Row="2" Height="38" FontWeight="Bold" Background="#FF8CD5F1"/>
-        <Button Content="הוספת יחידת אירוח" HorizontalAlignment="Left" VerticalAlignment="Top" Width="115" Margin="201,10.25,0,0" Grid.Row="2" Height="38" FontWeight="Bold" Background="#FFE69F7F"/>
+        <Button Content="הוספת בקשה" HorizontalAlignment="Left" VerticalAlignment="Top" Width="108" Margin="371,10.25,0,0" Grid.Row="2" Height="38" FontWeight="Bold" Background="#FF8CD5F1" Click="guestRequest_Click_2"/>
+        <Button Content="הוספת יחידת אירוח" HorizontalAlignment="Left" VerticalAlignment="Top" Width="115" Margin="201,10.25,0,0" Grid.Row="2" Height="38" FontWeight="Bold" Background="#FFE69F7F" Click="addHostingUnit_Click_2"/>
         <Button Content="רשימת יחידות אירוח" HorizontalAlignment="Left" Width="108" Margin="46,53.25,0,19.5" Grid.Row="2" FontWeight="Bold" Background="#FFA1D462"/>
         <Button Content="רשימת לקוחות" HorizontalAlignment="Left" VerticalAlignment="Top" Width="108" Margin="46,10.25,0,0" Grid.Row="2" Height="38" FontWeight="Bold" Background="#FFA1D462"/>
         <Button Content="אחר" HorizontalAlignment="Left" VerticalAlignment="Top" Width="108" Margin="46,23.5,0,0" Grid.Row="3" FontWeight="Bold" Height="32" Background="#FFA1D462"/>
         <Button Content="רשימת הזמנות" HorizontalAlignment="Left" VerticalAlignment="Top" Width="108" Margin="46,90.25,0,0" Grid.Row="2" Grid.RowSpan="2" Height="34" FontWeight="Bold" Background="#FFA1D462"/>
-        <Button Content="איזור אישי" HorizontalAlignment="Left" VerticalAlignment="Top" Width="115" RenderTransformOrigin="0.864,1.577" Margin="201,54.25,0,0" Grid.Row="2" Height="32" FontWeight="Bold" Background="#FFE69F7F"/>
+        <Button Content="איזור אישי" HorizontalAlignment="Left" VerticalAlignment="Top" Width="115" RenderTransformOrigin="0.864,1.577" Margin="201,54.25,0,0" Grid.Row="2" Height="32" FontWeight="Bold" Background="#FFE69F7F" Click="Button_Click_2"/>
 
 
 

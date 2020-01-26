@@ -22,10 +22,10 @@
         <Image HorizontalAlignment="Left" Height="100" VerticalAlignment="Top" Width="100"/>
         <Image Source="road-trip-compressor.png" Stretch="Fill" Grid.ColumnSpan="2" Opacity="0.5"/>
         <Label Content="? מה אתה רוצה לפעול"  Grid.Row="0" FontSize="40" FontFamily="Lucida Calligraphy" HorizontalAlignment="Center" VerticalAlignment="Center" FontWeight="Bold" Margin="186,77,146,278" Grid.ColumnSpan="2" Width="460"/>
-        <Button Content="הוספת הזמנה" HorizontalAlignment="Left" VerticalAlignment="Top" Click="Add_Click" Width="312" Margin="47,172,0,0" Height="70" FontSize="30"/>
-        <Button Content="עדכון הזמנה" HorizontalAlignment="Left" VerticalAlignment="Top" Click="Update_Click" Width="312" Grid.Column="1" Margin="47,172,0,0" Height="70" FontSize="30"/>
+        <Button Content="הוספת הזמנה" HorizontalAlignment="Left" VerticalAlignment="Top"  Width="312" Margin="47,172,0,0" Height="70" FontSize="30"/>
+        <Button Content="עדכון הזמנה" HorizontalAlignment="Left" VerticalAlignment="Top" Width="312" Grid.Column="1" Margin="47,172,0,0" Height="70" FontSize="30"/>
         <Label Content="הזמנות      " HorizontalAlignment="Left" VerticalAlignment="Top" Grid.ColumnSpan="2" Margin="315,10,0,0" Width="175" Height="90" FontSize="70" FontFamily="Aharoni"/>
-        <Button Content="prev" HorizontalAlignment="Left" VerticalAlignment="Top" Width="40" Click="Return_Click"/>
+        <Button Content="prev" HorizontalAlignment="Left" VerticalAlignment="Top" Width="40" />
 
 
     </Grid>

@@ -25,6 +25,8 @@ namespace PLWPF
             InitializeComponent();
         }
 
+        
+
         private void Button_Click(object sender, RoutedEventArgs e)
         {
 
@@ -33,6 +35,24 @@ namespace PLWPF
         private void Button_Click_1(object sender, RoutedEventArgs e)
         {
 
+        }
+
+        private void guestRequest_Click_2(object sender, RoutedEventArgs e)
+        {
+            Window w = new GuestRequestWindow();
+            w.Show();
+        }
+
+        private void addHostingUnit_Click_2(object sender, RoutedEventArgs e)
+        {
+            Window w = new addHostingUnitWindow();
+            w.Show();
+        }
+
+        private void Button_Click_2(object sender, RoutedEventArgs e)
+        {
+            Window w = new privateAreaWindow();
+            w.Show();
         }
     }
 }

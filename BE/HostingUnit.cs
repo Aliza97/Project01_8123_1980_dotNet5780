@@ -8,46 +8,20 @@ namespace BE
 {
     public class HostingUnit
     {
-        #region Properties
-
-        long _HostingUnitKey;
-        public long HostingUnitKey { get => _HostingUnitKey; set => value = _HostingUnitKey; }
-
-        Host _Owner;
-        public Host Owner { get => _Owner; set => value = _Owner; }
-
-        string _HostingUnitName;
-        public string HostingUnitName { get => _HostingUnitName; set => value = _HostingUnitName; }
-
-        private bool[,] diary;
-        public bool[,] Diary /*= new bool[12, 31]*/ { get => diary; set => value = diary; }
-
-        MyEnums.Area _area;
-        public MyEnums.Area area { get => _area; set => value = _area; }
-
-        string _subArea;
-        public string subArea { get => _subArea; set => value = _subArea; }
-
-        bool _pool;
-        public bool pool { get => _pool; set => value = _pool; }
-
-        int _adults;
-        public int adults { get => _adults; set => value = _adults; }
-
-        int _kids;
-        public int kids { get => _kids; set => value = _kids; }
-
-        bool _jaccuzi;
-        public bool jaccuzi { get => _jaccuzi; set => value = _jaccuzi; }
-
-        bool _garden;
-        public bool garden { get => _garden; set => value = _garden; }
-
-        bool _childrenAttractions;
-        public bool childrenAttractions { get => _childrenAttractions; set => value = _childrenAttractions; }
-
-        int _stars;
-        public int stars { get => _stars; set => value = _stars; }
+        #region Properties 
+        public long HostingUnitKey { get; set; }   
+        public Host Owner { get; set; }  
+        public string HostingUnitName { get ; set; }
+        public bool[,] Diary = new bool[12, 31];
+        public MyEnums.Area area { get; set ; }
+        public string subArea { get; set; }
+        public bool pool { get ; set ; }
+        public int adults { get; set; }
+        public int kids { get; set ; }
+        public bool jaccuzi { get ; set ; } 
+        public bool garden { get ; set ; }
+        public bool childrenAttractions { get; set; }
+        public int stars { get ; set; }
     #endregion
     public override string ToString()
 

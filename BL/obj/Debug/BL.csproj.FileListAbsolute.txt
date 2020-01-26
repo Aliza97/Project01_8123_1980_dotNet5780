@@ -11,3 +11,15 @@ C:\Users\afitouss.ACAD\Desktop\Project01_8123_1980_dotNet5780\BL\bin\Debug\DS.pd
 C:\Users\afitouss.ACAD\Desktop\Project01_8123_1980_dotNet5780\BL\obj\Debug\BL.csproj.CopyComplete
 C:\Users\afitouss.ACAD\Desktop\Project01_8123_1980_dotNet5780\BL\obj\Debug\BL.dll
 C:\Users\afitouss.ACAD\Desktop\Project01_8123_1980_dotNet5780\BL\obj\Debug\BL.pdb
+C:\Users\Avigail Fitoussi\Desktop\projet\Project01_8123_1980_dotNet5780\BL\bin\Debug\BL.dll
+C:\Users\Avigail Fitoussi\Desktop\projet\Project01_8123_1980_dotNet5780\BL\bin\Debug\BL.pdb
+C:\Users\Avigail Fitoussi\Desktop\projet\Project01_8123_1980_dotNet5780\BL\bin\Debug\BE.dll
+C:\Users\Avigail Fitoussi\Desktop\projet\Project01_8123_1980_dotNet5780\BL\bin\Debug\DAL.dll
+C:\Users\Avigail Fitoussi\Desktop\projet\Project01_8123_1980_dotNet5780\BL\bin\Debug\DS.dll
+C:\Users\Avigail Fitoussi\Desktop\projet\Project01_8123_1980_dotNet5780\BL\bin\Debug\BE.pdb
+C:\Users\Avigail Fitoussi\Desktop\projet\Project01_8123_1980_dotNet5780\BL\bin\Debug\DAL.pdb
+C:\Users\Avigail Fitoussi\Desktop\projet\Project01_8123_1980_dotNet5780\BL\bin\Debug\DS.pdb
+C:\Users\Avigail Fitoussi\Desktop\projet\Project01_8123_1980_dotNet5780\BL\obj\Debug\BL.csprojAssemblyReference.cache
+C:\Users\Avigail Fitoussi\Desktop\projet\Project01_8123_1980_dotNet5780\BL\obj\Debug\BL.csproj.CopyComplete
+C:\Users\Avigail Fitoussi\Desktop\projet\Project01_8123_1980_dotNet5780\BL\obj\Debug\BL.dll
+C:\Users\Avigail Fitoussi\Desktop\projet\Project01_8123_1980_dotNet5780\BL\obj\Debug\BL.pdb

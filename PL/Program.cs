@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using BL;
-using BE;
+//using BE;
 namespace PL
 {
     class Program
@@ -12,60 +12,99 @@ namespace PL
         static BL.IBL bl = BL.FactoryBL.GetBL();
         static void Main(string[] args)
         {
-
-            Host host1 = new Host()
+            BE.GuestRequest guest1 = new BE.GuestRequest
             {
-                HostKey = 10000367,
-                PrivateName = "Samuel",
-                FamilyName = "Cohen",
-                PhoneNumber = 0582042589,
-                MailAddress = "samcohen@gmail.com",
-                BankBranchDetails = new BankBranch { BankNumber = 0001, BankName = "leumi", BranchNumber = 335, BranchAdress = "hapisga 10", BranchCity = "jerusalem" },
-                BankAccountNumber = 31231,
-                CollectionClearance = true
-            };
-            Host host2 = new Host()
-            {
-                HostKey = 10000368,
-                PrivateName = "Dina",
-                FamilyName = "Schwartz",
-                PhoneNumber = 0584567822,
-                MailAddress = "schwartd@gmail.com",
-                BankBranchDetails = new BankBranch { BankNumber = 0001, BankName = "leumi", BranchNumber = 335, BranchAdress = "hapisga 10", BranchCity = "jerusalem" },
-                BankAccountNumber = 31421,
-                CollectionClearance = true,
-            };
+                GuestRequestKey = 20000345,
+                PrivateName = "Sarah",
+                FamilyName = "Rottenberg",
+                MailAddress = "sararott@gmail.com",
+                StatusRequest = BE.MyEnums.StatusRequest.Active,
+                RegistrationDate = new DateTime(2019, 09, 20),
+                EntryDate = new DateTime(2019, 10, 12),
+                ReleaseDate = new DateTime(2019, 10, 18),
+                Area = BE.MyEnums.Area.South,
+                SubArea = "Dead Sea",
+                Type = BE.MyEnums.Type.Zimmer,
+                Adults = 2,
+                Children = 0,
+                Pool = BE.MyEnums.Pool.Possible,
+                Jacuzzi = BE.MyEnums.Jacuzzi.Possible,
 
-            HostingUnit unit1 = new HostingUnit()
-            {
-                HostingUnitKey = 30000005,
-                Owner = host1,
-                HostingUnitName = "The house 1",
-                subArea = "Nahlaos",
-                jaccuzi = true,
-                garden = true,
-                childrenAttractions = true,
-                kids = 2,
-                area = MyEnums.Area.Jerusalem,
-                pool = true,
-                adults = 3,
             };
-
             try
             {
-                bl.AddHostingUnit(unit1);
+                bl.AddGuestRequest((BE.GuestRequest)guest1);
             }
             catch (Exception e)
             {
                 Console.WriteLine(e);
             }
 
-        HostingUnit unit2 = new HostingUnit()
-        {
+            BE.Host host1 = new BE.Host()
+            {
+                HostKey = 10000367,
+                PrivateName = "Samuel",
+                FamilyName = "Cohen",
+                PhoneNumber = 0582042589,
+                MailAddress = "samcohen@gmail.com",
+                BankBranchDetails = new BE.BankBranch { BankNumber = 0001, BankName = "leumi", BranchNumber = 335, BranchAdress = "hapisga 10", BranchCity = "jerusalem" },
+                BankAccountNumber = 31231,
+                CollectionClearance = true
+            };
+            BE.Host host2 = new BE.Host()
+            {
+                HostKey = 10000368,
+                PrivateName = "Dina",
+                FamilyName = "Schwartz",
+                PhoneNumber = 0584567822,
+                MailAddress = "schwartd@gmail.com",
+                BankBranchDetails = new BE.BankBranch { BankNumber = 0001, BankName = "leumi", BranchNumber = 335, BranchAdress = "hapisga 10", BranchCity = "jerusalem" },
+                BankAccountNumber = 31421,
+                CollectionClearance = true,
+            };
+            /*= new BE.HostingUnit()*/
+            BE.HostingUnit unit1 = new BE.HostingUnit();
+
+            unit1.HostingUnitKey = 30000005;
+            unit1.Owner = host1;
+            unit1.HostingUnitName = "The house 1";
+            unit1.subArea = "Nahlaos";
+            unit1.jaccuzi = true;
+            unit1.garden = true;
+            unit1.childrenAttractions = true;
+            unit1.kids = 2;
+            unit1.area = BE.MyEnums.Area.Jerusalem;
+            unit1.pool = true;
+            unit1.adults = 3;
+
+            try
+            {
+                //bl.AddBE.HostingUnit(new BE.HostingUnit {
+
+                //HostingUnitKey = 30000005,
+                //Owner = host1,
+                //HostingUnitName = "The house 1",
+                //subArea = "Nahlaos",
+                //jaccuzi = true,
+                //garden = true,
+                //childrenAttractions = true,
+                //kids = 2,
+                //area = BE.MyEnums.Area.Jerusalem,
+                //pool = true,
+                //adults = 3
+                //});
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine(e);
+            }
+
+        BE.HostingUnit unit2 = new BE.HostingUnit()
+        {                  //10000000
             HostingUnitKey = 30000057,
                 Owner = host2,
                 HostingUnitName = "The house 2",
-                area = MyEnums.Area.Jerusalem,
+                area = BE.MyEnums.Area.Jerusalem,
                 pool = false,
                 adults = 5,
                 jaccuzi = true,
@@ -76,14 +115,26 @@ namespace PL
 
             try
             {
-                bl.AddHostingUnit(unit2);
+                bl.AddHostingUnit(new BE.HostingUnit
+                {                  //10000000
+                    HostingUnitKey = 30000057,
+                    Owner = host2,
+                    HostingUnitName = "The house 2",
+                    area = BE.MyEnums.Area.Jerusalem,
+                    pool = false,
+                    adults = 5,
+                    jaccuzi = true,
+                    garden = true,
+                    childrenAttractions = false,
+                    kids = 1,
+                });
             }
             catch (Exception e)
             {
                 Console.WriteLine(e);
             }
 
-            HostingUnit unit3 = new HostingUnit()
+            BE.HostingUnit unit3 = new BE.HostingUnit()
             {
                 HostingUnitKey = 30000456,
                 Owner = host1,
@@ -92,7 +143,7 @@ namespace PL
                 jaccuzi = true,
                 garden = true,
                 childrenAttractions = false,
-                area = MyEnums.Area.Center,
+                area = BE.MyEnums.Area.Center,
                 pool = true,
                 adults = 6,
 
@@ -111,52 +162,26 @@ namespace PL
                 Console.WriteLine(unit);
             }
 
-            GuestRequest guest1 = new GuestRequest()
-            {
-                GuestRequestKey = 20000345,
-                PrivateName = "Sarah",
-                FamilyName = "Rottenberg",
-                MailAddress = "sararott@gmail.com",
-                StatusRequest = MyEnums.StatusRequest.Active,
-                RegistrationDate = new DateTime(2019, 09, 20),
-                EntryDate = new DateTime(2019, 10, 12),
-                ReleaseDate = new DateTime(2019, 10, 18),
-                Area = MyEnums.Area.South,
-                SubArea = "Dead Sea",
-                Type = MyEnums.Type.Zimmer,
-                Adults = 2,
-                Children = 0,
-                Pool = MyEnums.Pool.Possible,
-                Jacuzzi = MyEnums.Jacuzzi.Possible,
-
-            };
-            try
-            {
-                bl.AddGuestRequest(guest1);
-            }
-            catch (Exception e)
-            {
-                Console.WriteLine(e);
-            }
+         
 
 
 
 
-            GuestRequest guest2 = new GuestRequest()
+            BE.GuestRequest guest2 = new BE.GuestRequest()
             {
                 GuestRequestKey = 20000567,
                 PrivateName = "Stephane",
                 FamilyName = "Ross",
                 MailAddress = "stephanr@icloud.com",
-                StatusRequest = MyEnums.StatusRequest.Active,
+                StatusRequest = BE.MyEnums.StatusRequest.Active,
                 EntryDate = new DateTime(2019, 11, 15),
                 ReleaseDate = new DateTime(2019, 11, 20),
-                Area = MyEnums.Area.Center,
-                Type = MyEnums.Type.Appartment,
+                Area = BE.MyEnums.Area.Center,
+                Type = BE.MyEnums.Type.Appartment,
                 Adults = 2,
                 Children = 3,
-                Garden = MyEnums.Garden.Possible,
-                ChildrenAttractions = MyEnums.ChildrenAttractions.Possible,
+                Garden = BE.MyEnums.Garden.Possible,
+                ChildrenAttractions = BE.MyEnums.ChildrenAttractions.Possible,
             };
 
             try
@@ -170,36 +195,36 @@ namespace PL
 
 
 
-            GuestRequest guest3 = new GuestRequest()
+            BE.GuestRequest guest3 = new BE.GuestRequest()
             {
                 GuestRequestKey = 20000890,
                 PrivateName = "Esti",
                 FamilyName = "Rozen",
                 MailAddress = "estirozen@hotmail.com",
-                   StatusRequest = MyEnums.StatusRequest.Active,
+                   StatusRequest = BE.MyEnums.StatusRequest.Active,
                 RegistrationDate = new DateTime(2019, 05, 15),
                 EntryDate = new DateTime(2019, 07, 06),
                 ReleaseDate = new DateTime(2019, 07, 15),
-                Area = MyEnums.Area.North,
-                Type = MyEnums.Type.Camping,
+                Area = BE.MyEnums.Area.North,
+                Type = BE.MyEnums.Type.Camping,
                 Adults = 4,
             };
 
 
-            Order order1 = new Order()
+            BE.Order order1 = new BE.Order()
             {
                 CreateDate = new DateTime(2019, 07, 15),
                 GuestRequestKey = 20000890,
                 HostingUnitKey = 123456,
-                Status = MyEnums.Status.NotRelevent,
+                Status = BE.MyEnums.Status.NotRelevent,
             };
 
-            Order order2 = new Order()
+            BE.Order order2 = new BE.Order()
             {
                 CreateDate = new DateTime(2019, 04, 12),
                 GuestRequestKey = 20000345,
                 HostingUnitKey = 123456,
-                Status = MyEnums.Status.NotRelevent,
+                Status = BE.MyEnums.Status.NotRelevent,
             };
 
 
@@ -252,7 +277,7 @@ namespace PL
             {
                 foreach (var order in bl.GetAllOrders())
                 {
-                    bl.UpdateOrder(order, MyEnums.Status.MailHasBeenSent);
+                    bl.UpdateOrder(order, BE.MyEnums.Status.MailHasBeenSent);
                 }
             }
             catch (Exception e)
@@ -263,7 +288,7 @@ namespace PL
             {
                 foreach (var order in bl.GetAllOrders())
                 {
-                    bl.UpdateOrder(order, MyEnums.Status.Refused);
+                    bl.UpdateOrder(order, BE.MyEnums.Status.Refused);
                 }
             }
             catch (InvalidOperationException e)
@@ -274,7 +299,7 @@ namespace PL
             {
                 foreach (var order in bl.GetAllOrders())
                 {
-                    bl.UpdateOrder(order, MyEnums.Status.Accepted);
+                    bl.UpdateOrder(order, BE.MyEnums.Status.Accepted);
                 }
             }
             catch (Exception e)
@@ -322,8 +347,8 @@ namespace PL
 
             try
             {
-                foreach (var host in bl.GetAllHostingUnits())
-                    Console.WriteLine(bl.NumOfSuccessfulOrders(unit1));
+            //    foreach (var BE.Host unit1 in bl.GetAllHostingUnits())
+            //        Console.WriteLine(bl.NumOfSuccessfulOrders(unit1));
             }
             catch (Exception e)
             {

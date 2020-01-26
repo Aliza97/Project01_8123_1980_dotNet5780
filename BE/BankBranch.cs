@@ -7,20 +7,13 @@ using System.Threading.Tasks;
 namespace BE
 {
     public class BankBranch
-    {
-        int _BankNumber;
-        string _BankName;
-        int _BranchNumber;
-        string _BranchAdress;
-        string _BranchCity;
-
+    { 
         #region Properties
-        public int BankNumber { get => _BankNumber; set => value = _BankNumber; }
-        public string BankName { get => _BankName; set => value = _BankName; }
-        public int BranchNumber { get => _BranchNumber; set => value = _BranchNumber; }
-        public string BranchAdress { get => _BranchAdress; set => value = _BranchAdress; }
-        public string BranchCity { get => _BranchCity; set => value = _BranchCity; }
-
+        public int BankNumber { get; set; }
+        public string BankName { get; set; }
+        public int BranchNumber { get; set; }
+        public string BranchAdress { get ; set; }
+        public string BranchCity { get; set; }
 
         #endregion
         public override string ToString()

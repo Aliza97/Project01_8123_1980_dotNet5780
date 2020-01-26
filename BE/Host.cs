@@ -8,24 +8,15 @@ namespace BE
 {
     public class Host
     {
-        long _HostKey;
-        string _PrivateName;
-        string _FamilyName;
-        long _PhoneNumber;
-        string _MailAddress;
-        BankBranch _BankBranchDetails;
-        int _BankAccountNumber;
-        bool _CollectionClearance;
-        
         #region Properties
-        public long HostKey { get => _HostKey; set => value = _HostKey; }
-        public string PrivateName { get => _PrivateName; set => value = _PrivateName; }
-        public string FamilyName { get => _FamilyName; set => value = _FamilyName; }
-        public long PhoneNumber { get => _PhoneNumber; set => value = _PhoneNumber; }
-        public string MailAddress { get => _MailAddress; set => value = _MailAddress; }
-        public BankBranch BankBranchDetails { get => _BankBranchDetails; set => value = _BankBranchDetails; }
-        public int BankAccountNumber { get => _BankAccountNumber; set => value = _BankAccountNumber; }
-        public bool CollectionClearance { get => _CollectionClearance; set => value = _CollectionClearance; }
+        public long HostKey { get ; set ; }
+        public string PrivateName { get ; set ; }
+        public string FamilyName { get ; set ; }
+        public long PhoneNumber { get ; set; }
+        public string MailAddress { get; set; }
+        public BankBranch BankBranchDetails { get ; set; }
+        public int BankAccountNumber { get; set; }
+        public bool CollectionClearance { get ; set; }
         #endregion
         public override string ToString()
 
