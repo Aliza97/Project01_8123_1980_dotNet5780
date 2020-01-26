@@ -8,31 +8,29 @@ using BE;
 using DAL;
 
 
-
-
 namespace BL
 {
     public class BL : IBL
     {
         static Idal myDAL;
         Idal dal = DAL.FactoryDal.getDal("List");
-        #region Singleton
-        private static readonly BL instance = new BL();
-        public static BL Instance
-        {
-            get
-            {
-                return instance;
-            }
-        }
+        //   #region Singleton
+        //  private static readonly BL instance = new BL();
+        //public static BL Instance
+        //{
+        //    get
+        //    {
+        //        return instance;
+        //    }
+        //}
         static BL()
         {
             string TypeDAL = Configuration.TypeDAL;
             myDAL = FactoryDal.getDal(TypeDAL);
         }
-        private BL() { }
+        public BL() { }
 
-        #endregion
+        //  #endregion
 
         #region Dalfunctions
 
@@ -133,7 +131,7 @@ namespace BL
                 throw new Exception("this OrderKey already exists");
             DS.DataSource.orderList.Add(o);
         }
-        public void UpdateOrder(Order o)
+        public void UpdateOrder(Order o, MyEnums.Status s)
         {
             try
             {
@@ -164,7 +162,10 @@ namespace BL
                                 throw new Exception("No BankAccount Permission");
                         }
                         else
+                        {
+                            o.Status = s;
                             dal.UpdateOrder(o);
+                        }
                     }
                 }
             }

@@ -33,7 +33,7 @@ namespace PL
                 MailAddress = "schwartd@gmail.com",
                 BankBranchDetails = new BankBranch { BankNumber = 0001, BankName = "leumi", BranchNumber = 335, BranchAdress = "hapisga 10", BranchCity = "jerusalem" },
                 BankAccountNumber = 31421,
-                CollectionClearance = true
+                CollectionClearance = true,
             };
 
             HostingUnit unit1 = new HostingUnit()
@@ -184,7 +184,26 @@ namespace PL
                 Type = MyEnums.Type.Camping,
                 Adults = 4,
             };
-             try
+
+
+            Order order1 = new Order()
+            {
+                CreateDate = new DateTime(2019, 07, 15),
+                GuestRequestKey = 20000890,
+                HostingUnitKey = 123456,
+                Status = MyEnums.Status.NotRelevent,
+            };
+
+            Order order2 = new Order()
+            {
+                CreateDate = new DateTime(2019, 04, 12),
+                GuestRequestKey = 20000345,
+                HostingUnitKey = 123456,
+                Status = MyEnums.Status.NotRelevent,
+            };
+
+
+            try
             {
                 bl.AddGuestRequest(guest3);
             }
@@ -209,7 +228,7 @@ namespace PL
             }
             try
             {
-                bl.DeleteHostingUnit(unit3);
+                bl.DeleteHostingUnit(unit3.HostingUnitKey);
             }
             catch (Exception e)
             {
@@ -222,9 +241,8 @@ namespace PL
 
             try
             {
-                bl.AddOrder(guest1.GuestRequestKey, unit1.HostingUnitKey);
-                bl.AddOrder(guest1.GuestRequestKey, unit2.HostingUnitKey);
-                bl.AddOrder(guest2.GuestRequestKey, unit1.HostingUnitKey);
+                bl.AddOrder(order1);
+                bl.AddOrder(order2);
             }
             catch (Exception e)
             {
@@ -305,7 +323,7 @@ namespace PL
             try
             {
                 foreach (var host in bl.GetAllHostingUnits())
-                    Console.WriteLine(bl.NumOfSuccessfullOrders(host1));
+                    Console.WriteLine(bl.NumOfSuccessfulOrders(unit1));
             }
             catch (Exception e)
             {

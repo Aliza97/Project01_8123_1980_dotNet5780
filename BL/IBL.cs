@@ -14,8 +14,9 @@ namespace BL
         void AddHostingUnit(HostingUnit h);//Add a hosting unit
         void DeleteHostingUnit(long h);//Removing a hosting unit
         void UpdateHostingUnit(HostingUnit h);//Hosting unit update
-
+        IEnumerable<HostingUnit> GetAllHostingUnits(Func<HostingUnit, bool> predicat = null);
         HostingUnit GetHostingUnit(long HostingUnitKey);
+
         #endregion
 
         #region GuestRequest
@@ -27,7 +28,7 @@ namespace BL
 
         #region Order
         void AddOrder(Order o);//Add an invitation
-        void UpdateOrder(Order o);//Update Order Status
+        void UpdateOrder(Order o, MyEnums.Status s);//Update Order Status
         Order GetOrder(long OrderKey); // to get an order
         IEnumerable<Order> GetAllOrders(Func<Order, bool> predicat = null);
 

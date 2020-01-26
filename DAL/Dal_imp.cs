@@ -5,6 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using BE;
 using DS;
+
 namespace DAL
 {
     public class Dal_imp : Idal
@@ -37,25 +38,16 @@ namespace DAL
         {
             try
             {
-                IEnumerable<GuestRequest> listOrders = GetAllRequests();
-                foreach (GuestRequest guest in BL.guestrequestList)
-                {
-                    if (guest.GuestRequestKey != g.GuestRequestKey)
-                        throw new Exception("The request is not exist");
-                    else
-                    {
-                        guestrequestList.RemoveAll(g => g.GuestRequestKey == guest.GuestRequestKey);
-                    }
-                    guestrequestList.Add(guest);
-                }
+                GuestRequest guestRequest = GetGuestRequest(g.GuestRequestKey);
+                if (guestRequest == null)
+                    throw new Exception("Guest request not found");
+                DataSource.guestrequestList.Remove(guestRequest);
+                DataSource.guestrequestList.Add(g);
             }
             catch (Exception c)
             {
                 throw c;
             }
-
-
-
         }
 
         public IEnumerable<GuestRequest> GetAllRequests(Func<GuestRequest, bool> predicat = null)
@@ -90,7 +82,11 @@ namespace DAL
         }
         public void UpdateHostingUnit(HostingUnit h)
         {
-            return;
+            HostingUnit hostingUnit = GetHostingUnit(h.HostingUnitKey);
+            if (hostingUnit == null)
+                throw new Exception(" Hosting unit  not found!");
+            DataSource.hostingunitList.Remove(hostingUnit);
+            DataSource.hostingunitList.Add(h);
         }
         public IEnumerable<HostingUnit> GetAllHostingUnits(Func<HostingUnit, bool> predicat = null)
         {
@@ -117,7 +113,11 @@ namespace DAL
         }
         public void UpdateOrder(Order o)
         {
-            return;
+            Order order = GetOrder(o.OrderKey);
+            if (order == null)
+                throw new Exception(" Order not found!");
+            DataSource.orderList.Remove(order);
+            DataSource.orderList.Add(o);
 
         }
         public IEnumerable<Order> GetAllOrders(Func<Order, bool> predicat = null)
