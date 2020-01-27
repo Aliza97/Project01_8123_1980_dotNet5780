@@ -59,8 +59,7 @@
 
 
 
-        <ComboBox x:Name="HostingUnitKey" Grid.Row="1"  Grid.Column="0" Height="23" ItemsSource="{Binding}"  SelectedItem="{Binding id}" Width="120" Opacity="0.6" SelectionChanged="HostingUnitKey_SelectionChanged"/>
-
+        <ComboBox x:Name="HostingUnitKey" Grid.Row="1"  Grid.Column="0" Height="23" ItemsSource="{Binding}"  SelectedItem="{Binding HostingUnitKey}" Width="120" Opacity="0.6" SelectionChanged="HostingUnitKey_SelectionChanged"/>
 
         <TextBox x:Name="Owner" Grid.Row="2"  Grid.Column="0" Height="23" TextWrapping="Wrap" Text="{Binding Owner}" Width="120" Opacity="0.6"/>
         <TextBox x:Name="HostingUnitName" Grid.Row="3"  Grid.Column="0" Height="23" TextWrapping="Wrap" Text="{Binding HostingUnitName}" Width="120" Opacity="0.6"/>

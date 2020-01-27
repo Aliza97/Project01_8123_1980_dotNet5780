@@ -19,15 +19,21 @@ namespace PLWPF
     /// </summary>
     public partial class UpdateHostingUnitWindow : Window
     {
-        BL.IBL bl = BL.FactoryBL.GetBL();
+        BL.IBL bl;
+        BE.HostingUnit hosting;
+        
         public UpdateHostingUnitWindow()
         {
             InitializeComponent();
+            hosting = new BE.HostingUnit();
+            DataContext = hosting;
+            bl = BL.FactoryBL.GetBL();
             hostingUnit.ItemsSource = bl.GetAllHostingUnits();
         }
 
         private void choice_Click(object sender, RoutedEventArgs e)
         {
+            DataContext = hosting;
             Window w = new UpdateHostingUnitWindow2();
             w.Show();
         }

@@ -43,7 +43,12 @@ namespace PLWPF
             DataContext = hosting;
             hosting.adults = Int32.Parse(adults.Text.ToString());
             hosting.kids = Int32.Parse(kids.Text.ToString());
-            hosting.HostingUnitKey = GetA8digitNumber();
+            hosting.stars = Int32.Parse(stars.Text.ToString());
+            do {
+                hosting.HostingUnitKey = GetA8digitNumber(); 
+            
+            } while (bl.GetHostingUnit(hosting.HostingUnitKey) != null);
+
             if (jacuzziOption1.IsChecked == false)
                  hosting.jaccuzi =false;
             else

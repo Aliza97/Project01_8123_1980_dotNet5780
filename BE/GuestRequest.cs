@@ -20,15 +20,15 @@ namespace BE
         public DateTime RegistrationDate { get; set ; }
         public DateTime EntryDate { get ; set ; }
         public DateTime ReleaseDate { get; set ; }
-        public Enum Area { get; set /*=> value = _Area*/; }
-        public string SubArea { get /*=> _SubArea*/; set/* => value = _SubArea*/; }
-        public Enum Type { get /*=> _Type*/; set/* => value = _Type*/; }
-        public int Adults { get /*=> _Adults*/; set /*=> value = _Adults*/; }
-        public int Children { get /*=> _Children*/; set/* => value = _Children*/; }
-        public Enum Pool { get /*=> _Pool*/; set/* => value = _Pool*/; }
-        public Enum Jacuzzi { get /*=> _Jacuzzi*/; set /*=> value = _Jacuzzi*/; }
-        public Enum Garden { get /*=> _Garden*/; set /*=> value = _Garden*/; }
-        public Enum ChildrenAttractions { get/* => _ChildrenAttractions*/; set /*=> value = _ChildrenAttractions*/; }
+        public Enum Area { get; set ; }
+        public string SubArea { get ; set; }
+        public Enum Type { get ; set; }
+        public int Adults { get; set ; }
+        public int Children { get; set; }
+        public Enum Pool { get; set; }
+        public Enum Jacuzzi { get; set ; }
+        public Enum Garden { get ; set ; }
+        public Enum ChildrenAttractions { get; set; }
 
         #endregion
 

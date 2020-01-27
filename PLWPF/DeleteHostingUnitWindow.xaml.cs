@@ -27,7 +27,7 @@ namespace PLWPF
             hosting = new BE.HostingUnit();
             DataContext = hosting;
             bl = BL.FactoryBL.GetBL();
-            this.HostingUnitKey.ItemsSource = GetValues(typeof(BE.hostingunitList));
+            this.HostingUnitKey.ItemsSource = bl.GetAllHostingUnits(); //Enum.GetValues(typeof(hostingunitList));
         }
 
         private void Button_Click(object sender, RoutedEventArgs e)

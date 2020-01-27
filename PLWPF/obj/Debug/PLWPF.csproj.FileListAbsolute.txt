@@ -6,7 +6,6 @@ C:\Users\Avigail Fitoussi\Desktop\projet\Project01_8123_1980_dotNet5780\PLWPF\ob
 C:\Users\Avigail Fitoussi\Desktop\projet\Project01_8123_1980_dotNet5780\PLWPF\obj\Debug\GuestRequestWindow.g.cs
 C:\Users\Avigail Fitoussi\Desktop\projet\Project01_8123_1980_dotNet5780\PLWPF\obj\Debug\HostingUnitWindow.g.cs
 C:\Users\Avigail Fitoussi\Desktop\projet\Project01_8123_1980_dotNet5780\PLWPF\obj\Debug\MainWindow.g.cs
-C:\Users\Avigail Fitoussi\Desktop\projet\Project01_8123_1980_dotNet5780\PLWPF\obj\Debug\OrderWindow.g.cs
 C:\Users\Avigail Fitoussi\Desktop\projet\Project01_8123_1980_dotNet5780\PLWPF\obj\Debug\UpdateHostingUnitWindow.g.cs
 C:\Users\Avigail Fitoussi\Desktop\projet\Project01_8123_1980_dotNet5780\PLWPF\obj\Debug\UpdateHostingUnitWindow2.g.cs
 C:\Users\Avigail Fitoussi\Desktop\projet\Project01_8123_1980_dotNet5780\PLWPF\obj\Debug\UpdateOrderWindow.g.cs
@@ -31,7 +30,6 @@ C:\Users\Avigail Fitoussi\Desktop\projet\Project01_8123_1980_dotNet5780\PLWPF\ob
 C:\Users\Avigail Fitoussi\Desktop\projet\Project01_8123_1980_dotNet5780\PLWPF\obj\Debug\GuestRequestWindow.baml
 C:\Users\Avigail Fitoussi\Desktop\projet\Project01_8123_1980_dotNet5780\PLWPF\obj\Debug\HostingUnitWindow.baml
 C:\Users\Avigail Fitoussi\Desktop\projet\Project01_8123_1980_dotNet5780\PLWPF\obj\Debug\MainWindow.baml
-C:\Users\Avigail Fitoussi\Desktop\projet\Project01_8123_1980_dotNet5780\PLWPF\obj\Debug\OrderWindow.baml
 C:\Users\Avigail Fitoussi\Desktop\projet\Project01_8123_1980_dotNet5780\PLWPF\obj\Debug\UpdateHostingUnitWindow.baml
 C:\Users\Avigail Fitoussi\Desktop\projet\Project01_8123_1980_dotNet5780\PLWPF\obj\Debug\UpdateHostingUnitWindow2.baml
 C:\Users\Avigail Fitoussi\Desktop\projet\Project01_8123_1980_dotNet5780\PLWPF\obj\Debug\UpdateOrderWindow.baml
@@ -43,3 +41,5 @@ C:\Users\Avigail Fitoussi\Desktop\projet\Project01_8123_1980_dotNet5780\PLWPF\ob
 C:\Users\Avigail Fitoussi\Desktop\projet\Project01_8123_1980_dotNet5780\PLWPF\obj\Debug\PLWPF.pdb
 C:\Users\Avigail Fitoussi\Desktop\projet\Project01_8123_1980_dotNet5780\PLWPF\obj\Debug\privateAreaWindow.g.cs
 C:\Users\Avigail Fitoussi\Desktop\projet\Project01_8123_1980_dotNet5780\PLWPF\obj\Debug\privateAreaWindow.baml
+C:\Users\Avigail Fitoussi\Desktop\projet\Project01_8123_1980_dotNet5780\PLWPF\obj\Debug\AllHostingUnitWindow.g.cs
+C:\Users\Avigail Fitoussi\Desktop\projet\Project01_8123_1980_dotNet5780\PLWPF\obj\Debug\AllHostingUnitWindow.baml

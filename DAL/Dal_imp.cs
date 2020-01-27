@@ -88,12 +88,12 @@ namespace DAL
             DataSource.hostingunitList.Remove(hostingUnit);
             DataSource.hostingunitList.Add(h);
         }
-        public IEnumerable<HostingUnit> GetAllHostingUnits(Func<HostingUnit, bool> predicat = null)
+        public List<HostingUnit> GetAllHostingUnits(Func<HostingUnit, bool> predicat = null)
         {
 
             if (predicat == null)
-                return DS.DataSource.hostingunitList.AsEnumerable();
-            return DS.DataSource.hostingunitList.Where(predicat);
+                return DS.DataSource.hostingunitList;
+            return DS.DataSource.hostingunitList;
         }
         #endregion
         #region order

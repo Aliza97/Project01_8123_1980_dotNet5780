@@ -63,6 +63,9 @@
     <Compile Include="addOrderWindow.xaml.cs">
       <DependentUpon>addOrderWindow.xaml</DependentUpon>
     </Compile>
+    <Compile Include="AllHostingUnitWindow.xaml.cs">
+      <DependentUpon>AllHostingUnitWindow.xaml</DependentUpon>
+    </Compile>
     <Compile Include="DeleteHostingUnitWindow.xaml.cs">
       <DependentUpon>DeleteHostingUnitWindow.xaml</DependentUpon>
     </Compile>
@@ -71,9 +74,6 @@
     </Compile>
     <Compile Include="HostingUnitWindow.xaml.cs">
       <DependentUpon>HostingUnitWindow.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="OrderWindow.xaml.cs">
-      <DependentUpon>OrderWindow.xaml</DependentUpon>
     </Compile>
     <Compile Include="privateAreaWindow.xaml.cs">
       <DependentUpon>privateAreaWindow.xaml</DependentUpon>
@@ -96,6 +96,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="addOrderWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="AllHostingUnitWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -123,10 +127,6 @@
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
-    <Page Include="OrderWindow.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
     <Page Include="privateAreaWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -162,6 +162,9 @@
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
+    <None Include="Properties\DataSources\BE.GuestRequest.datasource" />
+    <None Include="Properties\DataSources\BE.HostingUnit.datasource" />
+    <None Include="Properties\DataSources\BE.Order.datasource" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>

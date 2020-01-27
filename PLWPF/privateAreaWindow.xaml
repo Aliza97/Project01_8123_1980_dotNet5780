@@ -9,11 +9,13 @@
     <Grid>
         <Image HorizontalAlignment="Left" Height="100" VerticalAlignment="Top" Width="100"/>
         <Image Source="road-trip-compressor.png" Stretch="Fill" Grid.ColumnSpan="2" Opacity="0.5"/>
-        <Button Content="עדכון יחידת אירוח" HorizontalAlignment="Left" VerticalAlignment="Top" Width="268" Margin="515,77,0,0" Height="53" FontSize="30" Click="Button_Click"/>
+        <Button Content="עדכון יחידת אירוח" HorizontalAlignment="Left" VerticalAlignment="Top" Width="268" Margin="515,77,0,0" Height="53" FontSize="30" Click="hostingunit_Click"/>
         <Button Content="הזמנות " HorizontalAlignment="Left" VerticalAlignment="Top" Width="239" Margin="271,77,0,0" Height="53" FontSize="30"/>
-        <Button Content="מחיקת יחידת אירוח" HorizontalAlignment="Left" VerticalAlignment="Top" Width="259" Margin="7,77,0,0" Height="53" FontSize="30"/>
-        <Button Content="רשימת לקוחות" HorizontalAlignment="Left" VerticalAlignment="Top" Width="89" Margin="331,144,0,0" Height="41"/>
-        <Button Content="רשימת הזמנות" HorizontalAlignment="Left" VerticalAlignment="Top" Width="89" Margin="331,209,0,0" Height="40"/>
+        <Button Content="מחיקת יחידת אירוח" HorizontalAlignment="Left" VerticalAlignment="Top" Width="259" Margin="7,77,0,0" Height="53" FontSize="30" Click="deleteHu_Click"/>
+        <Button x:Name="GuestRequestList" Content="רשימת לקוחות" HorizontalAlignment="Left" VerticalAlignment="Top" Width="89" Margin="331,144,0,0" Height="41" Click="allguestr_Click"/>
+        <Button x:Name="OrdersList"  Content="רשימת הזמנות" HorizontalAlignment="Left" VerticalAlignment="Top" Width="89" Margin="331,209,0,0" Height="40" Click="OrdersList_Click"/>
         <TextBlock HorizontalAlignment="Left" TextWrapping="Wrap" Text="" VerticalAlignment="Top" RenderTransformOrigin="2.138,8.793" Width="12"  Background="#FFE69F7F" Margin="788,0,0,0" Height="450"/>
+        <Button x:Name="AddOrder"  Content="הוסםת הזמנה" HorizontalAlignment="Left" VerticalAlignment="Top" Width="89" Margin="331,270,0,0" Height="40" Click="AddOrder_Click"/>
+        <Button x:Name="UpdateOrder"  Content="עדכון ההזמנות" HorizontalAlignment="Left" VerticalAlignment="Top" Width="89" Margin="330,335,0,0" Height="40" Click="UpdateOrder_Click"/>
     </Grid>
 </Window>

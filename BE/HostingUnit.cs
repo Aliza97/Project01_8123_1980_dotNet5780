@@ -9,6 +9,7 @@ namespace BE
     public class HostingUnit
     {
         #region Properties 
+        static int numHotingUnit = 10000000;
         public long HostingUnitKey { get; set; }   
         public Host Owner { get; set; }  
         public string HostingUnitName { get ; set; }
@@ -25,6 +26,6 @@ namespace BE
     #endregion
     public override string ToString()
 
-        { return this.ToStringProperty(); }
+        { return HostingUnitKey.ToString() + ' ' + HostingUnitName; }
     }
 }

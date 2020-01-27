@@ -15,13 +15,17 @@ using System.Windows.Shapes;
 namespace PLWPF
 {
     /// <summary>
-    /// Interaction logic for OrderWindow.xaml
+    /// Logique d'interaction pour AllHostingUnitWindow.xaml
     /// </summary>
-    public partial class OrderWindow : Window
+    public partial class AllHostingUnitWindow : Window
     {
-        public OrderWindow()
+        BL.IBL bl = BL.FactoryBL.GetBL();
+            public AllHostingUnitWindow()
         {
             InitializeComponent();
+            DataContext = bl.GetAllHostingUnits();
         }
+
+     
     }
 }

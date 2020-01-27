@@ -58,12 +58,5 @@ namespace PLWPF
             { MessageBox.Show(ex.Message, "הודעת שגיאה", MessageBoxButton.OK, MessageBoxImage.Warning); }
         }        
 
-      
-      
-     
-        //private void InitializeComponent()
-        //{
-        //    throw new NotImplementedException();
-        //}
     }
 }

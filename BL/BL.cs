@@ -54,7 +54,7 @@ namespace BL
             g.StatusRequest = MyEnums.StatusRequest.Active;
             g.RegistrationDate = DateTime.Now;
 
-            DS.DataSource.guestrequestList.Add(g);
+            dal.AddGuestRequest(g);
         }
         public void UpdateGuestRequest(GuestRequest g)
         {
@@ -71,9 +71,7 @@ namespace BL
 
         public IEnumerable<GuestRequest> GetAllRequests(Func<GuestRequest, bool> predicat = null)
         {
-            if (predicat == null)
-                return DS.DataSource.guestrequestList.AsEnumerable();
-            return DS.DataSource.guestrequestList.Where(predicat);
+            return dal.GetAllRequests(predicat);
         }
 
 
@@ -86,17 +84,34 @@ namespace BL
         {
             if (h.HostingUnitKey < 10000000 || h.HostingUnitKey > 99999999)
                 throw new Exception("this HostingUnitKey isn't correct");
+
             HostingUnit help = GetHostingUnit(h.HostingUnitKey);
+
             if (help != null)
                 throw new Exception("this HostingUnitKey already exists");
-            DS.DataSource.hostingunitList.Add(h);
+            dal.AddHostingUnit(h);
         }
         public void DeleteHostingUnit(long HostingUnitKey)
         {
             HostingUnit help = GetHostingUnit(HostingUnitKey);
             if (help == null)
                 throw new Exception("this id doesn't exist");
-            dal.Remove(help);
+
+            IEnumerable<Order> openOrders = GetAllOrders(x => x.HostingUnitKey == HostingUnitKey
+                                                    && (MyEnums.Status)x.Status == MyEnums.Status.Active);
+            foreach( Order order in openOrders)
+            {
+                SentMail(order, "Sorry your hosting Unit canceled");
+                
+                UpdateOrder(order, MyEnums.Status.CanceledByOwner);
+
+                GuestRequest request = GetGuestRequest(order.GuestRequestKey);
+                request.StatusRequest = MyEnums.Status.CanceledByOwner;
+                UpdateGuestRequest(request);
+            }
+
+            //  if (HostingUnitKey.Order+== MyEnums.Status.Closed)
+            dal.DeleteHostingUnit(HostingUnitKey);
         }
         public void UpdateHostingUnit(HostingUnit h)
         {
@@ -109,12 +124,9 @@ namespace BL
                 throw new Exception(e.Message);
             }
         }
-        public IEnumerable<HostingUnit> GetAllHostingUnits(Func<HostingUnit, bool> predicat = null)
+        public List<HostingUnit> GetAllHostingUnits(Func<HostingUnit, bool> predicat = null)
         {
-
-            if (predicat == null)
-                return DS.DataSource.hostingunitList.AsEnumerable();
-            return DS.DataSource.hostingunitList.Where(predicat);
+            return dal.GetAllHostingUnits(predicat);
         }
         #endregion
         #region order
@@ -130,64 +142,81 @@ namespace BL
             Order help = GetOrder(o.OrderKey);
             if (help != null)
                 throw new Exception("this OrderKey already exists");
-            DS.DataSource.orderList.Add(o);
+            dal.AddOrder(o);
         }
         public void UpdateOrder(Order o, MyEnums.Status s)
         {
             try
             {
+                if (!AfterCloseStatus(o))
+                    throw new Exception("Already Closed ! : you cant update the Status");
 
-
-                if (AfterCloseStatus(o) == true)
+                if (s == MyEnums.Status.Closed)
                 {
-                    if ((MyEnums.Status)o.Status == MyEnums.Status.Closed)
-                    {
-                        dal.UpdateOrder(o);
-                        UpdateDiary(o);
-                        IfChangeStatus(o);
-                        ChangesAfterCloseTransaction(o);
-
-                    }
-                    else
-                    {
-                        if ((MyEnums.Status)o.Status == MyEnums.Status.MailHasBeenSent)
-                        {
-                            IEnumerable<HostingUnit> h = GetAllHostingUnits(x => o.HostingUnitKey == x.HostingUnitKey);
-                            HostingUnit u = h.FirstOrDefault((x => o.HostingUnitKey == x.HostingUnitKey));//Y a pas Find ds les Enumerable
-                            if (PermissionBankIsInUse(u.Owner) == true)
-                            {
-                                dal.UpdateOrder(o);
-                                SentMail(o);
-                            }
-                            else
-                                throw new Exception("No BankAccount Permission");
-                        }
-                        else
-                        {
-                            o.Status = s;
-                            dal.UpdateOrder(o);
-                        }
-                    }
+                    UpdateDiary(o);
                 }
+                else if (s == MyEnums.Status.MailHasBeenSent)
+                {
+                    HostingUnit myHostingUnit = GetHostingUnit(o.HostingUnitKey);
+
+                    if (!PermissionBankIsInUse(myHostingUnit.Owner))
+                        throw new Exception("No BankAccount Permission");
+
+                    SentMail(o, "Your Request accept with success");
+                }
+                dal.UpdateOrder(o);
             }
 
-            catch (Exception e)
-            {
-                throw new Exception(e.Message);
-            }
+
+            //if (AfterCloseStatus(o) == true)
+            //{
+            //    if (/*(MyEnums.Status)o.Status*/s == MyEnums.Status.Closed)
+            //    {
+            //        dal.UpdateOrder(o);
+            //        UpdateDiary(o);
+            //        IfChangeStatus(o); // si je veux qnnuler lq reservqtion
+            //        ChangesAfterCloseTransaction(o); /// ? transaction change because qqch
+
+            //    }
+            //    else
+            //    {
+            //        if ((MyEnums.Status)o.Status == MyEnums.Status.MailHasBeenSent)
+            //        {
+            //           // IEnumerable<HostingUnit> h = GetAllHostingUnits(x => o.HostingUnitKey == x.HostingUnitKey);
+            //            // h = lappart
+
+            //           // HostingUnit u = h.FirstOrDefault((x => o.HostingUnitKey == x.HostingUnitKey));//Y a pas Find ds les Enumerable
+
+
+            //            HostingUnit myHostingUnit = GetHostingUnit(o.HostingUnitKey);
+
+            //            if (PermissionBankIsInUse(myHostingUnit.Owner) == true)
+            //            {
+            //                dal.UpdateOrder(o);
+            //                SentMail(o);
+            //            }
+            //            else
+            //                throw new Exception("No BankAccount Permission");
+            //        }
+            //        else
+            //        {
+            //            o.Status = s;
+            //            dal.UpdateOrder(o);
+            //        }
+            //    }
+            //}
+            //}
+
+            catch (Exception e) { throw new Exception(e.Message); }
         }
         public IEnumerable<Order> GetAllOrders(Func<Order, bool> predicat = null)
         {
-            if (predicat == null)
-                return DS.DataSource.orderList.AsEnumerable();
-            return DS.DataSource.orderList.Where(predicat);
+            return dal.GetAllOrders(predicat);
         }
         #endregion
         public IEnumerable<BankBranch> GetAllBanks(Func<BankBranch, bool> predicat = null)
         {
-            if (predicat == null)
-                return DS.DataSource.bankbranchesList.AsEnumerable();
-            return DS.DataSource.bankbranchesList.Where(predicat);
+            return dal.GetAllBanks(predicat);
 
         }
         #endregion
@@ -260,7 +289,9 @@ namespace BL
         public void ChangesAfterCloseTransaction(Order o)
         {
             GuestRequest GuestRequest = GetGuestRequest(o.GuestRequestKey);
+
             GuestRequest.StatusRequest = MyEnums.Status.TransactionClosedThroughTheSite;
+            
             Order ordersforequest = GetOrder(o.GuestRequestKey);
 
             if ((MyEnums.Status)ordersforequest.Status != MyEnums.Status.Closed)
@@ -280,6 +311,14 @@ namespace BL
             }
 
         }
+        public bool HUhasOpenOrder(HostingUnit h)
+        {
+
+            //List<Order> openOrders = GetAllOrders(x => x.HostingUnitKey == h.HostingUnitKey && x.MyEnums.Status == MyEnums.Status.Active);
+            //if (openOrders.Count != 0)
+            //    throw new Exception("the Hosting unit has open orders");
+            return false;
+        }
         public bool PermissionBankIsInUse(Host host)
         {
             IEnumerable<Order> openOrders = GetAllOrders(x => (MyEnums.Status)x.Status == MyEnums.Status.TransactionOpen);
@@ -297,7 +336,10 @@ namespace BL
             throw new NotImplementedException();
         }
 
-        public void SentMail(Order o) { Console.WriteLine("an email has been sent"); }
+        public void SentMail(Order o, string str) {
+            //envoyer un mail ac le str a ladresse mail du lakoah
+            Console.WriteLine("an email has been sent"); 
+        }
         #endregion
 
         #region PrintFunc

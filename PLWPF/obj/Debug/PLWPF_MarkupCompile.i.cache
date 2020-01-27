@@ -10,11 +10,11 @@ none
 false
 DEBUG;TRACE
 C:\Users\Avigail Fitoussi\Desktop\projet\Project01_8123_1980_dotNet5780\PLWPF\App.xaml
-12-57559835
+121872334681
 
-17-1195008764
+171103854213
 15-1182600748
-addGuestRequestWindow.xaml;addHostingUnitWindow.xaml;addOrderWindow.xaml;DeleteHostingUnitWindow.xaml;GuestRequestWindow.xaml;HostingUnitWindow.xaml;MainWindow.xaml;OrderWindow.xaml;privateAreaWindow.xaml;UpdateHostingUnitWindow.xaml;UpdateHostingUnitWindow2.xaml;UpdateOrderWindow.xaml;
+addGuestRequestWindow.xaml;addHostingUnitWindow.xaml;addOrderWindow.xaml;AllHostingUnitWindow.xaml;DeleteHostingUnitWindow.xaml;GuestRequestWindow.xaml;HostingUnitWindow.xaml;MainWindow.xaml;privateAreaWindow.xaml;UpdateHostingUnitWindow.xaml;UpdateHostingUnitWindow2.xaml;UpdateOrderWindow.xaml;
 
-True
+False
 

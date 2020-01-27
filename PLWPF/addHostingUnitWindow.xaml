@@ -41,8 +41,7 @@
             </Image.RenderTransform>
         </Image>
 
-        <Label Content="הוספת יחידת אירוח" HorizontalContentAlignment="Right" HorizontalAlignment="Center" VerticalAlignment="Top" FontSize="20" FontFamily="Lucida Calligraphy" FontWeight="Bold" Margin="255,0,298,0" Grid.ColumnSpan="2" Width="247" />
-        <Label  Content="מספר יחידת אירוח" HorizontalContentAlignment="Right" Grid.Column="1" Grid.Row="1" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="15" FontFamily="Lucida Calligraphy" FontWeight="Bold" Margin="88,0,152,0" Width="160"/>
+        <Label Content="הוספת יחידת אירוח" HorizontalContentAlignment="Right" HorizontalAlignment="Center" VerticalAlignment="Top" FontSize="20" FontFamily="Lucida Calligraphy" FontWeight="Bold" Margin="253,-5,292,0" Grid.ColumnSpan="2" Width="247" />
         <Label  Content="שם בעל יחידה" HorizontalContentAlignment="Right" Grid.Column="1" Grid.Row="2" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="15" FontFamily="Lucida Calligraphy" FontWeight="Bold" Margin="108,0,152,0" Width="140"/>
         <Label  Content="שם יחידת אירוח"  HorizontalContentAlignment="Right" Grid.Column="1" Grid.Row="3" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="15" FontFamily="Lucida Calligraphy" FontWeight="Bold" Margin="126,0,152,0" Width="122"/>
         <Label  Content="יומן" HorizontalContentAlignment="Right" Grid.Column="1" Grid.Row="4" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="15" FontFamily="Lucida Calligraphy" FontWeight="Bold" Margin="181,0,150,0" Width="65"/>
@@ -57,8 +56,6 @@
         <Label Content="כוכבים" HorizontalContentAlignment="Right" Grid.Column="1"  Grid.Row="13" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="15" FontFamily="Lucida Calligraphy" FontWeight="Bold" Margin="124,0,150,0" Width="122"/>
 
 
-
-        <TextBox x:Name="HostingUnitKey" Grid.Row="1"  Grid.Column="0" Height="23" TextWrapping="Wrap" Text="{Binding HostingUnitKey}" Width="120" Opacity="0.6"/>
         <TextBox x:Name="Owner" Grid.Row="2"  Grid.Column="0" Height="23" TextWrapping="Wrap" Text="{Binding Owner}" Width="120" Opacity="0.6"/>
         <TextBox x:Name="HostingUnitName" Grid.Row="3"  Grid.Column="0" Height="23" TextWrapping="Wrap" Text="{Binding HostingUnitName}" Width="120" Opacity="0.6"/>
         <DatePicker x:Name="Diary"  Grid.Column="0" HorizontalAlignment="Center"  Grid.Row="4" VerticalAlignment="Center" Width="120"  Opacity="0.6" SelectedDate="{Binding Diary}"/>
@@ -91,12 +88,19 @@
                 <RadioButton Name="poolOption2" GroupName="radioPool" Content="עם" Margin="0,0,0,0"   />
             </StackPanel>
         </GroupBox>
-        <Button Content="הוספה" HorizontalAlignment="Center" Grid.Row="14"  VerticalAlignment="Center" Width="144" Grid.ColumnSpan="2" Height="30" FontWeight="Bold" FontSize="20" Opacity="0.6"  Margin="326,0,330,0" Click="Button_Click"/>
+        <Button Content="הוספה"  HorizontalAlignment="Center" Grid.Row="13"  VerticalAlignment="Center" Width="144" Grid.ColumnSpan="2" Height="30" FontWeight="Bold" FontSize="20"   Margin="325,21,323,5" Click="Button_Click" Grid.RowSpan="2"/>
         <TextBlock HorizontalAlignment="Left" TextWrapping="Wrap" Text="" VerticalAlignment="Top" RenderTransformOrigin="2.138,8.793" Width="12" Background="#FFE69F7F" Margin="788,0,0,0" Height="450"/>
 
 
         <Button Content="prev" HorizontalAlignment="Left" VerticalAlignment="Top" Width="40" />
-        <TextBox x:Name="stars" HorizontalAlignment="Left" Height="23" TextWrapping="Wrap" Text="{Binding stars}" VerticalAlignment="Bottom" Width="55" Margin="280,0,0,2" Grid.Row="13"/>
+        <TextBox x:Name="stars" HorizontalAlignment="Left" Height="23" TextWrapping="Wrap" Text="{Binding stars}" VerticalAlignment="Bottom" Width="55" Margin="240,0,0,4" Grid.Row="13"/>
 
     </Grid>
+    
+    
+    
+    
+    
+    
+    
 </Window>

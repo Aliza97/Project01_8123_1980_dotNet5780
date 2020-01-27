@@ -1,16 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows;
-using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Shapes;
+﻿using System.Windows;
 
 namespace PLWPF
 {
@@ -19,15 +7,72 @@ namespace PLWPF
     /// </summary>
     public partial class privateAreaWindow : Window
     {
+        BL.IBL bl;
+        //BE.GuestRequest myguestRequest;
         public privateAreaWindow()
         {
             InitializeComponent();
+            bl = BL.FactoryBL.GetBL();
+            //myguestRequest = new BE.GuestRequest();
+            //DataContext = myguestRequest;
+
+            //AddOrder.Visibility = Visibility.Hidden;
+            //UpdateOrder.Visibility = Visibility.Hidden;
+            //OrdersList.Visibility = Visibility.Hidden;
+            //GuestRequestList.Visibility = Visibility.Hidden;
         }
 
-        private void Button_Click(object sender, RoutedEventArgs e)
+        private void hostingunit_Click(object sender, RoutedEventArgs e)
         {
             Window w = new UpdateHostingUnitWindow2();
             w.Show();
         }
+
+        private void deleteHu_Click(object sender, RoutedEventArgs e)
+        {
+            Window w = new DeleteHostingUnitWindow();
+            w.Show();
+        }
+
+        private void allguestr_Click(object sender, RoutedEventArgs e)
+        {
+
+
+
+
+            //    IEnumerable<BE.GuestRequest> guestrequests = bl.GetAllRequests();
+            //    foreach (BE.GuestRequest myguestRequest in guestrequests)
+            //    {
+            //        this. .Content += guestrequests.ToString();
+            //        this.Content += "*********************\n";
+            //    }
+
+            //}
+            //catch (Exception ex)
+            //{
+            //    MessageBox.Show(ex.Message);
+            //}
+
+        }
+
+        private void AddOrder_Click(object sender, RoutedEventArgs e)
+        {
+            Window w = new addOrderWindow();
+            w.Show();
+        }
+
+        private void UpdateOrder_Click(object sender, RoutedEventArgs e)
+        {
+            Window w = new UpdateOrderWindow();
+            w.Show();
+        }
+
+        private void OrdersList_Click(object sender, RoutedEventArgs e)
+        {
+            Window w = new AllHostingUnitWindow();
+            w.Show();
+            
+        }
     }
-}
+    }
+

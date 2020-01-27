@@ -14,7 +14,7 @@ namespace BL
         void AddHostingUnit(HostingUnit h);//Add a hosting unit
         void DeleteHostingUnit(long h);//Removing a hosting unit
         void UpdateHostingUnit(HostingUnit h);//Hosting unit update
-        IEnumerable<HostingUnit> GetAllHostingUnits(Func<HostingUnit, bool> predicat = null);
+        List<HostingUnit> GetAllHostingUnits(Func<HostingUnit, bool> predicat = null);
         HostingUnit GetHostingUnit(long HostingUnitKey);
 
         #endregion
@@ -45,8 +45,9 @@ namespace BL
         void UpdateDiary(Order o); // if the status changes, update the diary
         void ChangesAfterCloseTransaction(Order o); // if the status changes, change status guestrequest and all other status of client
         bool HUisInUse(Order o);// check if in use in case we want to erase hostingunit
+        bool HUhasOpenOrder(HostingUnit h); // check if the hosting has an open order
         bool PermissionBankIsInUse(Host host); // doesnt allow to revoke bank prelvment if in use
-        void SentMail(Order o); // when the status is on sentmail, send an email to the client with details
+        void SentMail(Order o, string s); // when the status is on sentmail, send an email to the client with details
         #endregion
 
         #region PrintFunc
