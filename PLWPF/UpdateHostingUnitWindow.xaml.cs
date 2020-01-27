@@ -25,5 +25,11 @@ namespace PLWPF
             InitializeComponent();
             hostingUnit.ItemsSource = bl.GetAllHostingUnits();
         }
+
+        private void choice_Click(object sender, RoutedEventArgs e)
+        {
+            Window w = new UpdateHostingUnitWindow2();
+            w.Show();
+        }
     }
 }

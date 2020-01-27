@@ -30,7 +30,7 @@
         </Grid.ColumnDefinitions>
 
         <Image HorizontalAlignment="Left" Height="100" VerticalAlignment="Top" Width="100"/>
-        <Image Source="road-trip-compressor.png" Grid.Row="0" Grid.RowSpan="15" Grid.ColumnSpan="4" Opacity="0.5" Stretch="Fill" RenderTransformOrigin="0.5,0.5" Margin="0,3,-4,-3" >
+        <Image Source="road-trip-compressor.png" Grid.Row="0" Grid.RowSpan="15" Grid.ColumnSpan="2" Opacity="0.5" Stretch="Fill" RenderTransformOrigin="0.5,0.5" Margin="-1,0,-3,0" >
             <Image.RenderTransform>
                 <TransformGroup>
                     <ScaleTransform/>
@@ -64,8 +64,8 @@
         <DatePicker x:Name="Diary"  Grid.Column="0" HorizontalAlignment="Center"  Grid.Row="4" VerticalAlignment="Center" Width="120"  Opacity="0.6" SelectedDate="{Binding Diary}"/>
         <ComboBox x:Name="Area" ItemsSource="{Binding}" SelectedItem="{Binding area}" Grid.Row="5" Grid.Column="0" Width="120" VerticalAlignment="Center" Margin="138,4" Opacity="0.6"/>
         <TextBox x:Name="subArea" Grid.Row="6" Grid.Column="0" Width="120" Text="{Binding subArea}" VerticalAlignment="Center" Margin="138,4" Opacity="0.6"/>
-        
-            <TextBox x:Name="adults" Grid.Row="8"  Grid.Column="0" Height="23" TextWrapping="Wrap" Text="{Binding adults}" Width="120" Opacity="0.6"/>
+
+        <TextBox x:Name="adults" Grid.Row="8"  Grid.Column="0" Height="23" TextWrapping="Wrap" Text="{Binding adults}" Width="120" Opacity="0.6"/>
         <TextBox x:Name="kids" Grid.Row="9"  Grid.Column="0" Height="23" TextWrapping="Wrap" Text="{Binding kids}" Width="120" Opacity="0.6"/>
         <GroupBox Name="radioJaccuzi" Grid.Row="10">
             <StackPanel Margin="289,-3,-289,-7" >
@@ -96,6 +96,7 @@
 
 
         <Button Content="prev" HorizontalAlignment="Left" VerticalAlignment="Top" Width="40" />
+        <TextBox x:Name="stars" HorizontalAlignment="Left" Height="23" TextWrapping="Wrap" Text="{Binding stars}" VerticalAlignment="Bottom" Width="55" Margin="280,0,0,2" Grid.Row="13"/>
 
     </Grid>
 </Window>

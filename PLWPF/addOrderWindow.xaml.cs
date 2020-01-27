@@ -19,9 +19,31 @@ namespace PLWPF
     /// </summary>
     public partial class addOrderWindow : Window
     {
+        BL.IBL bl;
+        BE.Order myOrder;
         public addOrderWindow()
         {
             InitializeComponent();
+            myOrder = new BE.Order();
+            bl = BL.FactoryBL.GetBL();
+            DataContext = myOrder;
+            this.Status.ItemsSource = Enum.GetValues(typeof(BE.MyEnums.Status));
+        }
+
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+            DataContext = myOrder;
+            
+            try
+            {
+                bl.AddOrder(myOrder);
+                MessageBox.Show(" הזמנתך התקבלה", "הצלחה", MessageBoxButton.OK, MessageBoxImage.Information);
+                //this.Close();
+            }
+            catch (Exception ex)
+            { MessageBox.Show(ex.Message, "הודעת שגיאה", MessageBoxButton.OK, MessageBoxImage.Warning); }
         }
     }
+    }
+
 }

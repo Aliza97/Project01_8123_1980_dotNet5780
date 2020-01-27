@@ -96,7 +96,7 @@ namespace BL
             HostingUnit help = GetHostingUnit(HostingUnitKey);
             if (help == null)
                 throw new Exception("this id doesn't exist");
-            DS.DataSource.hostingunitList.Remove(help);
+            dal.Remove(help);
         }
         public void UpdateHostingUnit(HostingUnit h)
         {

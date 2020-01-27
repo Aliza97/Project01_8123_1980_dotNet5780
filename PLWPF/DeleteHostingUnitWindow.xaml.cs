@@ -17,11 +17,31 @@ namespace PLWPF
     /// <summary>
     /// Logique d'interaction pour DeleteHostingWindow.xaml
     /// </summary>
-    public partial class DeleteHostingWindow : Window
+    public partial class DeleteHostingUnitWindow : Window
     {
-        public DeleteHostingWindow()
+        BL.IBL bl;
+        BE.HostingUnit hosting;
+        public DeleteHostingUnitWindow()
         {
             InitializeComponent();
+            hosting = new BE.HostingUnit();
+            DataContext = hosting;
+            bl = BL.FactoryBL.GetBL();
+            this.HostingUnitKey.ItemsSource = GetValues(typeof(BE.hostingunitList));
         }
+
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+            DataContext = hosting;
+            try
+            {
+                bl.DeleteHostingUnit(hosting.HostingUnitKey);
+                MessageBox.Show("הזמנתך נמחקה", "הצלחה", MessageBoxButton.OK, MessageBoxImage.Information);
+                //this.Close();
+            }
+            catch (Exception ex)
+            { MessageBox.Show(ex.Message, "הודעת שגיאה", MessageBoxButton.OK, MessageBoxImage.Warning); }
+       
+    }
     }
 }

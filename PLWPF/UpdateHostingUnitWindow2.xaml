@@ -41,7 +41,7 @@
             </Image.RenderTransform>
         </Image>
 
-        <Label Content="הוספת יחידת אירוח" HorizontalContentAlignment="Right" HorizontalAlignment="Center" VerticalAlignment="Top" FontSize="20" FontFamily="Lucida Calligraphy" FontWeight="Bold" Margin="255,0,298,0" Grid.ColumnSpan="2" Width="247" />
+        <Label Content="עדכון יחידת אירוח" HorizontalContentAlignment="Right" HorizontalAlignment="Center" VerticalAlignment="Top" FontSize="20" FontFamily="Lucida Calligraphy" FontWeight="Bold" Margin="230,0,302,0" Grid.ColumnSpan="2" Width="260" Height="40" Grid.RowSpan="2" />
         <Label  Content="מספר יחידת אירוח" HorizontalContentAlignment="Right" Grid.Column="1" Grid.Row="1" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="15" FontFamily="Lucida Calligraphy" FontWeight="Bold" Margin="88,0,152,0" Width="160"/>
         <Label  Content="שם בעל יחידה" HorizontalContentAlignment="Right" Grid.Column="1" Grid.Row="2" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="15" FontFamily="Lucida Calligraphy" FontWeight="Bold" Margin="108,0,152,0" Width="140"/>
         <Label  Content="שם יחידת אירוח"  HorizontalContentAlignment="Right" Grid.Column="1" Grid.Row="3" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="15" FontFamily="Lucida Calligraphy" FontWeight="Bold" Margin="126,0,152,0" Width="122"/>
@@ -72,35 +72,34 @@
         <TextBox x:Name="kids" Grid.Row="9"  Grid.Column="0" Height="23" TextWrapping="Wrap" Text="{Binding kids}" Width="120" Opacity="0.6"/>
         <GroupBox Name="radioJaccuzi" Grid.Row="10">
             <StackPanel Margin="289,-3,-289,-7" >
-                <RadioButton Name="jacuzziOption1" GroupName="radioJaccuzi" Content="בלי" Margin="0,0,0,0"/>
-                <RadioButton Name="jacuzziOption2" GroupName="radioJaccuzi" Content="עם" Margin="0,0,346,0"   />
+                <RadioButton Name="jacuzziOption1" GroupName="radioJaccuzi" Content="בלי" Margin="-140,0,0,0" Height="12"/>
+                <RadioButton Name="jacuzziOption2" GroupName="radioJaccuzi" Content="עם" Margin="-140,0,346,0" RenderTransformOrigin="-0.263,0.667"   />
             </StackPanel>
         </GroupBox>
         <GroupBox Name="radioGarden" Grid.Row="11">
             <StackPanel Margin="289,-3,-289,-7" >
-                <RadioButton Name="gardenOption1" GroupName="radioGarden" Content="בלי" Margin="0,0,0,0"/>
-                <RadioButton Name="gardenOption2" GroupName="radioGarden" Content="עם" Margin="0,0,0,0"   />
+                <RadioButton Name="gardenOption1" GroupName="radioGarden" Content="בלי" Margin="-140,0,0,0" Height="14"/>
+                <RadioButton Name="gardenOption2" GroupName="radioGarden" Content="עם" Margin="-140,0,0,0" Height="14"   />
             </StackPanel>
         </GroupBox>
         <GroupBox Name="radioAttraction" Grid.Row="12">
             <StackPanel Margin="289,-3,-289,-7" >
-                <RadioButton Name="attractionOption1" GroupName="radioAttraction" Content="בלי" Margin="0,0,0,0"/>
-                <RadioButton Name="attractionOption2" GroupName="radioAttraction" Content="עם" Margin="0,0,0,0"   />
+                <RadioButton Name="attractionOption1" GroupName="radioAttraction" Content="בלי" Margin="-140,0,0,0" Height="11"/>
+                <RadioButton x:Name="attractionOption2" GroupName="radioAttraction" Content="עם" Margin="-140,0,0,0" Height="16"   />
             </StackPanel>
         </GroupBox>
         <GroupBox Name="radioPool" Grid.Row="7">
             <StackPanel Margin="289,-3,-289,-7" >
-                <RadioButton Name="poolOption1" GroupName="radioPool" Content="בלי" Margin="0,0,0,0"/>
-                <RadioButton Name="poolOption2" GroupName="radioPool" Content="עם" Margin="0,0,0,0"   />
+                <RadioButton x:Name="poolOption1" GroupName="radioPool" Content="בלי" Margin="-140,0,0,0" Height="16"/>
+                <RadioButton x:Name="poolOption2" GroupName="radioPool" Content="עם" Margin="-140,0,0,0" Height="15"   />
             </StackPanel>
         </GroupBox>
-        <Button Content="הוספה" HorizontalAlignment="Center" Grid.Row="14"  VerticalAlignment="Center" Width="144" Grid.ColumnSpan="2" Height="30" FontWeight="Bold" FontSize="20" Opacity="0.6"  Margin="326,0,330,0" Click="Button_Click"/>
+        <Button Content="עדכון" HorizontalAlignment="Center" Grid.Row="14"  VerticalAlignment="Center" Width="144" Grid.ColumnSpan="2" Height="30" FontWeight="Bold" FontSize="20" Opacity="0.6"  Margin="326,0,330,0" Click="Button_Click"/>
         <TextBlock HorizontalAlignment="Left" TextWrapping="Wrap" Text="" VerticalAlignment="Top" RenderTransformOrigin="2.138,8.793" Width="12" Background="#FFE69F7F" Margin="788,0,0,0" Height="450"/>
 
 
         <Button Content="prev" HorizontalAlignment="Left" VerticalAlignment="Top" Width="40" />
+        <TextBox x:Name="stars" HorizontalAlignment="Left" Height="23" TextWrapping="Wrap" Text="{Binding stars}"  VerticalAlignment="Top" Width="45" Margin="150,3,0,0" Grid.Row="13" RenderTransformOrigin="0.667,1.739"/>
 
-
-        
     </Grid>
 </Window>

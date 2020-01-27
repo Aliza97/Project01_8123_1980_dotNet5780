@@ -24,6 +24,22 @@ namespace PLWPF
             InitializeComponent();
         }
 
-        
+        private void add_Click(object sender, RoutedEventArgs e)
+        {
+            Window w = new addHostingUnitWindow();
+            w.Show();
+        }
+
+        private void delete_Click(object sender, RoutedEventArgs e)
+        {
+            Window w = new DeleteHostingUnitWindow();
+            w.Show();
+        }
+
+        private void update_Click(object sender, RoutedEventArgs e)
+        {
+            Window w = new UpdateHostingUnitWindow();
+            w.Show();
+        }
     }
 }

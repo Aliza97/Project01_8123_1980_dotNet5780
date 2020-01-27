@@ -24,6 +24,7 @@
         <Button Content="Enter" HorizontalAlignment="Left" VerticalAlignment="Top" Width="75"  Margin="112,143,0,0"/>
         <Label Content="בחרו איזה יחידת אירוח אתם מעונינים לעדכן" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="152,210,0,0" Width="568" Height="44" FontSize="25" FontFamily="Segoe UI Black"/>
         <ComboBox x:Name="hostingUnit" ItemsSource="{Binding}" SelectedItem="{Binding hostingUnit}" HorizontalAlignment="Left" VerticalAlignment="Top" Width="199" Margin="287,280,0,0" Height="38"/>
+        <Button Content="בחרו" HorizontalAlignment="Left" VerticalAlignment="Top" Width="100" Margin="340,355,0,0" FontSize="25" Height="40" Click="choice_Click"/>
 
 
     </Grid>
