@@ -29,6 +29,7 @@ namespace PLWPF
         {
             Window w = new addGuestRequestWindow();
             w.Show();
+            this.Close();
         }
     }
 }

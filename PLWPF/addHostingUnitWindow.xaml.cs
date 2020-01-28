@@ -61,7 +61,7 @@ namespace PLWPF
 
 
             hosting.HostingUnitName = HostingUnitName.Text;
-                //hosting.Owner = Owner.Text;
+            //hosting.Owner.FamilyName = Owner.Text;
             hosting.subArea = subArea.Text;
 
 

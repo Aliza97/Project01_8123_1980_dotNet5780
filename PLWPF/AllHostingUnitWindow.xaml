@@ -15,19 +15,19 @@
         <Image Source="road-trip-compressor.png" Grid.Row="0" Grid.RowSpan="15" Grid.ColumnSpan="2" Opacity="0.5" Margin="0,0,0,0.2" Stretch="Fill" />
 
 
-        <DataGrid x:Name="hostingUnitDataGrid" RowDetailsVisibilityMode="VisibleWhenSelected" Margin="42,82,22,178" ItemsSource="{Binding}" EnableRowVirtualization="True" AutoGenerateColumns="False">
+        <DataGrid x:Name="hostingUnitDataGrid" RowDetailsVisibilityMode="VisibleWhenSelected" Margin="20,82,0,178" ItemsSource="{Binding}" EnableRowVirtualization="True" AutoGenerateColumns="False">
             <DataGrid.Columns>
                 <DataGridTextColumn x:Name="adultsColumn" Width="SizeToHeader" Header="adults" Binding="{Binding adults}"/>
-                <DataGridTextColumn x:Name="areaColumn" Width="SizeToHeader" Header="area" Binding="{Binding area}"/>
+                <DataGridTextColumn x:Name="areaColumn" Width="90" Header="area" Binding="{Binding area}"/>
                 <DataGridCheckBoxColumn x:Name="childrenAttractionsColumn" Width="SizeToHeader" Header="children Attractions" Binding="{Binding childrenAttractions}"/>
                 <DataGridCheckBoxColumn x:Name="gardenColumn" Width="SizeToHeader" Header="garden" Binding="{Binding garden}"/>
-                <DataGridTextColumn x:Name="hostingUnitKeyColumn" Width="SizeToHeader" Header="Hosting Unit Key" Binding="{Binding HostingUnitKey}"/>
-                <DataGridTextColumn x:Name="hostingUnitNameColumn" Width="SizeToHeader" Header="Hosting Unit Name" Binding="{Binding HostingUnitName}"/>
+                <DataGridTextColumn x:Name="hostingUnitKeyColumn" Width="120" Header="Hosting Unit Key" Binding="{Binding HostingUnitKey}"/>
+                <DataGridTextColumn x:Name="hostingUnitNameColumn" Width="120" Header="Hosting Unit Name" Binding="{Binding HostingUnitName}"/>
                 <DataGridCheckBoxColumn x:Name="jaccuziColumn" Width="SizeToHeader" Header="jaccuzi" Binding="{Binding jaccuzi}"/>
                 <DataGridTextColumn x:Name="kidsColumn" Width="SizeToHeader" Header="kids" Binding="{Binding kids}"/>
                 <DataGridCheckBoxColumn x:Name="poolColumn" Width="SizeToHeader" Header="pool" Binding="{Binding pool}"/>
                 <DataGridTextColumn x:Name="starsColumn" Width="SizeToHeader" Header="stars" Binding="{Binding stars}"/>
-                <DataGridTextColumn x:Name="subAreaColumn" Width="SizeToHeader" Header="sub Area" Binding="{Binding subArea}"/>
+                <DataGridTextColumn x:Name="subAreaColumn" Width="90" Header="sub Area" Binding="{Binding subArea}"/>
             </DataGrid.Columns>
         </DataGrid>
 

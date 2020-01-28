@@ -27,23 +27,27 @@ namespace PLWPF
             hosting = new BE.HostingUnit();
             DataContext = hosting;
             bl = BL.FactoryBL.GetBL();
-            
+
             HostingUnitKey.ItemsSource = bl.GetAllHostingUnits();
-            HostingUnitKey.SelectedValuePath = "HostingUnitKey";
+            //HostingUnitKey.SelectedValuePath = "HostingUnitKey";
+
+
+
         }
 
         private void HostingUnitKey_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-            hosting = bl.GetHostingUnit((int)HostingUnitKey.SelectedValue);
+            String[] help = HostingUnitKey.SelectedValue.ToString().Split(' ');
+            String h = help[0];
+            hosting = bl.GetHostingUnit(Int32.Parse(h));
             DataContext = hosting;
-            Owner.Text = hosting.Owner.ToString();
+            //Owner.Text = hosting.Owner.FamilyName.ToString();
             HostingUnitName.Text = hosting.HostingUnitName.ToString();
             subArea.Text = hosting.subArea.ToString();
             adults.Text = hosting.adults.ToString();
             kids.Text = hosting.kids.ToString();
             Area.SelectedItem = hosting.area;
             jacuzziOption1.IsChecked = !hosting.jaccuzi;
-            //jacuzziOption2.IsChecked = !hosting.jaccuzi;
             gardenOption1.IsChecked = !hosting.garden;
             attractionOption1.IsChecked = !hosting.childrenAttractions;
             poolOption1.IsChecked = !hosting.pool;
@@ -51,7 +55,36 @@ namespace PLWPF
 
         private void updateButton_Click(object sender, RoutedEventArgs e)
         {
-            DataContext =hosting;
+
+            //hosting.HostingUnitName = this.HostingUnitName.Text;
+            //hosting.HostingUnitKey = this.HostingUnitKey.SelectedItem;
+            //hosting.Owner = x.Owner;
+            //hosting.area = this.area.SelectedItem;
+            //hosting.pool = (BE.Pool)this.PoolComboxBox.SelectedItem;
+            //hosting.garden = (BE.garden)this.garden.SelectedItem;
+            //hosting.adults = int.Parse(adults.Text);
+            //hosting.kids = int.Parse(kids.Text);
+            //hosting.childrensAttractions = (BE.ChildrensAttractions)this.ChildrensAttractionComboxBox.SelectedItem;
+            String[] help = HostingUnitKey.SelectedValue.ToString().Split(' ');
+            String h = help[0];
+            hosting = bl.GetHostingUnit(Int32.Parse(h));
+          
+            DataContext = hosting;
+            //Owner.Text = hosting.Owner.ToString();
+            HostingUnitName.Text = hosting.HostingUnitName.ToString();
+            subArea.Text = hosting.subArea.ToString();
+            adults.Text = hosting.adults.ToString();
+            kids.Text = hosting.kids.ToString();
+            Area.SelectedItem = hosting.area;
+            jacuzziOption1.IsChecked = !hosting.jaccuzi;
+            gardenOption1.IsChecked = !hosting.garden;
+            attractionOption1.IsChecked = !hosting.childrenAttractions;
+            poolOption1.IsChecked = !hosting.pool;
+
+
+           
+            this.DataContext = hosting;
+            
 
             try
             {

@@ -20,32 +20,31 @@ namespace PLWPF
     public partial class AllRequestWindow : Window
     {
 
-        
-        //BE.GuestRequest guestrequest;
-        BL.IBL bl;
+        BL.IBL bl = BL.FactoryBL.GetBL();
         public AllRequestWindow()
         {
             InitializeComponent();
-
+            this.RequestsDataGrid.ItemsSource = bl.GetAllRequests();
         }
 
-        private void AllRequestsButton_Click(object sender, RoutedEventArgs e)
-        {
-            try
-            {
-                IEnumerable<BE.GuestRequest> guestrequests = bl.GetAllRequests();
-                foreach (BE.GuestRequest guestrequest in guestrequests)
-                 {
-                    this.AllRequests.Content += guestrequests.ToString();
-                    this.AllRequests.Content += "*********************\n";
-                   }
+        //    private void AllRequestsButton_Click(object sender, RoutedEventArgs e)
+        //    {
+        //        try
+        //        {
+        //            IEnumerable<BE.GuestRequest> guestrequests = bl.GetAllRequests();
+        //            foreach (BE.GuestRequest guestrequest in guestrequests)
+        //             {
+        //                this.AllRequests.Content += guestrequests.ToString();
+        //                this.AllRequests.Content += "*********************\n";
+        //               }
 
-             }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.Message);
-            }
+        //         }
+        //        catch (Exception ex)
+        //        {
+        //            MessageBox.Show(ex.Message);
+        //        }
 
-        }
+        //    }
+        //}
     }
 }

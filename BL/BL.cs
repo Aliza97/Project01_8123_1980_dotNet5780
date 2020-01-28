@@ -82,14 +82,21 @@ namespace BL
         }
         public void AddHostingUnit(HostingUnit h)
         {
-            if (h.HostingUnitKey < 10000000 || h.HostingUnitKey > 99999999)
-                throw new Exception("this HostingUnitKey isn't correct");
+            try
+            {
+                if (h.HostingUnitKey < 10000000 || h.HostingUnitKey > 99999999)
+                    throw new Exception("this HostingUnitKey isn't correct");
 
-            HostingUnit help = GetHostingUnit(h.HostingUnitKey);
+                HostingUnit help = GetHostingUnit(h.HostingUnitKey);
 
-            if (help != null)
-                throw new Exception("this HostingUnitKey already exists");
-            dal.AddHostingUnit(h);
+                if (help != null)
+                    throw new Exception("this HostingUnitKey already exists");
+                dal.AddHostingUnit(h);
+            }
+            catch (Exception c)
+            {
+                throw c;
+            }
         }
         public void DeleteHostingUnit(long HostingUnitKey)
         {

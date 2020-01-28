@@ -45,7 +45,6 @@
         <Label  Content="מספר יחידת אירוח" HorizontalContentAlignment="Right" Grid.Column="1" Grid.Row="1" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="15" FontFamily="Lucida Calligraphy" FontWeight="Bold" Margin="88,0,152,0" Width="160"/>
         <Label  Content="שם בעל יחידה" HorizontalContentAlignment="Right" Grid.Column="1" Grid.Row="2" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="15" FontFamily="Lucida Calligraphy" FontWeight="Bold" Margin="108,0,152,0" Width="140"/>
         <Label  Content="שם יחידת אירוח"  HorizontalContentAlignment="Right" Grid.Column="1" Grid.Row="3" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="15" FontFamily="Lucida Calligraphy" FontWeight="Bold" Margin="126,0,152,0" Width="122"/>
-        <Label  Content="יומן" HorizontalContentAlignment="Right" Grid.Column="1" Grid.Row="4" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="15" FontFamily="Lucida Calligraphy" FontWeight="Bold" Margin="181,0,150,0" Width="65"/>
         <Label  Content="אזור הנופש" HorizontalContentAlignment="Right" Grid.Column="1" Grid.Row="5" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="15" FontFamily="Lucida Calligraphy" FontWeight="Bold" Margin="108,0,152,0" Width="140"/>
         <Label Content="תת איזור" HorizontalContentAlignment="Right" Grid.Column="1"  Grid.Row="6" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="15" FontFamily="Lucida Calligraphy" FontWeight="Bold" Margin="166,0,150,0" Width="80"/>
         <Label  Content="ברכה" HorizontalContentAlignment="Right" Grid.Column="1" Grid.Row="7" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="15" FontFamily="Lucida Calligraphy" FontWeight="Bold" Margin="150,0" Width="96"/>
@@ -61,14 +60,13 @@
 
         <ComboBox x:Name="HostingUnitKey" Grid.Row="1"  Grid.Column="0" Height="23" ItemsSource="{Binding}"  SelectedItem="{Binding HostingUnitKey}" Width="120" Opacity="0.6" SelectionChanged="HostingUnitKey_SelectionChanged"/>
 
-        <TextBox x:Name="Owner" Grid.Row="2"  Grid.Column="0" Height="23" TextWrapping="Wrap" Text="{Binding Owner}" Width="120" Opacity="0.6"/>
-        <TextBox x:Name="HostingUnitName" Grid.Row="3"  Grid.Column="0" Height="23" TextWrapping="Wrap" Text="{Binding HostingUnitName}" Width="120" Opacity="0.6"/>
-        <DatePicker x:Name="Diary"  Grid.Column="0" HorizontalAlignment="Center"  Grid.Row="4" VerticalAlignment="Center" Width="120"  Opacity="0.6" SelectedDate="{Binding Diary}"/>
-        <ComboBox x:Name="Area" ItemsSource="{Binding}" SelectedItem="{Binding area}" Grid.Row="5" Grid.Column="0" Width="120" VerticalAlignment="Center" Margin="138,4" Opacity="0.6"/>
-        <TextBox x:Name="subArea" Grid.Row="6" Grid.Column="0" Width="120" Text="{Binding subArea}" VerticalAlignment="Center" Margin="138,4" Opacity="0.6"/>
+        <TextBox x:Name="Owner" Grid.Row="2"  Grid.Column="0" Height="23" TextWrapping="Wrap" Text="{Binding Owner, Mode=TwoWay}" Width="120" Opacity="0.6"/>
+        <TextBox x:Name="HostingUnitName" Grid.Row="3"  Grid.Column="0" Height="23" TextWrapping="Wrap" Text="{Binding HostingUnitName,  Mode=TwoWay}" Width="120" Opacity="0.6"/>
+        <ComboBox x:Name="Area" ItemsSource="{Binding}" SelectedItem="{Binding area,  Mode=TwoWay}" Grid.Row="5" Grid.Column="0" Width="120" VerticalAlignment="Center" Margin="138,4" Opacity="0.6"/>
+        <TextBox x:Name="subArea" Grid.Row="6" Grid.Column="0" Width="120" Text="{Binding subArea,  Mode=TwoWay}" VerticalAlignment="Center" Margin="138,4" Opacity="0.6"/>
 
-        <TextBox x:Name="adults" Grid.Row="8"  Grid.Column="0" Height="23" TextWrapping="Wrap" Text="{Binding adults}" Width="120" Opacity="0.6"/>
-        <TextBox x:Name="kids" Grid.Row="9"  Grid.Column="0" Height="23" TextWrapping="Wrap" Text="{Binding kids}" Width="120" Opacity="0.6"/>
+        <TextBox x:Name="adults" Grid.Row="8"  Grid.Column="0" Height="23" TextWrapping="Wrap" Text="{Binding adults,  Mode=TwoWay}" Width="120" Opacity="0.6"/>
+        <TextBox x:Name="kids" Grid.Row="9"  Grid.Column="0" Height="23" TextWrapping="Wrap" Text="{Binding kids,  Mode=TwoWay}" Width="120" Opacity="0.6"/>
         <GroupBox Name="radioJaccuzi" Grid.Row="10">
             <StackPanel Margin="289,-3,-289,-7" >
                 <RadioButton x:Name="jacuzziOption1" GroupName="radioJaccuzi" Content="בלי" Margin="-140,0,0,0" Height="12"/>
@@ -97,7 +95,7 @@
         <TextBlock HorizontalAlignment="Left" TextWrapping="Wrap" Text="" VerticalAlignment="Top" RenderTransformOrigin="2.138,8.793" Width="12" Background="#FFE69F7F" Margin="788,0,0,0" Height="450"/>
 
 
-        <TextBox x:Name="stars" HorizontalAlignment="Left" Height="23" TextWrapping="Wrap" Text="{Binding stars}"  VerticalAlignment="Top" Width="45" Margin="150,3,0,0" Grid.Row="13" RenderTransformOrigin="0.667,1.739"/>
+        <TextBox x:Name="stars" HorizontalAlignment="Left" Height="23" TextWrapping="Wrap" Text="{Binding stars,  Mode=TwoWay}"  VerticalAlignment="Top" Width="45" Margin="150,3,0,0" Grid.Row="13" RenderTransformOrigin="0.667,1.739"/>
 
     </Grid>
 </Window>

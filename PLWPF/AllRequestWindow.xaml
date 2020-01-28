@@ -7,20 +7,40 @@
         mc:Ignorable="d"
         Title="AllRequestWindow" Height="450" Width="800">
     <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="335*"/>
+            <RowDefinition Height="26*"/>
+            <RowDefinition Height="37*"/>
+            <RowDefinition Height="18*"/>
+            <RowDefinition Height="4*"/>
+        </Grid.RowDefinitions>
         <Image HorizontalAlignment="Left" Height="100" VerticalAlignment="Top" Width="100"/>
-        <Image Source="road-trip-compressor.png" Grid.Row="0" Grid.RowSpan="15" Grid.ColumnSpan="2" Opacity="0.5" Margin="0,0,0,0.2" Stretch="Fill" />
+        <Image Source="road-trip-compressor.png" Grid.Row="0" Opacity="0.5" Margin="-10,-31,0,0" Stretch="Fill" HorizontalAlignment="Left" Width="802" Grid.RowSpan="5" />
 
-        <DataGrid x:Name="RequestsDataGrid" RowDetailsVisibilityMode="VisibleWhenSelected" Margin="10,60,10,114" ItemsSource="{Binding}" EnableRowVirtualization="True" AutoGenerateColumns="False">
+        <DataGrid x:Name="RequestsDataGrid" RowDetailsVisibilityMode="VisibleWhenSelected" Margin="0,56,0,182" ItemsSource="{Binding}" EnableRowVirtualization="True" AutoGenerateColumns="False">
+
             <DataGrid.Columns>
 
-                <DataGridTextColumn x:Name="hostingUnitKeyColumn" Width="90" Header="Hosting Unit Key" Binding="{Binding HostingUnitKey}"/>
-                <DataGridTextColumn x:Name="orderkeyColumn" Width="90" Header="OrderKey" Binding="{Binding OrderKey}"/>
-                <DataGridTextColumn x:Name="guestrequestkeyColumn" Width="SizeToHeader" Header="GuestRequestKey" Binding="{Binding GuestRequestKey}"/>
-                <DataGridTextColumn x:Name="statusColumn" Width="130" Header="Status" Binding="{Binding Status}"/>
-                <DataGridTextColumn x:Name="createdateColumn" Width="130" Header="CreateDate" Binding="{Binding CreateDate}"/>
-                <DataGridTextColumn x:Name="orderdateColumn" Width="130" Header="OrderDate" Binding="{Binding OrderDate}"/>
+                <DataGridTextColumn x:Name="GuestRequestKeyColumn" Width="90" Header="GuestRequestKey" Binding="{Binding GuestRequestKey}"/>
+                <DataGridTextColumn x:Name="PrivateNameColumn" Width="50" Header="PrivateName" Binding="{Binding PrivateName}"/>
+                <DataGridTextColumn x:Name="FamilyNameColumn" Width="SizeToHeader" Header="FamilyName" Binding="{Binding FamilyName}"/>
+                <DataGridTextColumn x:Name="MailAddressColumn" Width="50" Header="MailAddress" Binding="{Binding MailAddress}"/>
+                <DataGridTextColumn x:Name="StatusRequestColumn" Width="50" Header="StatusRequest" Binding="{Binding CreateDate}"/>
+                <DataGridTextColumn x:Name="RegistrationDateColumn" Width="50" Header="RegistrationDate" Binding="{Binding RegistrationDate}"/>
+                <DataGridTextColumn x:Name="EntryDateColumn" Width="50" Header="EntryDate" Binding="{Binding EntryDate}"/>
+                <DataGridTextColumn x:Name="ReleaseDateColumn" Width="50" Header="ReleaseDate" Binding="{Binding ReleaseDate}"/>
+                <DataGridTextColumn x:Name="AreaColumn" Width="50" Header="Area" Binding="{Binding Area}"/>
+                <DataGridTextColumn x:Name="SubAreaColumn" Width="50" Header="SubArea" Binding="{Binding SubArea}"/>
+                <DataGridTextColumn x:Name="TypeColumn" Width="50" Header="Type" Binding="{Binding Type}"/>
+                <DataGridTextColumn x:Name="AdultsColumn" Width="50" Header="Adults" Binding="{Binding Adults}"/>
+                <DataGridTextColumn x:Name="ChildrenColumn" Width="50" Header="Children" Binding="{Binding Children}"/>
+                <DataGridTextColumn x:Name="PoolColumn" Width="50" Header="Pool" Binding="{Binding Pool}"/>
+                <DataGridTextColumn x:Name="JacuzziColumn" Width="50" Header="Jacuzzi" Binding="{Binding Jacuzzi}"/>
+                <DataGridTextColumn x:Name="GardenColumn" Width="50" Header="Garden" Binding="{Binding Garden}"/>
+                <DataGridTextColumn x:Name="ChildrenAttractionsColumn" Width="50" Header="ChildrenAttractions" Binding="{Binding ChildrenAttractions}"/>
 
             </DataGrid.Columns>
         </DataGrid>
+
     </Grid>
 </Window>

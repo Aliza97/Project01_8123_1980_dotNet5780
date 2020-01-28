@@ -35,7 +35,11 @@ namespace PLWPF
             DataContext = hosting;
             try
             {
+                hosting = this.HostingUnitKey.SelectedValue as BE.HostingUnit;
+
+                this.DataContext = hosting;
                 bl.DeleteHostingUnit(hosting.HostingUnitKey);
+                hosting = new BE.HostingUnit();
                 MessageBox.Show("הזמנתך נמחקה", "הצלחה", MessageBoxButton.OK, MessageBoxImage.Information);
                 this.Close();
             }

@@ -28,7 +28,6 @@ namespace PLWPF
             myguestRequest = new BE.GuestRequest();
             DataContext = myguestRequest;
             this.Area.ItemsSource = Enum.GetValues(typeof(BE.MyEnums.Area));
-           // this.SubArea.ItemsSource = Enum.GetValues(typeof(BE.MyEnums.s));
             this.Type.ItemsSource = Enum.GetValues(typeof(BE.MyEnums.Type));
 
             this.pool.ItemsSource = Enum.GetValues(typeof(BE.MyEnums.Pool));
