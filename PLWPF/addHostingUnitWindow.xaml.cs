@@ -40,6 +40,7 @@ namespace PLWPF
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
+            try { 
             DataContext = hosting;
             hosting.adults = Int32.Parse(adults.Text.ToString());
             hosting.kids = Int32.Parse(kids.Text.ToString());
@@ -59,7 +60,32 @@ namespace PLWPF
             hosting.childrenAttractions =( attractionOption1.IsChecked == false);
 
 
-            bl.AddHostingUnit(hosting);
+            hosting.HostingUnitName = HostingUnitName.Text;
+                //hosting.Owner = Owner.Text;
+            hosting.subArea = subArea.Text;
+
+
+                bl.AddHostingUnit(hosting);
+
+            MessageBoxResult result = MessageBox.Show("Thank You, your unit has been added. Would you like to add another hosting unit?", "Status", MessageBoxButton.YesNo, MessageBoxImage.Question);
+            switch (result)
+            {
+                case MessageBoxResult.Yes:
+                    this.Close();
+                    Window addHostingUnitWindow = new addHostingUnitWindow();
+                    addHostingUnitWindow.Show();
+                    break;
+                case MessageBoxResult.No:
+                    this.Close();
+                    break;
+            }
+            this.Close();
+        }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+}
         }
     }
-}
+

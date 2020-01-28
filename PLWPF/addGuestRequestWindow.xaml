@@ -72,16 +72,15 @@
         <TextBox x:Name="lastName" HorizontalAlignment="Left" Grid.Row="2"  Grid.Column="2" Height="23" TextWrapping="Wrap" Text="{Binding FamilyName}" Width="120" Opacity="0.6" Margin="37,4,0,3" />
         <TextBox x:Name="firstName" HorizontalAlignment="Left" Grid.Row="3" Grid.Column="2" Height="23" TextWrapping="Wrap" Text="{Binding PrivateName}" VerticalAlignment="Top" Width="120" Margin="37,2,0,0"/>
         <TextBox x:Name="mailAdress" Grid.Row="4" Grid.Column="2" HorizontalAlignment="Left" Height="23" TextWrapping="Wrap" Text="{Binding MailAddress }" VerticalAlignment="Top" Width="120" Margin="37,0,0,0"/>
-        <TextBox x:Name="NumAdults" Grid.Row="2" Grid.Column="0" Height="23" TextWrapping="Wrap" Text="{Binding Adults}" Width="120" Opacity="0.6" Margin="40,7,40,0"/>
-        <TextBox x:Name="NumChildren" Grid.Row="3"  Grid.Column="0" Height="23" TextWrapping="Wrap" Text="{Binding Children}" Width="120" Opacity="0.6" Margin="40,3,40,4"/>
+        <TextBox x:Name="Adults" Grid.Row="2" Grid.Column="0" Height="23" TextWrapping="Wrap" Text="{Binding Adults}" Width="120" Opacity="0.6" Margin="40,7,40,0"/>
+        <TextBox x:Name="Children" Grid.Row="3"  Grid.Column="0" Height="23" TextWrapping="Wrap" Text="{Binding Children}" Width="120" Opacity="0.6" Margin="40,3,40,4"/>
 
-        <Button Content="הוספה" HorizontalAlignment="Center" Grid.Row="13"  VerticalAlignment="Center" Width="176" Grid.ColumnSpan="2" Height="35" Grid.RowSpan="2" FontWeight="Bold" FontSize="20" Opacity="0.6" Click="Button_Click" Grid.Column="1" Margin="137,10,87,15"/>
+        <Button Content="הוספה" HorizontalAlignment="Center" Grid.Row="13"  VerticalAlignment="Center" Width="176" Grid.ColumnSpan="2" Height="35" Grid.RowSpan="2" FontWeight="Bold" FontSize="20" Click="Button_Click" Grid.Column="1" Margin="137,10,87,15"/>
 
 
         <DatePicker x:Name="dateRegistration" Grid.Row="7" Grid.Column="2" HorizontalAlignment="Center"   VerticalAlignment="Center" Width="120"  Opacity="0.6" SelectedDate="{Binding RegistrationDate}" Margin="37,5,43,1"/>
         <DatePicker x:Name="dateBegining" Grid.Row="5" Grid.Column="2" HorizontalAlignment="Center"  VerticalAlignment="Center" Width="120"  Opacity="0.6" SelectedDate="{Binding EntryDate}" Margin="37,6,43,0"/>
         <DatePicker x:Name="dateEnd"  Grid.Column="2" HorizontalAlignment="Center"  Grid.Row="6" VerticalAlignment="Center" Width="120"  Opacity="0.6" SelectedDate="{Binding ReleaseDate}" Margin="37,5,43,1"/>
-        <Button Content="prev" HorizontalAlignment="Left" VerticalAlignment="Top" Width="40" />
 
 
 

@@ -13,7 +13,6 @@
         <ComboBox Name="HostingUnitKey" HorizontalAlignment="Right" Height="44"   ItemsSource="{Binding}" SelectedItem="{Binding HostingUnitKey}" VerticalAlignment="Center" Width="139" Margin="0,192,596,183" Opacity="0.6"/>
         <Label Content="מספר יחידת אירוח" VerticalAlignment="Center" HorizontalAlignment="Left" Margin="230,192,0,183" FontSize="25" FontFamily="Lucida Calligraphy" FontWeight="Bold" Width="233" Height="44"/>
         <Button Content="מחיקה" FontSize="30"  FontFamily="Lucida Calligraphy" HorizontalAlignment="Center" VerticalAlignment="Center" Width="660" Height="119" Margin="65,293,75,38" FontWeight="Bold" Opacity="0.6" Click="Button_Click"/>
-        <Button Content="prev" VerticalAlignment="Top" Margin="0,0,752,0" HorizontalAlignment="Right" Width="40"/>
 
     </Grid>
 </Window>

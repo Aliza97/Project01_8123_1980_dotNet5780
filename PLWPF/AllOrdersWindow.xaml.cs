@@ -23,7 +23,8 @@ namespace PLWPF
         public AllOrdersWindow()
         {
             InitializeComponent();
-            DataContext = bl.GetAllOrders();
+            //DataContext = bl.GetAllOrders();
+            this.OrdersDataGrid.ItemsSource = bl.GetAllOrders();
         }
 
         //private void Window_Loaded(object sender, RoutedEventArgs e)

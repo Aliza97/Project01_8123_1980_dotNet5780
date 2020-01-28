@@ -54,5 +54,19 @@ namespace PLWPF
             Window w = new privateAreaWindow();
             w.Show();
         }
+
+        private void AllOrdersButton_Click_2(object sender, RoutedEventArgs e)
+        {
+            Window w = new AllOrdersWindow();
+            w.Show();
+        }
+
+        private void AllHostingButton_Click_2(object sender, RoutedEventArgs e)
+        {
+
+            Window w = new AllHostingUnitWindow();
+            w.Show();
+        }
+
     }
 }

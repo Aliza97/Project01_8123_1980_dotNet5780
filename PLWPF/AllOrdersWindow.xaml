@@ -14,15 +14,15 @@
         <Image HorizontalAlignment="Left" Height="100" VerticalAlignment="Top" Width="100"/>
         <Image Source="road-trip-compressor.png" Grid.Row="0" Grid.RowSpan="15" Grid.ColumnSpan="2" Opacity="0.5" Margin="0,0,0,0.2" Stretch="Fill" />
 
-        <DataGrid x:Name="hostingUnitDataGrid" RowDetailsVisibilityMode="VisibleWhenSelected" Margin="90,60,157,114" ItemsSource="{Binding}" EnableRowVirtualization="True" AutoGenerateColumns="False">
+        <DataGrid x:Name="OrdersDataGrid" RowDetailsVisibilityMode="VisibleWhenSelected" Margin="10,60,10,114" ItemsSource="{Binding}" EnableRowVirtualization="True" AutoGenerateColumns="False">
             <DataGrid.Columns>
                 
-                <DataGridTextColumn x:Name="hostingUnitKeyColumn" Width="SizeToHeader" Header="Hosting Unit Key" Binding="{Binding HostingUnitKey}"/>
-                <DataGridTextColumn x:Name="orderkeyColumn" Width="SizeToHeader" Header="OrderKey" Binding="{Binding OrderKey}"/>
+                <DataGridTextColumn x:Name="hostingUnitKeyColumn" Width="90" Header="Hosting Unit Key" Binding="{Binding HostingUnitKey}"/>
+                <DataGridTextColumn x:Name="orderkeyColumn" Width="90" Header="OrderKey" Binding="{Binding OrderKey}"/>
                 <DataGridTextColumn x:Name="guestrequestkeyColumn" Width="SizeToHeader" Header="GuestRequestKey" Binding="{Binding GuestRequestKey}"/>
-                <DataGridTextColumn x:Name="statusColumn" Width="SizeToHeader" Header="Status" Binding="{Binding Status}"/>
-                <DataGridTextColumn x:Name="createdateColumn" Width="SizeToHeader" Header="CreateDate" Binding="{Binding CreateDate}"/>
-                <DataGridTextColumn x:Name="orderdateColumn" Width="SizeToHeader" Header="OrderDate" Binding="{Binding OrderDate}"/>
+                <DataGridTextColumn x:Name="statusColumn" Width="130" Header="Status" Binding="{Binding Status}"/>
+                <DataGridTextColumn x:Name="createdateColumn" Width="130" Header="CreateDate" Binding="{Binding CreateDate}"/>
+                <DataGridTextColumn x:Name="orderdateColumn" Width="130" Header="OrderDate" Binding="{Binding OrderDate}"/>
                 
             </DataGrid.Columns>
         </DataGrid>

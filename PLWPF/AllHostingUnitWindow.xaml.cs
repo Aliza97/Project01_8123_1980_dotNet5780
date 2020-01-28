@@ -23,7 +23,8 @@ namespace PLWPF
             public AllHostingUnitWindow()
         {
             InitializeComponent();
-            DataContext = bl.GetAllHostingUnits();
+            //DataContext = bl.GetAllHostingUnits();
+            this.hostingUnitDataGrid.ItemsSource= bl.GetAllHostingUnits();
         }
 
      

@@ -20,8 +20,9 @@ namespace PLWPF
     public partial class AllRequestWindow : Window
     {
 
+        
+        //BE.GuestRequest guestrequest;
         BL.IBL bl;
-        BE.GuestRequest myguestRequest;
         public AllRequestWindow()
         {
             InitializeComponent();
@@ -33,7 +34,7 @@ namespace PLWPF
             try
             {
                 IEnumerable<BE.GuestRequest> guestrequests = bl.GetAllRequests();
-                foreach (BE.GuestRequest myguestRequest in guestrequests)
+                foreach (BE.GuestRequest guestrequest in guestrequests)
                  {
                     this.AllRequests.Content += guestrequests.ToString();
                     this.AllRequests.Content += "*********************\n";
@@ -45,6 +46,6 @@ namespace PLWPF
                 MessageBox.Show(ex.Message);
             }
 
-}
+        }
     }
 }

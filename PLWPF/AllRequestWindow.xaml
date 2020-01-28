@@ -7,25 +7,20 @@
         mc:Ignorable="d"
         Title="AllRequestWindow" Height="450" Width="800">
     <Grid>
-        <TabControl>
-            <TabItem Name="AllRequests_Tab" Header="All Requests" Margin="301,10,367,364">
-                <Grid Margin="0,0,-18,-22">
-                    <Grid.RowDefinitions>
-                        <RowDefinition Height="543*"/>
-                        <RowDefinition Height="13*"/>
-                        <RowDefinition Height="0*"/>
-                    </Grid.RowDefinitions>
-                    <Grid.ColumnDefinitions>
-                        <ColumnDefinition Width="170*"/>
-                        <ColumnDefinition Width="105*"/>
-                        <ColumnDefinition Width="210*"/>
-                        <ColumnDefinition Width="13*"/>
-                    </Grid.ColumnDefinitions>
-                    <Button Name="AllRequestsButton" Click="AllRequestsButton_Click" Content="Search" HorizontalAlignment="Left" Margin="76,26,0,0" VerticalAlignment="Top" Width="84" FontFamily="Segoe UI Light"  Foreground="White" FontSize="16" Height="31" Grid.Column="1" />
-                    <ContentControl x:Name="AllRequests" BorderBrush="Red" BorderThickness="5" Margin="0,268,7,-172" Grid.RowSpan="3" Height="317" VerticalAlignment="Top" Grid.Column="2"  />
+        <Image HorizontalAlignment="Left" Height="100" VerticalAlignment="Top" Width="100"/>
+        <Image Source="road-trip-compressor.png" Grid.Row="0" Grid.RowSpan="15" Grid.ColumnSpan="2" Opacity="0.5" Margin="0,0,0,0.2" Stretch="Fill" />
 
-                </Grid>
-            </TabItem>
-        </TabControl>
+        <DataGrid x:Name="RequestsDataGrid" RowDetailsVisibilityMode="VisibleWhenSelected" Margin="10,60,10,114" ItemsSource="{Binding}" EnableRowVirtualization="True" AutoGenerateColumns="False">
+            <DataGrid.Columns>
+
+                <DataGridTextColumn x:Name="hostingUnitKeyColumn" Width="90" Header="Hosting Unit Key" Binding="{Binding HostingUnitKey}"/>
+                <DataGridTextColumn x:Name="orderkeyColumn" Width="90" Header="OrderKey" Binding="{Binding OrderKey}"/>
+                <DataGridTextColumn x:Name="guestrequestkeyColumn" Width="SizeToHeader" Header="GuestRequestKey" Binding="{Binding GuestRequestKey}"/>
+                <DataGridTextColumn x:Name="statusColumn" Width="130" Header="Status" Binding="{Binding Status}"/>
+                <DataGridTextColumn x:Name="createdateColumn" Width="130" Header="CreateDate" Binding="{Binding CreateDate}"/>
+                <DataGridTextColumn x:Name="orderdateColumn" Width="130" Header="OrderDate" Binding="{Binding OrderDate}"/>
+
+            </DataGrid.Columns>
+        </DataGrid>
     </Grid>
 </Window>

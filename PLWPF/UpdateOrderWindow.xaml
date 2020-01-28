@@ -50,7 +50,6 @@
         <ComboBox x:Name="Status" ItemsSource="{Binding}" SelectedItem="{Binding Status}" Grid.Row="4" Grid.Column="0" VerticalAlignment="Center" Margin="271,10,0,10" Opacity="0.6" Height="36"/>
         <DatePicker x:Name="CreateDate"  Grid.Column="0" HorizontalAlignment="Center"  Grid.Row="5" VerticalAlignment="Center" Width="129"  Opacity="0.6" SelectedDate="{Binding birthDate}" Margin="271,16,0,10" Height="31"/>
         <DatePicker x:Name="OrderDate"  Grid.Column="0" HorizontalAlignment="Center"  Grid.Row="6" VerticalAlignment="Center" Width="129"  Opacity="0.6" SelectedDate="{Binding birthDate}" Margin="269,13,394,10" RenderTransformOrigin="1.384,0.015" Grid.ColumnSpan="2" Height="29"/>
-        <Button Content="prev" HorizontalAlignment="Left" VerticalAlignment="Top" Width="40" />
         <Button Content="עדכון" HorizontalAlignment="Center" Grid.Row="13"  VerticalAlignment="Center" Width="144" Grid.ColumnSpan="2" Height="30" FontWeight="Bold" FontSize="20"  Margin="326,20,330,10" Grid.RowSpan="2" Click="update_Click"/>
 
     </Grid>

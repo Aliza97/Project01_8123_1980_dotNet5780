@@ -97,7 +97,6 @@
         <TextBlock HorizontalAlignment="Left" TextWrapping="Wrap" Text="" VerticalAlignment="Top" RenderTransformOrigin="2.138,8.793" Width="12" Background="#FFE69F7F" Margin="788,0,0,0" Height="450"/>
 
 
-        <Button Content="prev" HorizontalAlignment="Left" VerticalAlignment="Top" Width="40" />
         <TextBox x:Name="stars" HorizontalAlignment="Left" Height="23" TextWrapping="Wrap" Text="{Binding stars}"  VerticalAlignment="Top" Width="45" Margin="150,3,0,0" Grid.Row="13" RenderTransformOrigin="0.667,1.739"/>
 
     </Grid>

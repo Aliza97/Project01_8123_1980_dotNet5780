@@ -38,7 +38,7 @@ namespace PLWPF
             {
                 bl.AddOrder(myOrder);
                 MessageBox.Show(" הזמנתך התקבלה", "הצלחה", MessageBoxButton.OK, MessageBoxImage.Information);
-                //this.Close();
+                this.Close();
             }
             catch (Exception ex)
             { MessageBox.Show(ex.Message, "הודעת שגיאה", MessageBoxButton.OK, MessageBoxImage.Warning); }

@@ -40,7 +40,6 @@
         <ComboBox x:Name="Status" ItemsSource="{Binding}" SelectedItem="{Binding Status}" Grid.Row="4" Grid.Column="0" Width="120" VerticalAlignment="Center" Margin="138,4" Opacity="0.6"/>
         <DatePicker x:Name="CreateDate"  Grid.Column="0" HorizontalAlignment="Center"  Grid.Row="5" VerticalAlignment="Center" Width="120"  Opacity="0.6" SelectedDate="{Binding CreateDate}" Margin="138,21,138,0" Height="32"/>
         <DatePicker x:Name="OrderDate"  Grid.Column="0" HorizontalAlignment="Center"  Grid.Row="6" VerticalAlignment="Center" Width="120"  Opacity="0.6" SelectedDate="{Binding OrderDate}" Margin="138,19,138,10" Height="23"/>
-        <Button Content="prev" HorizontalAlignment="Left" VerticalAlignment="Top" Width="40"/>
 
     </Grid>
 </Window>

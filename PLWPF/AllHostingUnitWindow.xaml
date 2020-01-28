@@ -15,7 +15,7 @@
         <Image Source="road-trip-compressor.png" Grid.Row="0" Grid.RowSpan="15" Grid.ColumnSpan="2" Opacity="0.5" Margin="0,0,0,0.2" Stretch="Fill" />
 
 
-        <DataGrid x:Name="hostingUnitDataGrid" RowDetailsVisibilityMode="VisibleWhenSelected" Margin="20,81,7,179" ItemsSource="{Binding}" EnableRowVirtualization="True" AutoGenerateColumns="False">
+        <DataGrid x:Name="hostingUnitDataGrid" RowDetailsVisibilityMode="VisibleWhenSelected" Margin="42,82,22,178" ItemsSource="{Binding}" EnableRowVirtualization="True" AutoGenerateColumns="False">
             <DataGrid.Columns>
                 <DataGridTextColumn x:Name="adultsColumn" Width="SizeToHeader" Header="adults" Binding="{Binding adults}"/>
                 <DataGridTextColumn x:Name="areaColumn" Width="SizeToHeader" Header="area" Binding="{Binding area}"/>

@@ -15,7 +15,6 @@
         <Button Content="הוספת יחידת אירוח" HorizontalAlignment="Left" VerticalAlignment="Top"  Width="289" Margin="64,162,0,0" Height="72" FontSize="30" Click="add_Click"/>
         <Button Content="מחיקת יחידת אירוח" HorizontalAlignment="Left" VerticalAlignment="Top"  Width="289" Margin="449,162,0,0" Height="72" FontSize="30" Click="delete_Click"/>
         <Button Content="עדכון יחידת אירוח" HorizontalAlignment="Left" VerticalAlignment="Top" Width="289" Margin="257,284,0,0" Height="72" FontSize="30" Click="update_Click"/>
-        <Button Content="prev" HorizontalAlignment="Left" VerticalAlignment="Top" Width="40" />
 
 
     </Grid>

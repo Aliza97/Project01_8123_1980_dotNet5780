@@ -47,12 +47,14 @@ namespace PLWPF
         private void Button_Click(object sender, RoutedEventArgs e)
         {
             DataContext = myguestRequest;
+            myguestRequest.Adults = Int32.Parse(Adults.Text.ToString());
+            myguestRequest.Children = Int32.Parse(Children.Text.ToString());
             myguestRequest.GuestRequestKey = GetA8digitNumber();
             try
             {
                 bl.AddGuestRequest(myguestRequest);
                 MessageBox.Show("בקשתך התקבלה", "הצלחה", MessageBoxButton.OK, MessageBoxImage.Information);
-                //this.Close();
+                this.Close();
             }
             catch (Exception ex)
             { MessageBox.Show(ex.Message, "הודעת שגיאה", MessageBoxButton.OK, MessageBoxImage.Warning); }

@@ -21,6 +21,7 @@ namespace DAL
         }
         public void AddGuestRequest(GuestRequest g)
         {
+            try { 
             if (g.GuestRequestKey < 10000000 || g.GuestRequestKey > 99999999)
                 throw new Exception("this GuestRequestKey isn't correct");
             GuestRequest help = GetGuestRequest(g.GuestRequestKey);
@@ -34,6 +35,11 @@ namespace DAL
 
             DS.DataSource.guestrequestList.Add(g);
         }
+            catch (Exception c)
+            {
+                throw c;
+            }
+}
         public void UpdateGuestRequest(GuestRequest g)
         {
             try
@@ -66,27 +72,40 @@ namespace DAL
         }
         public void AddHostingUnit(HostingUnit h)
         {
-            if (h.HostingUnitKey < 10000000 || h.HostingUnitKey > 99999999)
-                throw new Exception("this HostingUnitKey isn't correct");
-            HostingUnit help = GetHostingUnit(h.HostingUnitKey);
-            if (help != null)
-                throw new Exception("this HostingUnitKey already exists");
-            DS.DataSource.hostingunitList.Add(h);
+            try {
+                if (h.HostingUnitKey < 10000000 || h.HostingUnitKey > 99999999)
+                    throw new Exception("this HostingUnitKey isn't correct");
+                HostingUnit help = GetHostingUnit(h.HostingUnitKey);
+                if (help != null)
+                    throw new Exception("this HostingUnitKey already exists");
+                DS.DataSource.hostingunitList.Add(h);
+            }
+            catch (Exception c)
+            { throw c; }
         }
         public void DeleteHostingUnit(long HostingUnitKey)
         {
-            HostingUnit help = GetHostingUnit(HostingUnitKey);
-            if (help == null)
-                throw new Exception("this id doesn't exist");
-            DS.DataSource.hostingunitList.Remove(help);
+            try
+            {
+                HostingUnit help = GetHostingUnit(HostingUnitKey);
+                if (help == null)
+                    throw new Exception("this id doesn't exist");
+                DS.DataSource.hostingunitList.Remove(help);
+            }
+            catch (Exception c)
+            { throw c; }
         }
         public void UpdateHostingUnit(HostingUnit h)
         {
-            HostingUnit hostingUnit = GetHostingUnit(h.HostingUnitKey);
-            if (hostingUnit == null)
-                throw new Exception(" Hosting unit  not found!");
-            DataSource.hostingunitList.Remove(hostingUnit);
-            DataSource.hostingunitList.Add(h);
+            try {
+                HostingUnit hostingUnit = GetHostingUnit(h.HostingUnitKey);
+                if (hostingUnit == null)
+                    throw new Exception(" Hosting unit  not found!");
+                DataSource.hostingunitList.Remove(hostingUnit);
+                DataSource.hostingunitList.Add(h);
+            }
+            catch (Exception c)
+            { throw c; }
         }
         public IEnumerable<HostingUnit> GetAllHostingUnits(Func<HostingUnit, bool> predicat = null)
         {
@@ -104,6 +123,7 @@ namespace DAL
 
         public void AddOrder(Order o)
         {
+            try { 
             if (o.OrderKey < 10000000 || o.OrderKey > 99999999)
                 throw new Exception("this OrderKey isn't correct");
             Order help = GetOrder(o.OrderKey);
@@ -111,14 +131,22 @@ namespace DAL
                 throw new Exception("this OrderKey already exists");
             DS.DataSource.orderList.Add(o);
         }
+        catch(Exception c)
+            { throw c;}
+        }
         public void UpdateOrder(Order o)
+        {
+             try
         {
             Order order = GetOrder(o.OrderKey);
             if (order == null)
-                throw new Exception(" Order not found!");
-            DataSource.orderList.Remove(order);
+            throw new Exception(" Order not found!");
+             DataSource.orderList.Remove(order);
             DataSource.orderList.Add(o);
+         }
 
+            catch (Exception c)
+             { throw c; }
         }
         public IEnumerable<Order> GetAllOrders(Func<Order, bool> predicat = null)
         {

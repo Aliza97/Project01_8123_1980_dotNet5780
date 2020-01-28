@@ -57,7 +57,7 @@ namespace PLWPF
             {
                 bl.UpdateHostingUnit(hosting);
                 MessageBox.Show("יחדת ארוח שלך עודכנה", "הצלחה", MessageBoxButton.OK, MessageBoxImage.Information);
-                //this.Close();
+                this.Close();
             }
             catch (Exception ex)
             { MessageBox.Show(ex.Message, "הודעת שגיאה", MessageBoxButton.OK, MessageBoxImage.Warning); }
