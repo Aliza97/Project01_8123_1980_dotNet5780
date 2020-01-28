@@ -88,7 +88,7 @@ namespace DAL
             DataSource.hostingunitList.Remove(hostingUnit);
             DataSource.hostingunitList.Add(h);
         }
-        public List<HostingUnit> GetAllHostingUnits(Func<HostingUnit, bool> predicat = null)
+        public IEnumerable<HostingUnit> GetAllHostingUnits(Func<HostingUnit, bool> predicat = null)
         {
 
             if (predicat == null)

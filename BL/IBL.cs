@@ -14,7 +14,7 @@ namespace BL
         void AddHostingUnit(HostingUnit h);//Add a hosting unit
         void DeleteHostingUnit(long h);//Removing a hosting unit
         void UpdateHostingUnit(HostingUnit h);//Hosting unit update
-        List<HostingUnit> GetAllHostingUnits(Func<HostingUnit, bool> predicat = null);
+        IEnumerable<HostingUnit> GetAllHostingUnits(Func<HostingUnit, bool> predicat = null);
         HostingUnit GetHostingUnit(long HostingUnitKey);
 
         #endregion

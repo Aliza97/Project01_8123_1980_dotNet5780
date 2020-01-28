@@ -20,7 +20,9 @@ namespace DAL
         void DeleteHostingUnit(long HostingUnitKey); // delete yehidat irouah
         void UpdateHostingUnit(HostingUnit h); //update yehidat irouah
         HostingUnit GetHostingUnit(long HostingUnitKey); //to get a hosting unit
-        List<HostingUnit> GetAllHostingUnits(Func<HostingUnit, bool> predicat = null); // to get all the hosting unit
+
+        IEnumerable<HostingUnit> GetAllHostingUnits(Func<HostingUnit, bool> predicat = null);
+        /* List<HostingUnit> GetAllHostingUnits(Func<HostingUnit, bool> predicat = null); */// to get all the hosting unit
         #endregion
 
         #region Order

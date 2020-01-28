@@ -49,7 +49,7 @@ namespace PLWPF
             w.Show();
         }
 
-        private void Button_Click_2(object sender, RoutedEventArgs e)
+        private void privateButton_Click_2(object sender, RoutedEventArgs e)
         {
             Window w = new privateAreaWindow();
             w.Show();

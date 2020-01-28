@@ -124,7 +124,7 @@ namespace BL
                 throw new Exception(e.Message);
             }
         }
-        public List<HostingUnit> GetAllHostingUnits(Func<HostingUnit, bool> predicat = null)
+        public IEnumerable<HostingUnit> GetAllHostingUnits(Func<HostingUnit, bool> predicat = null)
         {
             return dal.GetAllHostingUnits(predicat);
         }

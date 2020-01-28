@@ -36,7 +36,8 @@ namespace PLWPF
 
         private void allguestr_Click(object sender, RoutedEventArgs e)
         {
-
+            Window w = new AllRequestWindow();
+            w.Show();
 
 
 
@@ -69,7 +70,8 @@ namespace PLWPF
 
         private void OrdersList_Click(object sender, RoutedEventArgs e)
         {
-           
+            Window w = new AllOrdersWindow();
+            w.Show();
         }
 
         private void Button_Click(object sender, RoutedEventArgs e)
@@ -78,6 +80,8 @@ namespace PLWPF
             w.Show();
 
         }
+
+       
     }
     }
 

@@ -69,6 +69,9 @@
     <Compile Include="AllOrdersWindow.xaml.cs">
       <DependentUpon>AllOrdersWindow.xaml</DependentUpon>
     </Compile>
+    <Compile Include="AllRequestWindow.xaml.cs">
+      <DependentUpon>AllRequestWindow.xaml</DependentUpon>
+    </Compile>
     <Compile Include="DeleteHostingUnitWindow.xaml.cs">
       <DependentUpon>DeleteHostingUnitWindow.xaml</DependentUpon>
     </Compile>
@@ -104,6 +107,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="AllOrdersWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="AllRequestWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
