@@ -69,9 +69,14 @@ namespace PLWPF
 
         private void OrdersList_Click(object sender, RoutedEventArgs e)
         {
+           
+        }
+
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
             Window w = new AllHostingUnitWindow();
             w.Show();
-            
+
         }
     }
     }

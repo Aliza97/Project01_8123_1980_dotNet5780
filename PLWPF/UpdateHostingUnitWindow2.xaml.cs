@@ -34,20 +34,33 @@ namespace PLWPF
 
         private void HostingUnitKey_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-            
             hosting = bl.GetHostingUnit((int)HostingUnitKey.SelectedValue);
             DataContext = hosting;
             Owner.Text = hosting.Owner.ToString();
+            HostingUnitName.Text = hosting.HostingUnitName.ToString();
+            subArea.Text = hosting.subArea.ToString();
+            adults.Text = hosting.adults.ToString();
+            kids.Text = hosting.kids.ToString();
             Area.SelectedItem = hosting.area;
             jacuzziOption1.IsChecked = !hosting.jaccuzi;
-            jacuzziOption2.IsChecked = !hosting.jaccuzi;
-
-
+            //jacuzziOption2.IsChecked = !hosting.jaccuzi;
+            gardenOption1.IsChecked = !hosting.garden;
+            attractionOption1.IsChecked = !hosting.childrenAttractions;
+            poolOption1.IsChecked = !hosting.pool;
         }
 
-        private void Button_Click(object sender, RoutedEventArgs e)
+        private void updateButton_Click(object sender, RoutedEventArgs e)
         {
+            DataContext =hosting;
 
+            try
+            {
+                bl.UpdateHostingUnit(hosting);
+                MessageBox.Show("יחדת ארוח שלך עודכנה", "הצלחה", MessageBoxButton.OK, MessageBoxImage.Information);
+                //this.Close();
+            }
+            catch (Exception ex)
+            { MessageBox.Show(ex.Message, "הודעת שגיאה", MessageBoxButton.OK, MessageBoxImage.Warning); }
         }
     }
 }

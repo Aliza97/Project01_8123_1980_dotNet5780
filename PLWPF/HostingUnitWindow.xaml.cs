@@ -38,7 +38,7 @@ namespace PLWPF
 
         private void update_Click(object sender, RoutedEventArgs e)
         {
-            Window w = new UpdateHostingUnitWindow();
+            Window w = new UpdateHostingUnitWindow2();
             w.Show();
         }
     }

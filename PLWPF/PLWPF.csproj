@@ -66,6 +66,9 @@
     <Compile Include="AllHostingUnitWindow.xaml.cs">
       <DependentUpon>AllHostingUnitWindow.xaml</DependentUpon>
     </Compile>
+    <Compile Include="AllOrdersWindow.xaml.cs">
+      <DependentUpon>AllOrdersWindow.xaml</DependentUpon>
+    </Compile>
     <Compile Include="DeleteHostingUnitWindow.xaml.cs">
       <DependentUpon>DeleteHostingUnitWindow.xaml</DependentUpon>
     </Compile>
@@ -77,9 +80,6 @@
     </Compile>
     <Compile Include="privateAreaWindow.xaml.cs">
       <DependentUpon>privateAreaWindow.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="UpdateHostingUnitWindow.xaml.cs">
-      <DependentUpon>UpdateHostingUnitWindow.xaml</DependentUpon>
     </Compile>
     <Compile Include="UpdateHostingUnitWindow2.xaml.cs">
       <DependentUpon>UpdateHostingUnitWindow2.xaml</DependentUpon>
@@ -100,6 +100,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="AllHostingUnitWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="AllOrdersWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -131,10 +135,6 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="UpdateHostingUnitWindow.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
     <Page Include="UpdateHostingUnitWindow2.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -162,7 +162,9 @@
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
+    <None Include="Properties\DataSources\BE.BankBranch.datasource" />
     <None Include="Properties\DataSources\BE.GuestRequest.datasource" />
+    <None Include="Properties\DataSources\BE.Host.datasource" />
     <None Include="Properties\DataSources\BE.HostingUnit.datasource" />
     <None Include="Properties\DataSources\BE.Order.datasource" />
     <None Include="Properties\Settings.settings">
